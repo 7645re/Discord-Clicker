@@ -1,0 +1,14 @@
+﻿body {
+    background-color: #2c2f33 !important;
+}
+html * {
+    color: #ffffff !important;
+}
+input {
+    color: #2c2f33 !important;
+}
+.c-button--icon {
+    min-width: initial;
+    text-align: center;
+    padding: 10px 14px;
+}
