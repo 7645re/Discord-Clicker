@@ -20,14 +20,20 @@ async function buyPerk(evt) {
         userCoefficient = result["clickCoefficient"]
 
         let PerkPurchased = document.getElementById(perkId + "-lvl")
-        let PerkPurchasedValue = PerkPurchased.children[0].innerText.replace("Lvl", "")
+        let PerkPurchasedValue = result["buyedPerkCount"]
         let PerkPurchasedSpan = document.createElement("span")
 
         let PerkCost = document.getElementById(perkId + "-cost")
-        let PerkCostValue = PerkCost.children[1].innerText
+        let PerkCostValue = result["perkCost"]
+        let PerkCostSpan = document.createElement("span")
 
-        PerkPurchasedSpan.innerText = "Lvl " + (parseInt(PerkPurchasedValue) + 1)
+        PerkPurchasedSpan.innerText = "Lvl " + PerkCostValue + 1
         PerkPurchased.innerHTML = ""
+
+        PerkCostSpan.innerText = result["buyedPerkCount"] * result["perkCost"]
+        PerkCost.children[1].remove()
+
+        PerkCost.appendChild(PerkCostSpan)
         PerkPurchased.appendChild(PerkPurchasedSpan)
     }
     return result

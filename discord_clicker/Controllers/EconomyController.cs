@@ -47,7 +47,7 @@ namespace discord_clicker.Controllers
             }
             else
             {
-                return Json(new { result = "error" });
+                return Json(new { result = "error", reason="no click" });
             }
         }
         [Route("GetMoney")]
@@ -74,12 +74,12 @@ namespace discord_clicker.Controllers
             Perk perk = await db.Perks.Where(p => p.Id == perkId).FirstAsync();
             Perk buyedPerk = user.Perks.FirstOrDefault(bp => bp.Id == perkId);
             uint buyedPerkCount = 0;
-            if (user.Tier >= perk.Tier && user.Money >= perk.Cost)
+            if (user.Tier >= perk.Tier && user.Money >= perk.Cost*(buyedPerk == null ? 1: user.UserPerks.Where(p => p.PerkId == perkId).First().Count))
             {
                 if (buyedPerk == null)
                 {
                     user.Perks.Add(perk);
-                    user.Tier += 1;
+                    user.Tier += perk.Tier+1;
                     buyedPerkCount++;
                     await db.SaveChangesAsync();
                     user.UserPerks.Where(p => p.PerkId == perkId).First().Count += 1;
@@ -91,9 +91,9 @@ namespace discord_clicker.Controllers
                 
                 user.ClickCoefficient += perk.ClickCoefficient;
                 user.PassiveCoefficient += perk.PassiveCoefficient;
-                user.Money-=perk.Cost;
+                user.Money-=perk.Cost * (buyedPerkCount-1 > 0 ? buyedPerkCount - 1: 1);
                 await db.SaveChangesAsync();
-                return Json(new { result="ok", userMoney=user.Money, clickCoefficient=user.ClickCoefficient, buyedPerkCount = buyedPerkCount });
+                return Json(new { result="ok", userMoney=user.Money, clickCoefficient=user.ClickCoefficient, buyedPerkCount = buyedPerkCount, perkCost=perk.Cost });
             }
             else {
                 return Json(new { result="error" });
