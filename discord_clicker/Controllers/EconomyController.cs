@@ -30,13 +30,13 @@ namespace discord_clicker.Controllers
                 ulong userInterval = Convert.ToUInt64((DateTime.Now - LastRequest[userId]).TotalMilliseconds);
                 User user = await db.Users.Where(u => u.Id == userId).FirstAsync();
                 ulong dbMoney = user.Money;
-                if (money*1000 <= userInterval*14*user.ClickCoefficient)
+                if (money*1000 <= userInterval*14*user.ClickCoefficient+userInterval*user.PassiveCoefficient)
                 {
                     user.Money += money;
                     await db.SaveChangesAsync();
                     LastRequest[userId] = DateTime.Now;
                     return Json(new { result = "ok", money = dbMoney + money, r = userInterval, a = DateTime.Now, b = LastRequest[userId],
-                        JSONResult=1
+                        test=money*1000, testt=userInterval*14*user.ClickCoefficient
                     });
                 }
                 else {
@@ -47,7 +47,7 @@ namespace discord_clicker.Controllers
             }
             else
             {
-                return Json(new { result = "error", reason="no click" });
+                return Json(new { result = "error", reason="No clicks detected" });
             }
         }
         [Route("GetMoney")]
@@ -79,21 +79,20 @@ namespace discord_clicker.Controllers
                 if (buyedPerk == null)
                 {
                     user.Perks.Add(perk);
-                    user.Tier += perk.Tier+1;
-                    buyedPerkCount++;
+                    user.Tier = perk.Tier+1;
                     await db.SaveChangesAsync();
                     user.UserPerks.Where(p => p.PerkId == perkId).First().Count += 1;
                 }
                 else {
                     user.UserPerks.Where(p => p.PerkId == perkId).First().Count += 1;
-                    buyedPerkCount = user.UserPerks.First((p) => p.PerkId == perkId).Count;
                 }
-                
+                buyedPerkCount = user.UserPerks.First((p) => p.PerkId == perkId).Count;
                 user.ClickCoefficient += perk.ClickCoefficient;
                 user.PassiveCoefficient += perk.PassiveCoefficient;
-                user.Money-=perk.Cost * (buyedPerkCount-1 > 0 ? buyedPerkCount - 1: 1);
+                user.Money-=perk.Cost * (buyedPerkCount == 1 ? 1 : buyedPerkCount-1 );
                 await db.SaveChangesAsync();
-                return Json(new { result="ok", userMoney=user.Money, clickCoefficient=user.ClickCoefficient, buyedPerkCount = buyedPerkCount, perkCost=perk.Cost });
+                return Json(new { result="ok", userMoney=user.Money, clickCoefficient=user.ClickCoefficient, buyedPerkCount = buyedPerkCount, perkCost=perk.Cost,
+                perkName=perk.Name, passiveCoefficient=user.PassiveCoefficient });
             }
             else {
                 return Json(new { result="error" });
@@ -102,6 +101,7 @@ namespace discord_clicker.Controllers
         [Route("getPerksList")]
         [Authorize]
         async public Task<IActionResult> getPerksList() {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
             List<Perk> perksListLinks = await db.Perks.Where(p => p.Cost > 0).Include(p => p.UserPerks).ToListAsync();
             List<Perk> perksList = new List<Perk>();
             Dictionary<int, uint> perksCount = new Dictionary<int, uint>();
@@ -117,11 +117,10 @@ namespace discord_clicker.Controllers
                     Tier = perk.Tier
                 });
                 perksCount.Add(perk.Id, 
-                    perk.UserPerks.Count > 0 ? perk.UserPerks.First().Count: 0);
+                perk.UserPerks.Where(p => p.UserId == userId).ToList().Count > 0 ? perk.UserPerks.First().Count: 0);
+
             }
             return Json(new { result = "ok", perksList = perksList, perksCount = perksCount });
-
         }
-
     }
 }

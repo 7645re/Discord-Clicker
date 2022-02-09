@@ -164,24 +164,37 @@ a:active {
 
 .alert {
     display: grid;
-    grid-template-columns: repeat(2, 1fr) 0fr repeat(2, 0);
-    grid-template-rows: repeat(2, 1fr) repeat(3, 0fr);
+    grid-template-columns: 1fr repeat(4, 0);
+    grid-template-rows: repeat(2, 1fr) repeat(3, 0);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    max-width: 150px;
+    width: 200px !important;
+    display: grid;
 }
-.autosave-img {
-    grid-area: 1 / 1 / 2 / 2;
-}
+.alert-up { grid-area: 1 / 1 / 2 / 2; }
+.alert-down { grid-area: 2 / 1 / 3 / 2; }
 
-.autosave-text {
-    grid-area: 1 / 2 / 2 / 3;
+body {
+    background-color: #2c2f33 !important;
 }
-
-.autosave-discord-img {
-    grid-area: 2 / 1 / 3 / 2;
+html * {
+    color: #ffffff !important;
 }
+input {
+    color: #2c2f33 !important;
+}
+.c-button--icon {
+    min-width: initial;
+    text-align: center;
+    padding: 10px 14px;
+}
+input {
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
-.autosave-money {
-    grid-area: 2 / 2 / 3 / 3;
+}
+input[type=text], input[type=button], input[type=submit] {   
+    background-color : #D3D3D3;    
 }
