@@ -7,11 +7,10 @@ genCards()
 async function buyPerk(evt) {
     let perkId = evt.currentTarget.getAttribute("perkId")
     let result;
-    if (click > 0) {
-        usermoney = await setMoneyDB(userCoefficient * click)
-        await setMoneySite(usermoney["money"])
-        click = 0
-    }
+    usermoney = await setMoneyDB(Number(userCoefficient * click) + Number(dBuffer.toFixed(0)))
+    dBuffer = 0
+    await setMoneySite(usermoney["money"])
+    click = 0
     await asyncRequest('GET', `buyPerk?perkId=${perkId}`)
         .then(data => { result = data })
         .catch(err => console.log(err))
@@ -38,7 +37,6 @@ async function buyPerk(evt) {
         perkCost.appendChild(perkCostSpan)
         perkPurchased.appendChild(perkPurchasedSpan)
         
-        console.log(result)
         cpsCounter.innerHTML =  userPassiveCoefficient + " cps"
         let imgUp = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/></svg>'
         let imgDown = '<img width="16" src="images/PerksImg/NitroBoost.png"/>'
@@ -63,7 +61,6 @@ async function genCards() {
     let result = await getPerksList()
     let perks = result["perksList"]
     let perksCount = result["perksCount"]
-    console.log(perks)
     for (let perk of perks) {
 
         row.innerHTML += `
@@ -85,7 +82,3 @@ async function genCards() {
         perk.addEventListener('click', buyPerk, false);
     });
 }
-
-
-
-

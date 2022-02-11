@@ -1,8 +1,4 @@
-using discord_clicker.Models; // пространство имен контекста данных UserContext
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using discord_clicker.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -24,13 +20,13 @@ namespace discord_clicker
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));
-            // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options => //CookieAuthenticationOptions
+                .AddCookie(options => 
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
             services.AddControllersWithViews();
+            services.AddSignalR();
             services.AddSession();
         }
 
@@ -42,15 +38,15 @@ namespace discord_clicker
             app.UseSession();
             app.UseRouting();
 
-            app.UseAuthentication();    // аутентификация
-            app.UseAuthorization();     // авторизация
+            app.UseAuthentication(); 
+            app.UseAuthorization();    
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
-
+                endpoints.MapHub<ClickerHub>("/clicker");
             });
         }
     }

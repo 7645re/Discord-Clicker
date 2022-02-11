@@ -44,3 +44,4 @@ C:\Users\pc\Desktop\discord_clicker\discord_clicker\obj\Debug\net5.0\Razor\Views
 C:\Users\pc\Desktop\discord_clicker\discord_clicker\bin\Debug\net5.0\Humanizer.dll
 C:\Users\pc\Desktop\discord_clicker\discord_clicker\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\pc\Desktop\discord_clicker\discord_clicker\obj\Debug\net5.0\discord_clicker.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\discord_clicker\discord_clicker\bin\Debug\net5.0\libman.json

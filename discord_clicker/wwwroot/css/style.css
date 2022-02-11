@@ -25,7 +25,7 @@ html, body {
         height: 200px !important;
     }
     .clicker_counter {
-        font-size: 5vmin;
+        font-size: 10vmin !important;
     }
 }
 .parent {
@@ -57,7 +57,7 @@ html, body {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 20vmin;
+    font-size: 100px;
 }
 .cps_counter {
     position: absolute;
