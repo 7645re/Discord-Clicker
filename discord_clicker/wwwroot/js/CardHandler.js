@@ -1,10 +1,4 @@
-﻿let row = document.getElementsByClassName("row")[0]
-
-
-genCards()
-
-
-async function buyPerk(evt) {
+﻿async function buyPerk(evt) {
     let perkId = evt.currentTarget.getAttribute("perkId")
     let result;
     usermoney = await setMoneyDB(Number(userCoefficient * click) + Number(dBuffer.toFixed(0)))

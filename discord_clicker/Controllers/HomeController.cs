@@ -4,7 +4,6 @@ using discord_clicker.Models;
 using System.Linq;
 using System;
 using Microsoft.EntityFrameworkCore;
-using discord_clicker.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
