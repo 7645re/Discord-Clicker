@@ -27,20 +27,18 @@ namespace discord_clicker
                 });
             services.AddControllersWithViews();
             services.AddSignalR();
+            services.AddMemoryCache();
             services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
-
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-
             app.UseAuthentication(); 
             app.UseAuthorization();    
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -23,7 +23,6 @@ namespace discord_clicker.Controllers
             if (!EconomyController.LastRequest.ContainsKey(userId)) {
                 EconomyController.LastRequest.Add(userId, DateTime.Now);
             }
-
             List<Perk> perks = await db.Perks.Include(up => up.UserPerks).Where(p => p.Cost > 0).ToListAsync();
             ViewBag.Perks = perks;
             return View();
