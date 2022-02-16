@@ -17,14 +17,8 @@ namespace discord_clicker.Controllers
             db = context;
         }
         [Authorize]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            if (!EconomyController.LastRequest.ContainsKey(userId)) {
-                EconomyController.LastRequest.Add(userId, DateTime.Now);
-            }
-            List<Perk> perks = await db.Perks.Include(up => up.UserPerks).Where(p => p.Cost > 0).ToListAsync();
-            ViewBag.Perks = perks;
             return View();
         }
     }

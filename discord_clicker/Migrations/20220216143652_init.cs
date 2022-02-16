@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace discord_clicker.Migrations
@@ -16,6 +17,7 @@ namespace discord_clicker.Migrations
                     Cost = table.Column<decimal>(type: "numeric(20,0)", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     PassiveCoefficient = table.Column<decimal>(type: "numeric(20,0)", nullable: false),
+                    ClickCoefficient = table.Column<long>(type: "bigint", nullable: false),
                     Tier = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -34,7 +36,8 @@ namespace discord_clicker.Migrations
                     Money = table.Column<decimal>(type: "numeric(20,0)", nullable: false),
                     Tier = table.Column<int>(type: "integer", nullable: false),
                     ClickCoefficient = table.Column<long>(type: "bigint", nullable: false),
-                    PassiveCoefficient = table.Column<decimal>(type: "numeric(20,0)", nullable: false)
+                    PassiveCoefficient = table.Column<decimal>(type: "numeric(20,0)", nullable: false),
+                    LastRequestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {

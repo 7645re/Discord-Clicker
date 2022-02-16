@@ -1,35 +1,49 @@
-﻿async function buyPerk(evt) {
+﻿var timeInMs = Date.now();
+
+async function buyPerk(evt) {
     let perkId = evt.currentTarget.getAttribute("perkId")
     let result;
-    await asyncRequest('GET', `buyPerk?perkId=${perkId}&money=${Math.abs(localStorage.getItem("saveMoney")-localStorage.getItem("money"))}`)
+    await asyncRequest('GET', `buyPerk?perkId=${perkId}&money=${localStorage.getItem("money")}`)
         .then(data => { result = data })
         .catch(err => console.log(err))
-    localStorage.setItem("saveMoney", localStorage.getItem("money"))
+    console.log((Date.now()-timeInMs))
+    console.log(result)
+    timeInMs = Date.now()
     if (result["result"] == "ok") {
-        console.log(result)
         
-        // userClickCoefficient = result["clickCoefficient"]
-        // userPassiveCoefficient = result["passiveCoefficient"]
-        // let perkName = result["perkName"]
+        userClickCoefficient = result["clickCoefficient"]
+        userPassiveCoefficient = result["passiveCoefficient"]
 
-        // let perkPurchased = document.getElementById(perkId + "-lvl")
-        // let perkPurchasedValue = result["buyedPerkCount"]
-        // let perkPurchasedSpan = document.createElement("span")
+        let perkName = result["perkName"]
 
-        // let perkCost = document.getElementById(perkId + "-cost")
-        // let perkCostValue = result["perkCost"]
-        // let perkCostSpan = document.createElement("span")
+        let userMoney = result["money"]
 
-        // perkPurchasedSpan.innerText = "Lvl " + perkPurchasedValue
-        // perkPurchased.innerHTML = ""
+        let perkPurchased = document.getElementById(perkId + "-lvl")
+        let perkPurchasedValue = result["buyedPerkCount"]
+        let perkPurchasedSpan = document.createElement("span")
 
-        // perkCostSpan.innerText = result["buyedPerkCount"] * perkCostValue
-        // perkCost.children[1].remove()
+        let perkCost = document.getElementById(perkId + "-cost")
+        let perkCostValue = result["perkCost"]
+        let perkCostSpan = document.createElement("span")
 
-        // perkCost.appendChild(perkCostSpan)
-        // perkPurchased.appendChild(perkPurchasedSpan)
+        perkPurchasedSpan.innerText = "Lvl " + perkPurchasedValue
+        perkPurchased.innerHTML = ""
+
+        perkCostSpan.innerText = result["buyedPerkCount"] * perkCostValue
+        perkCost.children[1].remove()
+
+        perkCost.appendChild(perkCostSpan)
+        perkPurchased.appendChild(perkPurchasedSpan)
         
-        // cpsCounter.innerHTML =  userPassiveCoefficient + " cps"
+        counterFloat-=perkCostValue*(perkPurchasedValue-1)
+        localStorage.setItem("money", userMoney)
+        localStorage.setItem("saveMoney", userMoney)
+        localStorage.setItem("passiveCoefficient", userPassiveCoefficient)
+        localStorage.setItem("clickCoefficient", userClickCoefficient)
+        
+
+        cpsCounter.innerHTML =  userPassiveCoefficient + " cps"
+        /** test alert notify when buy perk and other */
         // let imgUp = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/></svg>'
         // let imgDown = '<img width="16" src="images/PerksImg/NitroBoost.png"/>'
         // let test = createAlert(imgUp, perkName, imgDown, `${(result["buyedPerkCount"] - 1 == 0 ? 1 : result["buyedPerkCount"] - 1)  * perkCostValue}`)

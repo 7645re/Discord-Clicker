@@ -55,7 +55,8 @@ namespace discord_clicker.Controllers
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Nickname == model.Nickname);
                 if (user == null)
                 {
-                    User dbUser = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1, PassiveCoefficient = 0, Tier=1 };
+                    User dbUser = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1,
+                     PassiveCoefficient = 0, Tier=1, LastRequestDate=DateTime.Now };
                     db.Users.Add(dbUser);
                     await db.SaveChangesAsync();
                     await Authenticate(dbUser);
@@ -68,10 +69,7 @@ namespace discord_clicker.Controllers
 
         private async Task Authenticate(User user)
         {
-            if (!EconomyController.LastRequest.ContainsKey(user.Id))
-            {
-                EconomyController.LastRequest.Add(user.Id, DateTime.Now);
-            }
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id))
