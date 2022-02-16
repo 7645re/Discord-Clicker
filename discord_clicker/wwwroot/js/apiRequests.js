@@ -46,14 +46,12 @@ async function loadUserValues() {
     let lUserClickCoefficient = localStorage.getItem("clickCoefficient")
     let lUserPassiveCoefficient = localStorage.getItem("passiveCoefficient")
     let lUserMoney = localStorage.getItem("money")
-    let lUserSaveMoney = localStorage.getItem("saveMoney")
 
-    if (lUserClickCoefficient === null || lUserPassiveCoefficient === null || lUserMoney === null || lUserSaveMoney == null) {
+    if (lUserClickCoefficient === null || lUserPassiveCoefficient === null || lUserMoney === null || 1 == 1) {
         let user = await getUser()
         localStorage.setItem("clickCoefficient", user["clickCoefficient"])
         localStorage.setItem("passiveCoefficient", user["passiveCoefficient"])
         localStorage.setItem("money", user["money"])
-        localStorage.setItem("saveMoney", user["money"])
 
         userClickCoefficient = user["clickCoefficient"]
         userPassiveCoefficient = user["passiveCoefficient"]

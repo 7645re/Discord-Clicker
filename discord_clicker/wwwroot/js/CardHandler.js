@@ -37,7 +37,6 @@ async function buyPerk(evt) {
         
         counterFloat-=perkCostValue*(perkPurchasedValue-1)
         localStorage.setItem("money", userMoney)
-        localStorage.setItem("saveMoney", userMoney)
         localStorage.setItem("passiveCoefficient", userPassiveCoefficient)
         localStorage.setItem("clickCoefficient", userClickCoefficient)
         

@@ -32,9 +32,8 @@ namespace discord_clicker.Controllers
         /** Function verify money response from client, 
          * checking on autoclick or unnormal money growth */
         private bool VerifyMoney(DateTime userLastRequest, ulong uMoney, ulong money, uint ClickCoefficient, ulong PassiveCoefficient) {
-            var userInterval = Convert.ToUInt64((DateTime.Now - userLastRequest).TotalMilliseconds);
-            double maxMoney = Convert.ToDouble((ClickCoefficient*Convert.ToUInt16(Configuration["GeneralValues:MaxClickPerSecond"])+PassiveCoefficient)*userInterval)/1000;
-            _logger.LogInformation($"{userInterval} {maxMoney} {uMoney} {money}");
+            double userInterval = Convert.ToDouble((DateTime.Now - userLastRequest).TotalMilliseconds)/1000;
+            double maxMoney = Convert.ToDouble((ClickCoefficient*Convert.ToUInt16(Configuration["GeneralValues:MaxClickPerSecond"])+PassiveCoefficient)*userInterval);
             return maxMoney >= money-uMoney;
         }
 
@@ -65,55 +64,54 @@ namespace discord_clicker.Controllers
         /// </returns>
         async public Task<IActionResult> BuyPerk(int perkId, ulong money)
         {   
-            
             string result = "error";
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            User user; /** Get either from the cache or from the database */
-            Perk perk = null; /** Get either from the perksList or from the database */
-            List<Perk> perksList = new List<Perk>();
-            uint buyedPerkCount = 0;
-            bool presenceRowInTable;
-            /** Availability of data in the cache */
-            bool availabilityСache = cache.TryGetValue(userId.ToString()+".user", out user) && cache.TryGetValue(userId.ToString() + ".perksList", out perksList);
-            if (!availabilityСache) {
-                user = await db.Users.Include(u => u.UserPerks).Where(u => u.Id == userId).FirstAsync();
-                perk = await db.Perks.Where(p => p.Id == perkId).FirstOrDefaultAsync();
-            }
-            else {
-                perk = perksList.Where(p => p.Id == perkId).First();
-            }
-            /** Сhecking the presence of a row in the table */
-            presenceRowInTable = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).FirstOrDefault() != null;
-            buyedPerkCount = !presenceRowInTable ? 1 : user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count;
-
-            if (VerifyMoney(user.LastRequestDate, user.Money, money, user.ClickCoefficient,  user.PassiveCoefficient) && 
-                perk != null && user.Tier >= perk.Tier && user.Money+money>=perk.Cost*buyedPerkCount) {
-                /** Сhecking the presence of a row in the table */
-                if (!presenceRowInTable) {
-                    user.UserPerks.Add(new UserPerk { UserId=userId, PerkId=perk.Id, Count=1});
+            if (money > 0) {
+                int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
+                User user; /** Get either from the cache or from the database */
+                Perk perk = null; /** Get either from the perksList or from the database */
+                List<Perk> perksList = new List<Perk>();
+                uint buyedPerkCount = 0;
+                bool presenceRowInTable;
+                /** Availability of data in the cache */
+                bool availabilityСache = cache.TryGetValue(userId.ToString()+".user", out user) && cache.TryGetValue(userId.ToString() + ".perksList", out perksList);
+                if (!availabilityСache) {
+                    user = await db.Users.Include(u => u.UserPerks).Where(u => u.Id == userId).FirstAsync();
+                    perk = await db.Perks.Where(p => p.Id == perkId).FirstOrDefaultAsync();
                 }
                 else {
-                    user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count+=1;
+                    perk = perksList.Where(p => p.Id == perkId).First();
                 }
-                user.Money=money-perk.Cost*buyedPerkCount;
-                user.Perks.Add(perk);
-                user.PassiveCoefficient+=perk.PassiveCoefficient;
-                user.ClickCoefficient+=perk.ClickCoefficient;
-                user.Tier=perk.Tier+1;
+                /** Сhecking the presence of a row in the table */
+                presenceRowInTable = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).FirstOrDefault() != null;
+                buyedPerkCount = !presenceRowInTable ? 0 : user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count;
 
-                result = "ok";
-                /** Set in database new time of user request */
-                user.LastRequestDate = DateTime.Now;
-                buyedPerkCount+=1;
-                if (!availabilityСache) {
-                 cache.Set(userId.ToString()+".user", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+                if (VerifyMoney(user.LastRequestDate, user.Money, money, user.ClickCoefficient,  user.PassiveCoefficient) && 
+                    perk != null && user.Tier >= perk.Tier && money>=perk.Cost*(buyedPerkCount == 0 ? 1 : buyedPerkCount)) {
+                    /** Сhecking the presence of a row in the table */
+                    if (!presenceRowInTable) {
+                        user.UserPerks.Add(new UserPerk { UserId=userId, PerkId=perk.Id, Count=1});
+                    }
+                    else {
+                        user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count+=1;
+                    }
+                    user.Money=money-perk.Cost*buyedPerkCount;
+                    user.Perks.Add(perk);
+                    user.PassiveCoefficient+=perk.PassiveCoefficient;
+                    user.ClickCoefficient+=perk.ClickCoefficient;
+                    user.Tier=perk.Tier+1;
+
+                    result = "ok";
+                    /** Set in database new time of user request */
+                    user.LastRequestDate = DateTime.Now;
+                    if (!availabilityСache) {
+                    cache.Set(userId.ToString()+".user", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+                    }
                 }
+                // buyedPerkCount = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count;
+                return Json(new {result, buyedPerkCount=buyedPerkCount+=1, user.Money, ClickCoefficient=user.ClickCoefficient,
+                    PassiveCoefficient=user.PassiveCoefficient, PerkCost=perk.Cost});
             }
-
-            
-            // buyedPerkCount = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count;
-            return Json(new {result, buyedPerkCount=buyedPerkCount, user.Money, ClickCoefficient=user.ClickCoefficient,
-                PassiveCoefficient=user.PassiveCoefficient, PerkCost=perk.Cost});
+            return Json(new {result});
         }
         [Route("getPerksList")]
         [Authorize]
