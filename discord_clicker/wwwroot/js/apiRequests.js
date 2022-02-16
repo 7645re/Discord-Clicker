@@ -1,28 +1,29 @@
-﻿let button = document.getElementsByClassName("clicker_button")[0]
-let counter = document.getElementsByClassName("clicker_counter")[0]
-let counterFloat = 0
-let cpsCounter = document.getElementsByClassName("cps_counter")[0]
+﻿/* -------------------------------------------------------------------------- */
+/*    This file is responsible for interacting with the server via the api    */
+/* -------------------------------------------------------------------------- */
 
-let baseUrl = document.location.origin 
+/* ------------------------------ HTML ELEMENTS ----------------------------- */
+let button = document.getElementsByClassName("clicker_button")[0] /** main button for click */
+let counter = document.getElementsByClassName("clicker_counter")[0] /** users clicks counter to send them to the server for saving */
+let cpsCounter = document.getElementsByClassName("cps_counter")[0] /** How much money does a user get per second */
+let row = document.getElementsByClassName("item_list")[0] /** element which contain perks cards */
+/* ------------------------------------ / ----------------------------------- */
+
+/* ----------------------------- USER'S COUNTERS ---------------------------- */
+let baseUrl = document.location.origin /** url for ajax request */
 let userClickCoefficient
 let userPassiveCoefficient
-let row = document.getElementsByClassName("item_list")[0]
+let counterFloat
+/* ------------------------------------ / ----------------------------------- */
 
 
-reloadPageBackUp()
-genCards()
-// intervalAutoSave(4000)
-
+/* ------------------------ Initialize main elements ------------------------ */
+loadUserValues() /** Call function to load users values into local storage from api */
+genCards() /** Generate perks cards in store with data from api */
 button.addEventListener("click", ActionClick, false)
+/* ------------------------------------ / ----------------------------------- */
 
-// window.addEventListener("focus", async function(event) 
-// { 
-//     setMoneySite((parseInt(getMoneySite()) + buffer).toFixed(0))
-//     buffer = 0
-// }, false);
-
-
-
+/** Ajax request */
 async function asyncRequest(method, url, bode = null) {
     console.log(url)
     return fetch(url).then(response => {
@@ -30,26 +31,18 @@ async function asyncRequest(method, url, bode = null) {
     })
 }
 
-async function setMoneyDB(money) {
-    let result;
-    await asyncRequest('GET', `setmoney?money=${money}`)
-        .then(data => { result = data })
-        .catch(err => console.log(err))
-    return result
-
-}
-
+/** Function that return user info from api */
 async function getUser() {
     let result;
     await asyncRequest('GET', "/getuserinformation")
         .then(data => { result = data["user"] })
         .catch(err => console.log(err))
     return result
-
 }
 
-
-async function reloadPageBackUp() {
+/** Function load user info to site */
+async function loadUserValues() {
+    /** Variables for data from local storage*/
     let lUserClickCoefficient = localStorage.getItem("clickCoefficient")
     let lUserPassiveCoefficient = localStorage.getItem("passiveCoefficient")
     let lUserMoney = localStorage.getItem("money")
@@ -62,10 +55,10 @@ async function reloadPageBackUp() {
         localStorage.setItem("money", user["money"])
         localStorage.setItem("saveMoney", user["money"])
 
-        
         userClickCoefficient = user["clickCoefficient"]
         userPassiveCoefficient = user["passiveCoefficient"]
         
+        /** counterFloat contain money with decimal places */
         counterFloat = Number(user["money"])
         counter.innerText = user["money"]
         cpsCounter.innerHTML = user["passiveCoefficient"] + " cps"
@@ -74,15 +67,16 @@ async function reloadPageBackUp() {
         userClickCoefficient = lUserClickCoefficient
         userPassiveCoefficient = lUserPassiveCoefficient
 
+        /** counterFloat contain money with decimal places */
         counterFloat = Number(lUserMoney)
         counter.innerText = lUserMoney
         cpsCounter.innerHTML = userPassiveCoefficient + " cps"
     }
 }
 
-
+/** Action function for each user click on the main button */
 async function ActionClick() {
-    let m = localStorage.getItem('money');
+    let lUserMoney = localStorage.getItem('money');
     counterFloat+=Number(localStorage.getItem("clickCoefficient"))
-    localStorage.setItem('money', Number(m === null ? 0 : m) + Number(localStorage.getItem("clickCoefficient")));
+    localStorage.setItem('money', Number(lUserMoney === null ? 0 : lUserMoney) + Number(localStorage.getItem("clickCoefficient")));
 }

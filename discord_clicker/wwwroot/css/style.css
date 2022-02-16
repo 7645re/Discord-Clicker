@@ -60,8 +60,8 @@ html, body {
     transform: translate(-50%, -50%);
 }
 .clicker_button {
-    width: 600px;
-    height: 600px;
+    width: 300px;
+    height: 300px;
 }
 .clicker_counter {
     position: absolute;

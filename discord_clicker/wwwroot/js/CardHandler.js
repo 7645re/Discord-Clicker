@@ -42,7 +42,7 @@
         /// cheat detected
     }
 }
-
+/** This function that gets data about perks from the server */
 async function getPerksList() {
     let result
     await asyncRequest('GET', "/getPerksList")

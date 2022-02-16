@@ -55,12 +55,10 @@ namespace discord_clicker.Controllers
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Nickname == model.Nickname);
                 if (user == null)
                 {
-                    User db_user = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1, PassiveCoefficient = 0, Tier=1 };
-                    db.Users.Add(db_user);
+                    User dbUser = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1, PassiveCoefficient = 0, Tier=1 };
+                    db.Users.Add(dbUser);
                     await db.SaveChangesAsync();
-
-                    await Authenticate(db_user);
-
+                    await Authenticate(dbUser);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -70,7 +68,6 @@ namespace discord_clicker.Controllers
 
         private async Task Authenticate(User user)
         {
-            HttpContext.Session.Set<User>("User", user);
             if (!EconomyController.LastRequest.ContainsKey(user.Id))
             {
                 EconomyController.LastRequest.Add(user.Id, DateTime.Now);

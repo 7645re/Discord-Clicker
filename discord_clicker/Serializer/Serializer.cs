@@ -17,9 +17,5 @@ namespace discord_clicker.Serializer
             var value = session.GetString(key);
             return value == null ? default(T) : JsonSerializer.Deserialize<T>(value);
         }
-        public static string ListObjectToString<Perk>(this List<Perk> list ) {
-            Dictionary<string, string> result = new Dictionary<string, string>();
-            return "1";
-        }
     }
 }
