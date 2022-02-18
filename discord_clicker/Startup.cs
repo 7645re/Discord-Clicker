@@ -1,9 +1,11 @@
 using discord_clicker.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net;
 
 
 namespace discord_clicker
@@ -38,6 +40,11 @@ namespace discord_clicker
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+            // requires using Microsoft.AspNetCore.HttpOverrides;
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
             app.UseAuthentication(); 
             app.UseAuthorization();    
             app.UseEndpoints(endpoints =>
