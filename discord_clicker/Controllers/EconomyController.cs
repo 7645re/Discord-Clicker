@@ -115,7 +115,7 @@ namespace discord_clicker.Controllers
                 return Json(new {result, buyedPerkCount=buyedPerkCount+=1, user.Money, ClickCoefficient=user.ClickCoefficient,
                     PassiveCoefficient=user.PassiveCoefficient, PerkCost=perk.Cost});
             }
-            return Json(new {result});
+            return Json(new {error="zero"});
         }
         [Route("getPerksList")]
         [Authorize]
