@@ -70,6 +70,7 @@ namespace discord_clicker.Controllers
                 User user; /** Get either from the cache or from the database */
                 Perk perk = null; /** Get either from the perksList or from the database */
                 List<Perk> perksList = new List<Perk>();
+                Dictionary<int, uint> perksCount = new Dictionary<int, uint>();
                 uint buyedPerkCount = 0;
                 bool presenceRowInTable;
                 /** Availability of data in the cache */
@@ -94,15 +95,18 @@ namespace discord_clicker.Controllers
                     else {
                         user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count+=1;
                     }
-                    user.Money=money-perk.Cost*buyedPerkCount;
+                    user.Money=money-perk.Cost*(buyedPerkCount == 0 ? 1 : buyedPerkCount);
                     user.Perks.Add(perk);
                     user.PassiveCoefficient+=perk.PassiveCoefficient;
                     user.ClickCoefficient+=perk.ClickCoefficient;
-                    user.Tier=perk.Tier+1;
-
+                    user.Tier=perk.Tier+1 < user.Tier ? user.Tier : perk.Tier+1;
                     result = "ok";
                     /** Set in database new time of user request */
                     user.LastRequestDate = DateTime.Now;
+
+                    if (cache.TryGetValue(userId.ToString()+".perksCount", out perksCount)) {
+                        perksCount[perkId]+=1;
+                    }
                     if (!availabilityСache) {
                     cache.Set(userId.ToString()+".user", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
                     }
@@ -129,7 +133,7 @@ namespace discord_clicker.Controllers
             if (!availabilityСache)
             {
                 perksList = new List<Perk>();
-                List<Perk> perksListLinks = await db.Perks.Where(p => p.Cost > 0).Include(p => p.UserPerks).ToListAsync();
+                List<Perk> perksListLinks = await db.Perks.Where(p => p.ClickCoefficient >= 0).Include(p => p.UserPerks).ToListAsync();
                 foreach (Perk perk in perksListLinks)
                 {
                     /** Function create new instance cuz i select data with relationships many-to-many.

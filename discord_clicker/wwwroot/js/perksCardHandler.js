@@ -15,8 +15,10 @@ async function buyPerk(evt) {
         userPassiveCoefficient = result["passiveCoefficient"]
 
         let perkName = result["perkName"]
-
         let userMoney = result["money"]
+
+
+        // new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(strPerkPassiveCoefficient)
 
         let perkPurchased = document.getElementById(perkId + "-lvl")
         let perkPurchasedValue = result["buyedPerkCount"]
@@ -29,13 +31,15 @@ async function buyPerk(evt) {
         perkPurchasedSpan.innerText = "Lvl " + perkPurchasedValue
         perkPurchased.innerHTML = ""
 
-        perkCostSpan.innerText = result["buyedPerkCount"] * perkCostValue
+        perkCostSpan.innerText = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(String(result["buyedPerkCount"] * perkCostValue))
+        
         perkCost.children[1].remove()
 
         perkCost.appendChild(perkCostSpan)
         perkPurchased.appendChild(perkPurchasedSpan)
         
-        counterFloat-=perkCostValue*(perkPurchasedValue-1)
+        // counterFloat-=(perkCostValue)*(perkPurchasedValue-1 == 0 ? 1 : perkPurchasedValue-1 )
+        counterFloat = userMoney
         localStorage.setItem("money", userMoney)
         localStorage.setItem("passiveCoefficient", userPassiveCoefficient)
         localStorage.setItem("clickCoefficient", userClickCoefficient)
@@ -69,7 +73,15 @@ async function genCards() {
     let result = await getPerksList()
     let perks = result["perksList"]
     let perksCount = result["perksCount"]
+    let strPerkCost
+    let strPerkPassiveCoefficient
     for (let perk of perks) {
+        
+        strPerkCost = String(perk.cost)
+        strPerkPassiveCoefficient = String(perk.passiveCoefficient)
+        perk.passiveCoefficient = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(strPerkPassiveCoefficient)
+        
+        newPerkCost = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(perksCount[perk.id] > 0 ? perk.cost * perksCount[perk.id] : perk.cost)
 
         row.innerHTML += `
                     <div class="item-card col-sm-12 col-md-4">
@@ -78,10 +90,10 @@ async function genCards() {
                             <div class="perk-name" id="${perk.id}-name">${perk.name}</div>
                             <div class="perk-cost" id="${perk.id}-cost">
                                 <img width="20" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
-                                <span>${perksCount[perk.id] > 0 ? perk.cost * perksCount[perk.id] : perk.cost}</span>
+                                <span>${newPerkCost}</span>
                             </div>
                             <div class="perk-purchased" id="${perk.id}-lvl"><span>Lvl ${perksCount[perk.id]}</span></div>
-                            <div class="perk-passive" id="${perk.id}-increase">Cps +${perk.passiveCoefficient > 0 ? perk.passiveCoefficient : perk.clickCoefficient}</div>
+                            <div class="perk-passive" id="${perk.id}-increase">Cps +${perk.passiveCoefficient}</div>
                         </div>
                     </div>`
     }
