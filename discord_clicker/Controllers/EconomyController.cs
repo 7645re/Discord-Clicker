@@ -73,6 +73,7 @@ namespace discord_clicker.Controllers
                 Dictionary<int, uint> perksCount = new Dictionary<int, uint>();
                 uint buyedPerkCount = 0;
                 bool presenceRowInTable;
+                bool verifyMoney;
                 /** Availability of data in the cache */
                 bool availabilityСache = cache.TryGetValue(userId.ToString()+".user", out user) && cache.TryGetValue(userId.ToString() + ".perksList", out perksList);
                 if (!availabilityСache) {
@@ -85,35 +86,41 @@ namespace discord_clicker.Controllers
                 /** Сhecking the presence of a row in the table */
                 presenceRowInTable = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).FirstOrDefault() != null;
                 buyedPerkCount = !presenceRowInTable ? 0 : user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count;
+                verifyMoney = VerifyMoney(user.LastRequestDate, user.Money, money, user.ClickCoefficient,  user.PassiveCoefficient);
 
-                if (VerifyMoney(user.LastRequestDate, user.Money, money, user.ClickCoefficient,  user.PassiveCoefficient) && 
-                    perk != null && user.Tier >= perk.Tier && money>=perk.Cost*(buyedPerkCount == 0 ? 1 : buyedPerkCount)) {
-                    /** Сhecking the presence of a row in the table */
-                    if (!presenceRowInTable) {
-                        user.UserPerks.Add(new UserPerk { UserId=userId, PerkId=perk.Id, Count=1});
-                    }
-                    else {
-                        user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count+=1;
-                    }
-                    user.Money=money-perk.Cost*(buyedPerkCount == 0 ? 1 : buyedPerkCount);
-                    user.Perks.Add(perk);
-                    user.PassiveCoefficient+=perk.PassiveCoefficient;
-                    user.ClickCoefficient+=perk.ClickCoefficient;
-                    user.Tier=perk.Tier+1 < user.Tier ? user.Tier : perk.Tier+1;
-                    result = "ok";
-                    /** Set in database new time of user request */
-                    user.LastRequestDate = DateTime.Now;
+                if (verifyMoney) {
+                    if (perk != null && user.Tier >= perk.Tier && money>=perk.Cost*(buyedPerkCount == 0 ? 1 : buyedPerkCount)) {
+                        /** Сhecking the presence of a row in the table */
+                        if (!presenceRowInTable) {
+                            user.UserPerks.Add(new UserPerk { UserId=userId, PerkId=perk.Id, Count=1});
+                        }
+                        else {
+                            user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count+=1;
+                        }
+                        user.Money=money-perk.Cost*(buyedPerkCount == 0 ? 1 : buyedPerkCount);
+                        user.Perks.Add(perk);
+                        user.PassiveCoefficient+=perk.PassiveCoefficient;
+                        user.ClickCoefficient+=perk.ClickCoefficient;
+                        user.Tier=perk.Tier+1 < user.Tier ? user.Tier : perk.Tier+1;
+                        result = "ok";
+                        /** Set in database new time of user request */
+                        user.LastRequestDate = DateTime.Now;
 
-                    if (cache.TryGetValue(userId.ToString()+".perksCount", out perksCount)) {
-                        perksCount[perkId]+=1;
+                        if (cache.TryGetValue(userId.ToString()+".perksCount", out perksCount)) {
+                            perksCount[perkId]+=1;
+                        }
+                        if (!availabilityСache) {
+                        cache.Set(userId.ToString()+".user", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+                        }
                     }
-                    if (!availabilityСache) {
-                    cache.Set(userId.ToString()+".user", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
-                    }
+                    return Json(new {result, buyedPerkCount=buyedPerkCount+1, user.Money, ClickCoefficient=user.ClickCoefficient,
+                        PassiveCoefficient=user.PassiveCoefficient, PerkCost=perk.Cost});
                 }
-                // buyedPerkCount = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count;
-                return Json(new {result, buyedPerkCount=buyedPerkCount+=1, user.Money, ClickCoefficient=user.ClickCoefficient,
-                    PassiveCoefficient=user.PassiveCoefficient, PerkCost=perk.Cost});
+                else {
+                    return Json(new {result="cheat", buyedPerkCount=buyedPerkCount, user.Money, ClickCoefficient=user.ClickCoefficient,
+                        PassiveCoefficient=user.PassiveCoefficient, PerkCost=perk.Cost});
+                }
+
             }
             return Json(new {error="zero"});
         }
