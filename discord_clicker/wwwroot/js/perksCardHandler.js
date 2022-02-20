@@ -6,7 +6,8 @@ async function buyPerk(evt) {
     await asyncRequest('GET', `api/buyPerk?perkId=${perkId}&money=${localStorage.getItem("money")}`)
         .then(data => { result = data })
         .catch(err => console.log(err))
-    if (result["error"] != "zero") {
+    console.log(result)
+    if (result["result"] == "ok") {
         
         userClickCoefficient = result["clickCoefficient"]
         userPassiveCoefficient = result["passiveCoefficient"]
@@ -14,20 +15,18 @@ async function buyPerk(evt) {
         let userMoney = result["money"]
         let perkName = result["perkName"]
 
-        // new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(strPerkPassiveCoefficient)
-
         let perkPurchased = document.getElementById(perkId + "-lvl")
-        let perkPurchasedValue = result["buyedPerkCount"]
+        let perkPurchasedValue = result["buyedPerkCount"] + 1
         let perkPurchasedSpan = document.createElement("span")
 
         let perkCost = document.getElementById(perkId + "-cost")
-        let perkCostValue = result["perkCost"]
+        let perkCostValue = result["cost"]
         let perkCostSpan = document.createElement("span")
 
         perkPurchasedSpan.innerText = "Lvl " + perkPurchasedValue
         perkPurchased.innerHTML = ""
 
-        perkCostSpan.innerText = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(String(result["buyedPerkCount"] * perkCostValue))
+        perkCostSpan.innerText = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(String(perkPurchasedValue * perkCostValue))
         
         perkCost.children[1].remove()
         counterFloat = userMoney
