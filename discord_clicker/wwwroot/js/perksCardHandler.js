@@ -3,7 +3,7 @@
 async function buyPerk(evt) {
     let perkId = evt.currentTarget.getAttribute("perkId")
     let result;
-    await asyncRequest('GET', `buyPerk?perkId=${perkId}&money=${localStorage.getItem("money")}`)
+    await asyncRequest('GET', `api/buyPerk?perkId=${perkId}&money=${localStorage.getItem("money")}`)
         .then(data => { result = data })
         .catch(err => console.log(err))
     if (result["error"] != "zero") {
@@ -60,7 +60,7 @@ async function buyPerk(evt) {
 /** This function that gets data about perks from the server */
 async function getPerksList() {
     let result
-    await asyncRequest('GET', "/getPerksList")
+    await asyncRequest('GET', "/api/getPerksList")
         .then(data => { result = data })
         .catch(err => console.log(err))
     return result

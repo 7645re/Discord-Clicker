@@ -34,7 +34,7 @@ async function asyncRequest(method, url, bode = null) {
 /** Function that return user info from api */
 async function getUser() {
     let result;
-    await asyncRequest('GET', "/getuserinformation")
+    await asyncRequest('GET', "/api/getuserinformation")
         .then(data => { result = data["user"] })
         .catch(err => console.log(err))
     return result
