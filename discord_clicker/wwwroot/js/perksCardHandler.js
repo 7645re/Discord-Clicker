@@ -48,11 +48,10 @@ async function buyPerk(evt) {
         // document.body.appendChild(test)
         // alertDropDown(test)
     }
-    // else {
-    //     console.log("cheat")
-    //     counterFloat = userMoney
-    //     counter.innerText = userMoney
-    // }
+    if (result["result"] == "cheat") {
+        counterFloat = result["money"]
+        counter.innerText = result["money"]
+    }
 
 
 }
@@ -78,7 +77,7 @@ async function genCards() {
         strPerkPassiveCoefficient = String(perk.passiveCoefficient)
         perk.passiveCoefficient = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(strPerkPassiveCoefficient)
         
-        newPerkCost = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(perksCount[perk.id] > 0 ? perk.cost * perksCount[perk.id] : perk.cost)
+        newPerkCost = new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(perksCount[perk.id] > 0 ? perk.cost * (perksCount[perk.id]+1) : perk.cost)
 
         row.innerHTML += `
                     <div class="item-card col-sm-12 col-md-4">
@@ -89,7 +88,7 @@ async function genCards() {
                                 <img width="20" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
                                 <span>${newPerkCost}</span>
                             </div>
-                            <div class="perk-purchased" id="${perk.id}-lvl"><span>Lvl ${perksCount[perk.id]}</span></div>
+                            <div class="perk-purchased" id="${perk.id}-lvl"><span>Lvl ${perksCount[perk.id]+1}</span></div>
                             <div class="perk-passive" id="${perk.id}-increase">Cps +${perk.passiveCoefficient}</div>
                         </div>
                     </div>`
