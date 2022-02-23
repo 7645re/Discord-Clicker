@@ -4,6 +4,7 @@ using discord_clicker.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -29,7 +30,7 @@ namespace discord_clicker.Controllers
 
             if (!availabilityСache) {
                 /** if the data could not be found in the cache, we turn to the database */
-                user = db.Users.Where(u => u.Id == userId).First();
+                user = await db.Users.Where(u => u.Id == userId).FirstAsync();
             }
             user.LastRequestDate = DateTime.Now;
             if (!availabilityСache) {

@@ -20,8 +20,8 @@ namespace discord_clicker.Controllers
     {
         private UserContext db;
         private IMemoryCache cache;
-        private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
+        private readonly IConfiguration Configuration;
         public EconomyController(UserContext context, IMemoryCache memoryCache, IConfiguration configuration, ILogger<EconomyController> logger)
         {
             db = context;
@@ -39,6 +39,8 @@ namespace discord_clicker.Controllers
          /// <param name="PassiveCoefficient">the amount of money that the user receives per second automatically</param>
          /// <returns>bool</returns>
         private bool VerifyMoney(DateTime userLastRequest, ulong serverMoney, ulong clientMoney, uint ClickCoefficient, ulong PassiveCoefficient) {
+            /** True - means the user has not exceeded the allowable amount for a certain time interval
+            False - the player was seen cheating (using an autoclicker or just manually sent data to the api) */
             double userInterval = Convert.ToDouble((DateTime.Now - userLastRequest).TotalMilliseconds)/1000;
             double maxMoney = Convert.ToDouble((ClickCoefficient*Convert.ToUInt16(Configuration["GeneralValues:MaxClickPerSecond"])+PassiveCoefficient)*userInterval);
             return maxMoney >= clientMoney-serverMoney;
@@ -101,8 +103,8 @@ namespace discord_clicker.Controllers
 
             if (!availabilityСache) {
                 /** if the data could not be found in the cache, we turn to the database */
-                user = await db.Users.Include(u => u.UserPerks).Where(u => u.Id == userId).FirstAsync();
                 perk = await db.Perks.Where(p => p.Id == perkId).FirstOrDefaultAsync();
+                user = await db.Users.Include(u => u.UserPerks).Where(u => u.Id == userId).FirstAsync();
                 _logger.LogInformation("User and perksList were not found in the cache and were taken from the database");
             }
             else {
@@ -117,13 +119,12 @@ namespace discord_clicker.Controllers
                 _logger.LogInformation($"A user with ID {user.Id} has sent a request to purchase an item with ID {perk.Id} that does not exist");
                 return Json(new {result="error", reason=$"The ability with ID {perkId} does not exist"});
             }
-            /** True - means the user has not exceeded the allowable amount for a certain time interval
-                False - the player was seen cheating (using an autoclicker or just manually sent data to the api) */
+
+            rankSatisfy = user.Tier >= perk.Tier;
             verifyMoney = VerifyMoney(user.LastRequestDate, user.Money, money, user.ClickCoefficient,  user.PassiveCoefficient);
             presenceRowInTable = user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).FirstOrDefault() != null; 
             buyedPerkCount = !presenceRowInTable ? 1 : user.UserPerks.Where(up => up.UserId == userId && up.PerkId == perkId).First().Count+1;
             enoughMoney = money >= perk.Cost*buyedPerkCount;
-            rankSatisfy = user.Tier >= perk.Tier;
 
             if (!enoughMoney) {
                 return Json(new {result="error", reason="There are not enough funds to buy the ability"});
@@ -132,7 +133,8 @@ namespace discord_clicker.Controllers
                 return Json(new {result="error", reason=$"You have too low a rank to buy this ability. Your rank is {user.Tier} and you need rank {perk.Tier} to buy an ability"});
             }
             if (!verifyMoney) {
-                return Json(new {result="cheat", reason=$"You could not earn {money-user.Money} coins in a time interval of {(DateTime.Now-user.LastRequestDate).TotalMilliseconds}s", money=Convert.ToDecimal((DateTime.Now-user.LastRequestDate).TotalMilliseconds/1000*user.PassiveCoefficient)});
+                return Json(new {result="cheat", reason=$"You could not earn {money-user.Money} coins in a time interval of {(DateTime.Now-user.LastRequestDate).TotalMilliseconds}s", money=Convert.ToDecimal((DateTime.Now-user.LastRequestDate).TotalMilliseconds/1000*user.PassiveCoefficient),
+                user.ClickCoefficient, user.PassiveCoefficient});
             }
             if (!presenceRowInTable) {
                 user.UserPerks.Add(new UserPerk { UserId=userId, PerkId=perk.Id, Count=1});
@@ -150,13 +152,13 @@ namespace discord_clicker.Controllers
 
             if (cache.TryGetValue(userId.ToString()+".perksCount", out perksCount)) {
                 perksCount[perkId]+=1;
-                _logger.LogInformation($"The user bought an ability with ID {user.Id} for {perksCount[perkId]*perk.Cost} money and now has {perksCount[perkId]} pieces");
                 cache.Set(userId.ToString()+".perksCount", perksCount, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
             }
             if (!availabilityСache) {
                 cache.Set(userId.ToString()+".user", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
             }
-            return Json(new {result="ok", user.ClickCoefficient, user.PassiveCoefficient, buyedPerkCount, perk.Cost, user.Money});
+                _logger.LogInformation($"The user with ID {user.Id} bought an ability with ID {perk.Id} for {perksCount[perkId]*perk.Cost} money and now has {perksCount[perkId]} pieces");
+            return Json(new {result="ok", reason=$"The user with ID {user.Id} bought an ability with ID {perk.Id} for {perksCount[perkId]*perk.Cost} money and now has {perksCount[perkId]} pieces", user.ClickCoefficient, user.PassiveCoefficient, buyedPerkCount, perk.Cost, user.Money, perk.Name});
         }
 
         /// <summary>
@@ -169,8 +171,8 @@ namespace discord_clicker.Controllers
         [Authorize]
         [HttpGet]
         async public Task<IActionResult> getPerksList() {
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
             List<Perk> perksList;
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
             Dictionary<int, uint> perksCount = new Dictionary<int, uint>();
 
             /** Сhecking for data in the cache */
@@ -189,17 +191,15 @@ namespace discord_clicker.Controllers
                         Id = perk.Id,
                         Cost = perk.Cost,
                         Name = perk.Name,
-                        PassiveCoefficient = perk.PassiveCoefficient,
+                        Tier = perk.Tier,
                         ClickCoefficient = perk.ClickCoefficient,
-                        Tier = perk.Tier
+                        PassiveCoefficient = perk.PassiveCoefficient
                     });
                     perksCount.Add(perk.Id, perk.UserPerks.Where(p => p.UserId == userId).ToList().Count > 0 ? perk.UserPerks.First().Count : 0);
                 }
                 /** Set option to never remove user from cache */
-                cache.Set(userId.ToString() + ".perksList", perksList,
-                    new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
-                cache.Set(userId.ToString() + ".perksCount", perksCount,
-                new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+                cache.Set(userId.ToString() + ".perksList", perksList, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+                cache.Set(userId.ToString() + ".perksCount", perksCount, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
             }
             return Json(new { result = "ok", perksList, perksCount});
         }

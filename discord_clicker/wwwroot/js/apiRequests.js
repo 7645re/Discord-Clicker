@@ -10,17 +10,23 @@ let row = document.getElementsByClassName("item_list")[0] /** element which cont
 let content = document.getElementById("content")
 /* ------------------------------------ / ----------------------------------- */
 
-/* ----------------------------- USER'S COUNTERS ---------------------------- */
+/* ----------------------------- USER'S VAR'S ---------------------------- */
 let baseUrl = document.location.origin /** url for ajax request */
 let userClickCoefficient
 let userPassiveCoefficient
 let counterFloat
+let lUserClickCoefficient = localStorage.getItem("clickCoefficient")
+let lUserPassiveCoefficient = localStorage.getItem("passiveCoefficient")
+let lUserMoney = localStorage.getItem("money")
+let lUserNickname = localStorage.getItem("nickname")
+let lUserId = localStorage.getItem("Id")
 /* ------------------------------------ / ----------------------------------- */
 
 
 /* ------------------------ Initialize main elements ------------------------ */
 loadUserValues() /** Call function to load users values into local storage from api */
 genCards() /** Generate perks cards in store with data from api */
+setDataToProfileCard()
 /* ------------------------------------ / ----------------------------------- */
 
 /** Ajax request */
@@ -37,22 +43,20 @@ async function getUser() {
     await asyncRequest('GET', "/api/getuserinformation")
         .then(data => { result = data["user"] })
         .catch(err => console.log(err))
+    console.log(result)
     return result
 }
 
 /** Function load user info to site */
 async function loadUserValues() {
-    /** Variables for data from local storage*/
-    let lUserClickCoefficient = localStorage.getItem("clickCoefficient")
-    let lUserPassiveCoefficient = localStorage.getItem("passiveCoefficient")
-    let lUserMoney = localStorage.getItem("money")
-
-    if (lUserClickCoefficient === null || lUserPassiveCoefficient === null || lUserMoney === null) {
+    let lDataAvailability = lUserClickCoefficient || lUserPassiveCoefficient || lUserMoney || lUserNickname || lUserId
+    if (lDataAvailability) {
         let user = await getUser()
         localStorage.setItem("clickCoefficient", user["clickCoefficient"])
         localStorage.setItem("passiveCoefficient", user["passiveCoefficient"])
         localStorage.setItem("money", user["money"])
-
+        localStorage.setItem("nickname", user["nickname"])
+        localStorage.setItem("Id", user["id"])
         userClickCoefficient = user["clickCoefficient"]
         userPassiveCoefficient = user["passiveCoefficient"]
         
