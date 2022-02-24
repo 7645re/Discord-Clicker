@@ -1,4 +1,5 @@
-function setDataToProfileCard() {
+async function setDataToProfileCard() {
+    let user = await getUser()
     let profileNicknameHTML = document.getElementsByClassName("nickname")[0]
     let profilePerksHTML = document.getElementsByClassName("perks")[0]
     let profileHeaderHTML = document.getElementsByClassName("modal-header")[0]
@@ -9,9 +10,6 @@ function setDataToProfileCard() {
             profilePerksHTML.innerHTML += `<img class="profile-badge" src="images/PerksImg/${perks[perk].name}.svg"/>`
         }
     }
-    console.log(perksCount)
-    profileNicknameHTML.textContent = lUserNickname + "#" + lUserId
-
-
-
+    console.log(user)
+    profileNicknameHTML.textContent = user["nickname"] + "#" + user["id"]
 }

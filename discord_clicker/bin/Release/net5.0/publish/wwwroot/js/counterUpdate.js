@@ -1,3 +1,4 @@
+/** */
 setTimeout(function tick() {
     counterFloat += userPassiveCoefficient/1000*40
     counter.innerText = (Number(counterFloat)).toFixed(0)

@@ -1,6 +1,7 @@
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\discord_clicker.exe
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\css\style.css
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\favicon.ico
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\3.jpg
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\DiscordButton\discordButton.png
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\PerksImg\Balance Badge.svg
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\PerksImg\Bot Developer.svg
@@ -24,9 +25,14 @@ C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\w
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\PerksImg\Server Boost 8.svg
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\PerksImg\Server Boost 9.svg
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\PerksImg\Server Owner.svg
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\SocialImg\github.png
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\SocialImg\github.svg
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\SocialImg\rweer.png
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\SocialImg\test.png
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\SocialImg\vk.png
+C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\images\SocialImg\vk.svg
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\js\alert.js
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\js\apiRequests.js
-C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\js\autoSave.js
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\js\clickAnimation.js
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\js\counterUpdate.js
 C:\Users\pc\Desktop\discord-clicker\discord_clicker\bin\Release\net5.0\publish\wwwroot\js\perksCardHandler.js

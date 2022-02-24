@@ -222,9 +222,16 @@ input {
     border: 0 !important;
 }
 .btn-primary {
+    border-color: #ffffff00 !important;
     color: rgba(255, 255, 255, 0) !important;
     background-color: rgba(255, 255, 255, 0) !important;
     border-color: rgba(255, 255, 255, 0) !important;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+    color: rgba(255, 255, 255, 0) !important;
+    background-color: #0b5dd700 !important;
+    border-color: #0a57ca00 !important;
+    box-shadow: 0 0 0 0.25rem rgba(49, 131, 253, 0) !important;
 }
 .btn-primary svg {
     width: 100%;
@@ -246,6 +253,21 @@ input {
     flex-direction: column  !important;
     border: 0px !important;
     padding-bottom: 0px !important;
+}
+.perks {
+    display: flex;
+    flex-wrap:wrap !important;
+    width: 100% !important;
+    margin: 0 !important;
+    justify-content: start !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+}
+.profile-badge {
+    justify-content: space-around!important;
+    width: 9% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 .modal-header-perks {
     padding-top: 0px !important;
@@ -289,8 +311,7 @@ input {
 .perks img {
     width: 40px;
     height: 40px;
-    margin-left: 5px !important;
-    margin-bottom: 5px !important;
+    margin: 5px !important;
 }
 .connectedAccount-1xKpli img {
     width: 40px !important;
@@ -304,4 +325,7 @@ input {
 }
 .connectedAccount-1xKpli svg {
     flex-grow: 1;
+}
+.nickname {
+    margin: 5px !important;
 }
