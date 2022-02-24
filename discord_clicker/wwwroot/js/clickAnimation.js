@@ -36,6 +36,7 @@ async function clickIncrease() {
     text.style.left = rndW+"%"
     text.style.fontSize = "500%"
     text.style.pointerEvents='none';
+    text.className = "popUp-increase"
     content.appendChild(text)
     setTimeout(function upmove() {
         if (Number(text.style.top.replace("%", "")) > 0) {

@@ -64,6 +64,7 @@ async function loadUserValues() {
         counterFloat = Number(user["money"])
         counter.innerText = user["money"]
         cpsCounter.innerHTML = user["passiveCoefficient"] + " cps"
+        console.log(1)
     }
     else {
         userClickCoefficient = lUserClickCoefficient
@@ -76,3 +77,47 @@ async function loadUserValues() {
     }
 }
 
+const rainContainer = document.querySelector(".rain-container");
+
+// background Colors for the raindrop
+const background = [
+  "linear-gradient(transparent, aqua)",
+  "linear-gradient(transparent, red)",
+  "linear-gradient(transparent, limegreen)",
+  "linear-gradient(transparent, white)",
+  "linear-gradient(transparent, yellow)"
+];
+
+const amount = 5; // amount of raindops
+let i = 0;
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+// Looping and creating the raindrop then adding to the rainContainer
+while (i < amount) {
+  //  Creating and Element
+  const drop = document.createElement("img");
+  drop.src = "images/PerksImg/Balance Badge.svg"
+  drop.className = "rainElement"
+  //   CSS Properties for raindrop
+  const raindropProperties = {
+    // width: Math.random() * 5 + "px",
+    positionX: Math.floor(getRandomArbitrary(0,1) * window.innerWidth) + "px",
+    delay: getRandomArbitrary(1,2) * -20 + "s",
+    duration: getRandomArbitrary(1,2) * 5 + "s",
+    bg: background[Math.floor(getRandomArbitrary(1,2) * background.length)],
+    opacity: Math.random() + 0.2
+  };
+
+  //   Setting Styles for raindrop
+  drop.style.width = raindropProperties.width;
+  drop.style.left = raindropProperties.positionX;
+  drop.style.animationDelay = raindropProperties.delay;
+  drop.style.animationDuration = raindropProperties.duration;
+//   drop.style.background = raindropProperties.bg;
+  drop.style.opacity = raindropProperties.opacity;
+
+  //   Appending the raindrop in the raindrop container
+  rainContainer.appendChild(drop);
+  i++;
+}

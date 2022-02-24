@@ -52,6 +52,7 @@ html * {
     z-index: 1;
 }
 .clicker_button {
+    z-index: 3;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -121,9 +122,11 @@ html * {
 a:active {
     background-color: #36393F;
 }
-#perk:hover {
-    opacity: 60%;
+#perk:active {
+    box-shadow: 0 0 40px rgba(58, 58, 58, 0.452) !important; 
+    transform: scale(1.1) !important; 
 }
+
 .item {
     border-radius: 7px;
     background-color: #23272A;
@@ -143,6 +146,7 @@ a:active {
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
 span {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -248,7 +252,7 @@ input {
     border-color: black !important;
 }
 .modal-header {
-    background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png") !important;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/1280px-Red_flag.svg.png") !important;
     box-shadow: 0 -150px 0 -50px #2c2f33 inset;
     flex-direction: column  !important;
     border: 0px !important;
@@ -329,3 +333,32 @@ input {
 .nickname {
     margin: 5px !important;
 }
+
+.popUp-increase {
+    z-index: 3;
+}
+
+.rain-container {
+    pointer-events: none !important;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .rainElement {
+    position: absolute;
+    height: 120px;
+    border-radius: 0 0 999px 999px;
+    animation: animate 10s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translateY(-120px);
+    }
+    100% {
+      transform: translateY(calc(100vh + 120px));
+    }
+  }
