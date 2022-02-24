@@ -43,7 +43,6 @@ async function buyPerk(evt) {
         cpsCounter.innerHTML =  userPassiveCoefficient + " cps" 
         if (buyedPerkCount == 1) {
             profilePerksHTML.innerHTML += `<img class="profile-badge" src="images/PerksImg/${result["name"]}.svg"/>`
-            
         }
 
         /** test alert notify when buy perk and other */

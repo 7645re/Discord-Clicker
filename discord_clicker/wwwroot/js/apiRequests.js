@@ -49,8 +49,8 @@ async function getUser() {
 
 /** Function load user info to site */
 async function loadUserValues() {
-    let lDataAvailability = lUserClickCoefficient || lUserPassiveCoefficient || lUserMoney || lUserNickname || lUserId
-    if (lDataAvailability) {
+    let lDataAvailability = lUserClickCoefficient && lUserPassiveCoefficient && lUserMoney && lUserNickname && lUserId
+    if (!lDataAvailability) {
         let user = await getUser()
         localStorage.setItem("clickCoefficient", user["clickCoefficient"])
         localStorage.setItem("passiveCoefficient", user["passiveCoefficient"])

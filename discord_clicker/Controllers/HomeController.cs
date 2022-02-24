@@ -27,10 +27,13 @@ namespace discord_clicker.Controllers
             User user;
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
             bool availabilityСache = cache.TryGetValue(userId.ToString()+".user", out user);
-
             if (!availabilityСache) {
                 /** if the data could not be found in the cache, we turn to the database */
-                user = await db.Users.Where(u => u.Id == userId).FirstAsync();
+                user = await db.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
+            }
+            if (user == default) {
+                /** If the user was removed from the database but he still has data in the browser cache, then he redirects to the registration page */
+                return RedirectToAction("Register", "Account");
             }
             user.LastRequestDate = DateTime.Now;
             if (!availabilityСache) {
