@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
 namespace discord_clicker.Models
 {
-    public class UserPerk
+    public class UserUpgrade
     {
         public int UserId { get; set; }
         public User? User { get; set; }
 
-        public int PerkId { get; set; }
-        public Perk? Perk { get; set; }
+        public int UpgradeId { get; set; }
+        public Upgrade? Upgrade { get; set; }
 
         public uint Count { get; set; }
     }

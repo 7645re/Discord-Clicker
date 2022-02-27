@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net;
-
+using discord_clicker.Services;
+using discord_clicker.ViewModels;
 
 namespace discord_clicker
 {
@@ -28,6 +28,7 @@ namespace discord_clicker
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
+            services.AddTransient<IItemHandler<BuildModel>, BuildHandler>();
             services.AddControllersWithViews();
             services.AddSignalR();
             services.AddMemoryCache();

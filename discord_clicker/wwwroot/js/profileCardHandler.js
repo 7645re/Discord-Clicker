@@ -1,15 +1,14 @@
 async function setDataToProfileCard() {
-    let user = await getUser()
+    let user = await getUserInformation()
+    let builds = JSON.parse(localStorage.getItem("builds"))
+    let buildsCount = JSON.parse(localStorage.getItem("buildsCount"))
+    let profileBuildsHTML = document.getElementsByClassName("builds")[0]
     let profileNicknameHTML = document.getElementsByClassName("nickname")[0]
-    let profilePerksHTML = document.getElementsByClassName("perks")[0]
     let profileHeaderHTML = document.getElementsByClassName("modal-header")[0]
-    let perks = JSON.parse(localStorage.getItem("perks"))
-    let perksCount = JSON.parse(localStorage.getItem("perksCount"))
-    for (var perk in perks) {
-        if (perksCount[perks[perk].id]) {
-            profilePerksHTML.innerHTML += `<img class="profile-badge" src="images/PerksImg/${perks[perk].name}.svg"/>`
+    for (var build in builds) {
+        if (buildsCount[builds[build].id]) {
+            profileBuildsHTML.innerHTML += `<img class="profile-badge" src="images/BuildsImg/${builds[build].name}.svg"/>`
         }
     }
-    console.log(user)
     profileNicknameHTML.textContent = user["nickname"] + "#" + user["id"]
 }

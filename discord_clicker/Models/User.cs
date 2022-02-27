@@ -8,14 +8,15 @@ namespace discord_clicker.Models
     {
         [Key]
         public int Id { get; set; }
+        public decimal Money { get; set; }
         public string Nickname { get; set; }
         public string Password { get; set; }
-        public ulong Money { get; set; }
-        public int Tier { get; set; }
-        public uint ClickCoefficient { get; set; }
-        public ulong PassiveCoefficient { get; set; }
         public DateTime LastRequestDate {get; set; }
-        public List<Perk> Perks { get; set; } = new();
-        public List<UserPerk> UserPerks { get; set; } = new();
+        public decimal ClickCoefficient { get; set; }
+        public decimal PassiveCoefficient { get; set; }
+        public List<Build> Builds { get; set; } = new ();
+        public List<Upgrade> Upgrades { get; set; } = new ();
+        public List<UserBuild> UserBuilds { get; set; } = new ();
+        public List<UserUpgrade> UserUpgrades { get; set; } = new ();
     }
 }

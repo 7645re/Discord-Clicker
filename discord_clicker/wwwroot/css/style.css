@@ -347,18 +347,18 @@ input {
     overflow: hidden;
   }
   
-  .rainElement {
+.rainElement {
     position: absolute;
     height: 120px;
     border-radius: 0 0 999px 999px;
     animation: animate 10s linear infinite;
   }
   
-  @keyframes animate {
+@keyframes animate {
     0% {
       transform: translateY(-120px);
     }
     100% {
       transform: translateY(calc(100vh + 120px));
     }
-  }
+}

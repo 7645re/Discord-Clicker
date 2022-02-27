@@ -8,7 +8,6 @@ using discord_clicker.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
-using discord_clicker.Serializer;
 using System;
 
 namespace discord_clicker.Controllers
@@ -55,8 +54,7 @@ namespace discord_clicker.Controllers
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Nickname == model.Nickname);
                 if (user == null)
                 {
-                    User dbUser = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1,
-                     PassiveCoefficient = 0, Tier=1, LastRequestDate=DateTime.Now };
+                    User dbUser = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1, PassiveCoefficient = 0, LastRequestDate=DateTime.Now };
                     db.Users.Add(dbUser);
                     await db.SaveChangesAsync();
                     await Authenticate(dbUser);
