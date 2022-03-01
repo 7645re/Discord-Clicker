@@ -9,6 +9,22 @@ namespace discord_clicker.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Achievement",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    AchievementObject = table.Column<string>(type: "text", nullable: true),
+                    AchievementObjectCount = table.Column<decimal>(type: "numeric", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Achievement", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Builds",
                 columns: table => new
                 {
@@ -50,8 +66,11 @@ namespace discord_clicker.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Money = table.Column<decimal>(type: "numeric", nullable: false),
+                    AllMoney = table.Column<decimal>(type: "numeric", nullable: false),
                     Nickname = table.Column<string>(type: "text", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true),
+                    Click = table.Column<decimal>(type: "numeric", nullable: false),
+                    PlayStartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     LastRequestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     ClickCoefficient = table.Column<decimal>(type: "numeric", nullable: false),
                     PassiveCoefficient = table.Column<decimal>(type: "numeric", nullable: false)
@@ -62,12 +81,37 @@ namespace discord_clicker.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserAchievements",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    AchievementId = table.Column<int>(type: "integer", nullable: false),
+                    DateOfachievement = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAchievements", x => new { x.AchievementId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserAchievements_Achievement_AchievementId",
+                        column: x => x.AchievementId,
+                        principalTable: "Achievement",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserAchievements_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserBuilds",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     BuildId = table.Column<int>(type: "integer", nullable: false),
-                    Count = table.Column<long>(type: "bigint", nullable: false, defaultValue: 0L)
+                    Count = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -92,7 +136,7 @@ namespace discord_clicker.Migrations
                 {
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     UpgradeId = table.Column<int>(type: "integer", nullable: false),
-                    Count = table.Column<long>(type: "bigint", nullable: false, defaultValue: 0L)
+                    Count = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -112,6 +156,11 @@ namespace discord_clicker.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserAchievements_UserId",
+                table: "UserAchievements",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserBuilds_UserId",
                 table: "UserBuilds",
                 column: "UserId");
@@ -125,10 +174,16 @@ namespace discord_clicker.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "UserAchievements");
+
+            migrationBuilder.DropTable(
                 name: "UserBuilds");
 
             migrationBuilder.DropTable(
                 name: "UserUpgrades");
+
+            migrationBuilder.DropTable(
+                name: "Achievement");
 
             migrationBuilder.DropTable(
                 name: "Builds");

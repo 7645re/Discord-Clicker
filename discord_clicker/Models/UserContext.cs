@@ -10,7 +10,6 @@ namespace discord_clicker.Models
         public UserContext(DbContextOptions<UserContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,7 +28,6 @@ namespace discord_clicker.Models
                     .HasForeignKey(pt => pt.BuildId),
                 j =>
                 {
-                    j.Property(pt => pt.Count).HasDefaultValue(0);
                     j.HasKey(t => new { t.BuildId, t.UserId });
                     j.ToTable("UserBuilds");
                 });
@@ -48,9 +46,26 @@ namespace discord_clicker.Models
                     .HasForeignKey(pt => pt.UpgradeId),
                 j =>
                 {
-                    j.Property(pt => pt.Count).HasDefaultValue(0);
                     j.HasKey(t => new { t.UpgradeId, t.UserId });
                     j.ToTable("UserUpgrades");
+                });
+            modelBuilder
+                .Entity<Achievement>()
+                .HasMany(c => c.Users)
+                .WithMany(s => s.Achievements)
+                .UsingEntity<UserAchievement>(
+                   j => j
+                    .HasOne(pt => pt.User)
+                    .WithMany(t => t.UserAchievements)
+                    .HasForeignKey(pt => pt.UserId),
+                j => j
+                    .HasOne(pt => pt.Achievement)
+                    .WithMany(p => p.UserAchievements)
+                    .HasForeignKey(pt => pt.AchievementId),
+                j =>
+                {
+                    j.HasKey(t => new { t.AchievementId, t.UserId });
+                    j.ToTable("UserAchievements");
                 });
         }
     }

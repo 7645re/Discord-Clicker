@@ -13,6 +13,7 @@ namespace discord_clicker.Models
         public string Action { get; set; }
         public uint ConditionGet { get; set; }
         public bool ForEachBuild { get; set; }
+        #nullable enable
         public string? Description { get; set; }
         public List<User> Users { get; set; } = new();
         public List<UserUpgrade> UserUpgrades { get; set; } = new();

@@ -2,7 +2,7 @@
 
 namespace discord_clicker.Migrations
 {
-    public partial class upgrade : Migration
+    public partial class achievements_to_usermodel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
