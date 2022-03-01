@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using discord_clicker.ViewModels;
 using System;
 
 namespace discord_clicker.Models
@@ -18,5 +19,14 @@ namespace discord_clicker.Models
         public List<Upgrade> Upgrades { get; set; } = new ();
         public List<UserBuild> UserBuilds { get; set; } = new ();
         public List<UserUpgrade> UserUpgrades { get; set; } = new ();
+    }
+    public static class UserExtension {
+        public static UserModel ToUserModel(this User user) => new UserModel {
+            Id=user.Id,
+            Money=user.Money,
+            Nickname=user.Nickname,
+            ClickCoefficient=user.ClickCoefficient,
+            PassiveCoefficient=user.PassiveCoefficient
+        };
     }
 }

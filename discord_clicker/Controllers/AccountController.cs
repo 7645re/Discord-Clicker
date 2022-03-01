@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using discord_clicker.ViewModels;
@@ -8,16 +7,19 @@ using discord_clicker.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using discord_clicker.Services;
 using System;
 
 namespace discord_clicker.Controllers
 {
     public class AccountController : Controller
     {
-        private UserContext db;
-        public AccountController(UserContext context)
+        private UserContext _db;
+        private IPersonHandler<UserModel> _userHandler;
+        public AccountController(UserContext context, IPersonHandler<UserModel> userHandler)
         {
-            db = context;
+            _db = context;
+            _userHandler = userHandler;
         }
         [HttpGet]
         public IActionResult Login()
@@ -30,10 +32,10 @@ namespace discord_clicker.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Nickname == model.Nickname && u.Password == model.Password);
-                if (user != null)
+                UserModel userModel = await _userHandler.GetInfoByPass(model.Nickname, model.Password);
+                if (userModel != null)
                 {
-                    await Authenticate(user);
+                    await Authenticate(userModel);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
@@ -51,13 +53,12 @@ namespace discord_clicker.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Nickname == model.Nickname);
-                if (user == null)
+                UserModel userModel = await _userHandler.GetInfoByName(model.Nickname);
+                if (userModel == null)
                 {
-                    User dbUser = new User { Nickname = model.Nickname, Password = model.Password, Money = 0, ClickCoefficient = 1, PassiveCoefficient = 0, LastRequestDate=DateTime.Now };
-                    db.Users.Add(dbUser);
-                    await db.SaveChangesAsync();
-                    await Authenticate(dbUser);
+                    userModel = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1,
+                    passiveCoefficient:0);
+                    await Authenticate(userModel);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -65,12 +66,12 @@ namespace discord_clicker.Controllers
             return View(model);
         }
 
-        private async Task Authenticate(User user)
+        private async Task Authenticate(UserModel userModel)
         {
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id))
+                new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(userModel.Id))
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
