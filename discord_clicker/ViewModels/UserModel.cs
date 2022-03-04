@@ -13,8 +13,8 @@ namespace discord_clicker.ViewModels
         public string Nickname { get; set; }
         public decimal ClickCoefficient { get; set; }
         public decimal PassiveCoefficient { get; set; }
-        public Dictionary<string, uint> BuyedBuilds { get; set; } = new ();
-        public Dictionary<string, uint> BuyedUpgrades { get; set; } = new ();
+        public Dictionary<string, uint> Builds { get; set; } = new ();
+        public Dictionary<string, uint> Upgrades { get; set; } = new ();
         public Dictionary<string, DateTime> Achievements { get; set; } = new ();
     }
 }

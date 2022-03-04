@@ -17,4 +17,12 @@ namespace discord_clicker.Models
         public List<User> Users { get; set; } = new ();
         public List<UserAchievement> UserAchievements { get; set; } = new();
     }
+    public static class AchievementExtension {
+        public static AchievementModel ToAchievementModel(this Achievement achievement) => new AchievementModel {
+            Id=achievement.Id,
+            Name=achievement.Name,
+            AchievementObject=achievement.AchievementObject,
+            AchievementObjectCount=achievement.AchievementObjectCount
+        };
+    }
 }

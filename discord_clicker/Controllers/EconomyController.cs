@@ -20,18 +20,20 @@ namespace discord_clicker.Controllers
     public class EconomyController : Controller
     {
         private IItemHandler<BuildModel> _buildHandler;
-        private IPersonHandler<UserModel> _userHandler;
-        public EconomyController(IItemHandler<BuildModel> buildHandler, IPersonHandler<UserModel> userHandler)
+        private IItemHandler<UpgradeModel> _upgradeHandler;
+        private IPersonHandler<User, UserModel> _userHandler;
+        public EconomyController(IItemHandler<BuildModel> buildHandler, IPersonHandler<User, UserModel> userHandler, IItemHandler<UpgradeModel> upgradeHandler)
         {
             _buildHandler = buildHandler;
             _userHandler = userHandler;
+            _upgradeHandler = upgradeHandler;
         }
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetUserInformation() {
+        public async Task<IActionResult> Stats() {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            return Ok(await _userHandler.GetInfoById(userId));
+            return Ok(await _userHandler.GetFullInfoById(userId));
         }
 
 
@@ -39,14 +41,27 @@ namespace discord_clicker.Controllers
         [HttpGet]
         async public Task<IActionResult> BuyBuild(int buildId, ulong money) {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
-            return Ok(await _buildHandler.BuyItem(userId: userId, itemId: buildId, money: money));
+            return Ok(await _buildHandler.GetItem(userId: userId, itemId: buildId, money: money));
         }
 
         [Authorize]
         [HttpGet]
-        async public Task<IActionResult> getBuildsList() {
+        async public Task<IActionResult> BuyUpgrade(int upgradeId, ulong money) {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
+            return Ok(await _upgradeHandler.GetItem(userId: userId, itemId: upgradeId, money: money));
+        }
+
+        [Authorize]
+        [HttpGet]
+        async public Task<IActionResult> Builds() {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
             return Ok(await _buildHandler.GetItemsList(userId));
+        }
+        [Authorize]
+        [HttpGet]
+        async public Task<IActionResult> Upgrades() {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
+            return Ok(await _upgradeHandler.GetItemsList(userId));
         }
     }
 }

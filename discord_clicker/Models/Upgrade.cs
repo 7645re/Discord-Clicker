@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using discord_clicker.ViewModels;
 
 namespace discord_clicker.Models
 {
@@ -17,5 +18,17 @@ namespace discord_clicker.Models
         public string? Description { get; set; }
         public List<User> Users { get; set; } = new();
         public List<UserUpgrade> UserUpgrades { get; set; } = new();
+    }
+        public static class UpgradeExtension {
+        public static UpgradeModel ToUpgradeModel(this Upgrade upgrade) => new UpgradeModel {
+            Id=upgrade.Id,
+            Name=upgrade.Name,
+            Cost=upgrade.Cost,
+            BuildId=upgrade.BuildId,
+            Action=upgrade.Action,
+            ConditionGet=upgrade.ConditionGet,
+            ForEachBuild=upgrade.ForEachBuild,
+            Description=upgrade.Description,
+        };
     }
 }

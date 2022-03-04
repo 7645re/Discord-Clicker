@@ -23,6 +23,6 @@ namespace discord_clicker.Models
             Cost=build.Cost,
             Description=build.Description,
             PassiveCoefficient=build.PassiveCoefficient
-            };
-        }
+        };
+    }
 }

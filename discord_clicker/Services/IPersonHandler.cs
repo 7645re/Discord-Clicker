@@ -3,9 +3,9 @@ using discord_clicker.ViewModels;
 
 namespace discord_clicker.Services
 {
-    public interface IPersonHandler<T>
+    public interface IPersonHandler<T, B>
     {
-        Task<T> GetInfoById(int id);
+        Task<B> GetFullInfoById(int id);
         Task<T> GetInfoByName(string nickname);
         Task<T> GetInfoByPass(string nickname, string passowrd);
         Task<T> Create(string nickname, string password, decimal money, decimal clickCoefficient, 

@@ -29,7 +29,8 @@ namespace discord_clicker
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
             services.AddTransient<IItemHandler<BuildModel>, BuildHandler>();
-            services.AddTransient<IPersonHandler<UserModel>, UserHandler>();
+            services.AddTransient<IItemHandler<UpgradeModel>, UpgradeHandler>();
+            services.AddTransient<IPersonHandler<User, UserModel>, UserHandler>();
             services.AddControllersWithViews();
             services.AddSignalR();
             services.AddMemoryCache();

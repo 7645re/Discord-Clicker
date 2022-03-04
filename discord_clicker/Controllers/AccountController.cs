@@ -15,8 +15,8 @@ namespace discord_clicker.Controllers
     public class AccountController : Controller
     {
         private UserContext _db;
-        private IPersonHandler<UserModel> _userHandler;
-        public AccountController(UserContext context, IPersonHandler<UserModel> userHandler)
+        private IPersonHandler<User, UserModel> _userHandler;
+        public AccountController(UserContext context, IPersonHandler<User, UserModel> userHandler)
         {
             _db = context;
             _userHandler = userHandler;
@@ -30,17 +30,19 @@ namespace discord_clicker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if (ModelState.IsValid)
-            {
-                UserModel userModel = await _userHandler.GetInfoByPass(model.Nickname, model.Password);
-                if (userModel != null)
-                {
-                    await Authenticate(userModel);
-                    return RedirectToAction("Index", "Home");
-                }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            if (!ModelState.IsValid) {
+                ModelState.AddModelError("", "Некорректно заполнена форма");
+                return View(model);
             }
-            return View(model);
+            User user = await _userHandler.GetInfoByPass(model.Nickname, model.Password);
+            if (user != null) {
+                await Authenticate(user);
+                return RedirectToAction("Index", "Home");
+            }
+            else {
+                ModelState.AddModelError("", "Введен неверный логин или пароль");
+                return View(model);
+            }
         }
         [HttpGet]
         public IActionResult Register()
@@ -51,27 +53,25 @@ namespace discord_clicker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
-            {
-                UserModel userModel = await _userHandler.GetInfoByName(model.Nickname);
-                if (userModel == null)
-                {
-                    userModel = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0 );
-                    await Authenticate(userModel);
-                    return RedirectToAction("Index", "Home");
-                }
+            if (!ModelState.IsValid) {
+                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                return View(model);
             }
-            ModelState.AddModelError("", "Некорректные логин и(или) пароль");
-            return View(model);
+            User User = await _userHandler.GetInfoByName(model.Nickname);
+            if (User == null) {
+                User = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0 );
+                await Authenticate(User);
+                return RedirectToAction("Index", "Home");
+            }
+            else {
+                ModelState.AddModelError("", "Аккаунт с таким логином уже существует");
+                return RedirectToAction("Login", "Account");
+            }
         }
 
-        private async Task Authenticate(UserModel userModel)
+        private async Task Authenticate(User user)
         {
-
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(userModel.Id))
-            };
+            var claims = new List<Claim>{new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id))};
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
