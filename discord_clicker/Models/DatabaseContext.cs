@@ -2,12 +2,16 @@
 
 namespace discord_clicker.Models
 {
-    public class UserContext : DbContext
+    public class DatabaseContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Build> Builds { get; set; }
         public DbSet<Upgrade> Upgrades { get; set; }
-        public UserContext(DbContextOptions<UserContext> options)
+        public DbSet<Achievement> Achievements { get; set; }
+        public DbSet<UserBuild> UsersBuilds { get; set; }
+        public DbSet<UserAchievement> UsersAchievements { get; set; }
+        public DbSet<UserUpgrade> UsersUpgrades { get; set; }
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
         }
@@ -23,12 +27,12 @@ namespace discord_clicker.Models
                     .WithMany(t => t.UserBuilds)
                     .HasForeignKey(pt => pt.UserId),
                 j => j
-                    .HasOne(pt => pt.Build)
+                    .HasOne(pt => pt.Item)
                     .WithMany(p => p.UserBuilds)
-                    .HasForeignKey(pt => pt.BuildId),
+                    .HasForeignKey(pt => pt.ItemId),
                 j =>
                 {
-                    j.HasKey(t => new { t.BuildId, t.UserId });
+                    j.HasKey(t => new { t.ItemId, t.UserId });
                     j.ToTable("UserBuilds");
                 });
             modelBuilder
@@ -41,12 +45,12 @@ namespace discord_clicker.Models
                     .WithMany(t => t.UserUpgrades)
                     .HasForeignKey(pt => pt.UserId),
                 j => j
-                    .HasOne(pt => pt.Upgrade)
+                    .HasOne(pt => pt.Item)
                     .WithMany(p => p.UserUpgrades)
-                    .HasForeignKey(pt => pt.UpgradeId),
+                    .HasForeignKey(pt => pt.ItemId),
                 j =>
                 {
-                    j.HasKey(t => new { t.UpgradeId, t.UserId });
+                    j.HasKey(t => new { t.ItemId, t.UserId });
                     j.ToTable("UserUpgrades");
                 });
             modelBuilder
@@ -59,12 +63,12 @@ namespace discord_clicker.Models
                     .WithMany(t => t.UserAchievements)
                     .HasForeignKey(pt => pt.UserId),
                 j => j
-                    .HasOne(pt => pt.Achievement)
+                    .HasOne(pt => pt.Item)
                     .WithMany(p => p.UserAchievements)
-                    .HasForeignKey(pt => pt.AchievementId),
+                    .HasForeignKey(pt => pt.ItemId),
                 j =>
                 {
-                    j.HasKey(t => new { t.AchievementId, t.UserId });
+                    j.HasKey(t => new { t.ItemId, t.UserId });
                     j.ToTable("UserAchievements");
                 });
         }

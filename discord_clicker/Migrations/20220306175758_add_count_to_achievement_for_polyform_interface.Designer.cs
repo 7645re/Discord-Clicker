@@ -9,9 +9,9 @@ using discord_clicker.Models;
 
 namespace discord_clicker.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    [Migration("20220301140637_achievements_to_usermodel")]
-    partial class achievements_to_usermodel
+    [DbContext(typeof(DatabaseContext))]
+    [Migration("20220306175758_add_count_to_achievement_for_polyform_interface")]
+    partial class add_count_to_achievement_for_polyform_interface
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,7 @@ namespace discord_clicker.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Achievement");
+                    b.ToTable("Achievements");
                 });
 
             modelBuilder.Entity("discord_clicker.Models.Build", b =>
@@ -94,6 +94,9 @@ namespace discord_clicker.Migrations
                     b.Property<bool>("ForEachBuild")
                         .HasColumnType("boolean");
 
+                    b.Property<decimal>("GetMoney")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -143,16 +146,19 @@ namespace discord_clicker.Migrations
 
             modelBuilder.Entity("discord_clicker.Models.UserAchievement", b =>
                 {
-                    b.Property<int>("AchievementId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("integer");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
+                    b.Property<long>("Count")
+                        .HasColumnType("bigint");
+
                     b.Property<DateTime>("DateOfachievement")
                         .HasColumnType("timestamp without time zone");
 
-                    b.HasKey("AchievementId", "UserId");
+                    b.HasKey("ItemId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -161,7 +167,7 @@ namespace discord_clicker.Migrations
 
             modelBuilder.Entity("discord_clicker.Models.UserBuild", b =>
                 {
-                    b.Property<int>("BuildId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("integer");
 
                     b.Property<int>("UserId")
@@ -170,7 +176,7 @@ namespace discord_clicker.Migrations
                     b.Property<long>("Count")
                         .HasColumnType("bigint");
 
-                    b.HasKey("BuildId", "UserId");
+                    b.HasKey("ItemId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -179,7 +185,7 @@ namespace discord_clicker.Migrations
 
             modelBuilder.Entity("discord_clicker.Models.UserUpgrade", b =>
                 {
-                    b.Property<int>("UpgradeId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("integer");
 
                     b.Property<int>("UserId")
@@ -188,7 +194,7 @@ namespace discord_clicker.Migrations
                     b.Property<long>("Count")
                         .HasColumnType("bigint");
 
-                    b.HasKey("UpgradeId", "UserId");
+                    b.HasKey("ItemId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -197,9 +203,9 @@ namespace discord_clicker.Migrations
 
             modelBuilder.Entity("discord_clicker.Models.UserAchievement", b =>
                 {
-                    b.HasOne("discord_clicker.Models.Achievement", "Achievement")
+                    b.HasOne("discord_clicker.Models.Achievement", "Item")
                         .WithMany("UserAchievements")
-                        .HasForeignKey("AchievementId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -209,16 +215,16 @@ namespace discord_clicker.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Achievement");
+                    b.Navigation("Item");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("discord_clicker.Models.UserBuild", b =>
                 {
-                    b.HasOne("discord_clicker.Models.Build", "Build")
+                    b.HasOne("discord_clicker.Models.Build", "Item")
                         .WithMany("UserBuilds")
-                        .HasForeignKey("BuildId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -228,16 +234,16 @@ namespace discord_clicker.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Build");
+                    b.Navigation("Item");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("discord_clicker.Models.UserUpgrade", b =>
                 {
-                    b.HasOne("discord_clicker.Models.Upgrade", "Upgrade")
+                    b.HasOne("discord_clicker.Models.Upgrade", "Item")
                         .WithMany("UserUpgrades")
-                        .HasForeignKey("UpgradeId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -247,7 +253,7 @@ namespace discord_clicker.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Upgrade");
+                    b.Navigation("Item");
 
                     b.Navigation("User");
                 });

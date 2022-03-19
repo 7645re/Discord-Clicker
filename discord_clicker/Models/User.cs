@@ -5,6 +5,9 @@ using System;
 
 namespace discord_clicker.Models
 {
+    /// <summary>
+    /// Rich User Model
+    /// </summary>
     public class User
     {
         [Key]
@@ -24,15 +27,18 @@ namespace discord_clicker.Models
         public List<UserUpgrade> UserUpgrades { get; set; } = new ();
         public List<Achievement> Achievements { get; set; } = new ();
         public List<UserAchievement> UserAchievements { get; set; } = new ();
+        public UserModel ToViewModel() {
+            return new UserModel() {
+                Id=this.Id,
+                Money=this.Money,
+                Nickname=this.Nickname,
+                ClickCoefficient=this.ClickCoefficient,
+                PassiveCoefficient=this.PassiveCoefficient,
+                PlayStartDate=this.PlayStartDate,
+                Click=this.Click,
+                AllMoney=this.AllMoney
+            };
+        }
     }
-    public static class UserExtension {
-        public static UserModel ToUserModel(this User user) => new UserModel {
-            Id=user.Id,
-            Money=user.Money,
-            Nickname=user.Nickname,
-            ClickCoefficient=user.ClickCoefficient,
-            PassiveCoefficient=user.PassiveCoefficient,
-            
-        };
-    }
+
 }

@@ -13,10 +13,10 @@ namespace discord_clicker.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly UserContext _db;
+        private readonly DatabaseContext _db;
         private ILogger _logger;
         private IMemoryCache _cache;
-        public HomeController(UserContext context, ILogger<EconomyController> logger, IMemoryCache memoryCache)
+        public HomeController(DatabaseContext context, ILogger<EconomyController> logger, IMemoryCache memoryCache)
         {
             _db = context;
             _logger = logger;

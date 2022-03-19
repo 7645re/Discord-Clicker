@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Caching.Memory;
-using discord_clicker.Services;
 using discord_clicker.ViewModels;
+using discord_clicker.Services;
 
 namespace discord_clicker.Controllers
 {
@@ -19,13 +19,20 @@ namespace discord_clicker.Controllers
     [Route("api/[action]")]
     public class EconomyController : Controller
     {
-        private IItemHandler<BuildModel> _buildHandler;
-        private IItemHandler<UpgradeModel> _upgradeHandler;
-        private IPersonHandler<User, UserModel> _userHandler;
-        public EconomyController(IItemHandler<BuildModel> buildHandler, IPersonHandler<User, UserModel> userHandler, IItemHandler<UpgradeModel> upgradeHandler)
+        private UserHandler _userHandler;
+        private ILogger _logger;
+        private ItemHandler<Build, BuildModel, UserBuild> _buildHandler;
+        private ItemHandler<Upgrade, UpgradeModel, UserUpgrade> _upgradeHandler;
+        private ItemHandler<Achievement, AchievementModel, UserAchievement> _achievementHandler;
+        private DatabaseContext _db;
+        public EconomyController(DatabaseContext context, UserHandler userHandler, ItemHandler<Build, BuildModel, UserBuild> buildHandler, 
+        ItemHandler<Upgrade, UpgradeModel, UserUpgrade> upgradeHandler, ItemHandler<Achievement, AchievementModel, UserAchievement> achievementHandler, ILogger<EconomyController> logger)
         {
-            _buildHandler = buildHandler;
+            _logger = logger;
+            _db = context;
             _userHandler = userHandler;
+            _buildHandler = buildHandler;
+            _achievementHandler = achievementHandler;
             _upgradeHandler = upgradeHandler;
         }
 
@@ -36,32 +43,35 @@ namespace discord_clicker.Controllers
             return Ok(await _userHandler.GetFullInfoById(userId));
         }
 
-
-        [Authorize]
         [HttpGet]
-        async public Task<IActionResult> BuyBuild(int buildId, ulong money) {
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
-            return Ok(await _buildHandler.GetItem(userId: userId, itemId: buildId, money: money));
+        [Authorize]
+        public async Task<IActionResult> Builds() {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
+            return Ok(await _buildHandler.GetItemsList(userId, _db.Builds));
         }
-
-        [Authorize]
         [HttpGet]
-        async public Task<IActionResult> BuyUpgrade(int upgradeId, ulong money) {
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
-            return Ok(await _upgradeHandler.GetItem(userId: userId, itemId: upgradeId, money: money));
+        [Authorize]
+        public async Task<IActionResult> Upgrades() {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
+            return Ok(await _upgradeHandler.GetItemsList(userId, _db.Upgrades));
         }
-
-        [Authorize]
         [HttpGet]
-        async public Task<IActionResult> Builds() {
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
-            return Ok(await _buildHandler.GetItemsList(userId));
+        [Authorize]
+        public async Task<IActionResult> Achievements() {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
+            return Ok(await _achievementHandler.GetItemsList(userId, _db.Achievements));
         }
-        [Authorize]
         [HttpGet]
-        async public Task<IActionResult> Upgrades() {
-            int userId = Convert.ToInt32(HttpContext.User.Identity.Name); /** User ID */
-            return Ok(await _upgradeHandler.GetItemsList(userId));
+        [Authorize]
+        public async Task<IActionResult> BuyBuild(int buildId, decimal money) {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
+            return Ok(await _buildHandler.BuyItem(userId, buildId, money, _db.Builds));
+        }
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> BuyUpgrade(int upgradeId, decimal money) {
+            int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
+            return Ok(await _upgradeHandler.BuyItem(userId, upgradeId, money, _db.Upgrades));
         }
     }
 }

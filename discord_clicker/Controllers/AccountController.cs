@@ -14,11 +14,9 @@ namespace discord_clicker.Controllers
 {
     public class AccountController : Controller
     {
-        private UserContext _db;
-        private IPersonHandler<User, UserModel> _userHandler;
-        public AccountController(UserContext context, IPersonHandler<User, UserModel> userHandler)
+        private UserHandler _userHandler;
+        public AccountController(UserHandler userHandler)
         {
-            _db = context;
             _userHandler = userHandler;
         }
         [HttpGet]
@@ -59,7 +57,7 @@ namespace discord_clicker.Controllers
             }
             User User = await _userHandler.GetInfoByName(model.Nickname);
             if (User == null) {
-                User = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0 );
+                User = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.Now );
                 await Authenticate(User);
                 return RedirectToAction("Index", "Home");
             }

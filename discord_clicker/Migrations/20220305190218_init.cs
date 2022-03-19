@@ -9,7 +9,7 @@ namespace discord_clicker.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Achievement",
+                name: "Achievements",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -21,7 +21,7 @@ namespace discord_clicker.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Achievement", x => x.Id);
+                    table.PrimaryKey("PK_Achievements", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,9 +92,9 @@ namespace discord_clicker.Migrations
                 {
                     table.PrimaryKey("PK_UserAchievements", x => new { x.AchievementId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_UserAchievements_Achievement_AchievementId",
+                        name: "FK_UserAchievements_Achievements_AchievementId",
                         column: x => x.AchievementId,
-                        principalTable: "Achievement",
+                        principalTable: "Achievements",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -183,7 +183,7 @@ namespace discord_clicker.Migrations
                 name: "UserUpgrades");
 
             migrationBuilder.DropTable(
-                name: "Achievement");
+                name: "Achievements");
 
             migrationBuilder.DropTable(
                 name: "Builds");

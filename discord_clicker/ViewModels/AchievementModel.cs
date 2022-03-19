@@ -1,4 +1,4 @@
-namespace discord_clicker.Models
+namespace discord_clicker.ViewModels
 {
      public class AchievementModel
     {

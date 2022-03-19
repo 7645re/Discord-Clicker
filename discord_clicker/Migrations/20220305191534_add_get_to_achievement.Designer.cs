@@ -9,9 +9,9 @@ using discord_clicker.Models;
 
 namespace discord_clicker.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    [Migration("20220301133733_init")]
-    partial class init
+    [DbContext(typeof(DatabaseContext))]
+    [Migration("20220305191534_add_get_to_achievement")]
+    partial class add_get_to_achievement
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,7 @@ namespace discord_clicker.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Achievement");
+                    b.ToTable("Achievements");
                 });
 
             modelBuilder.Entity("discord_clicker.Models.Build", b =>
@@ -93,6 +93,9 @@ namespace discord_clicker.Migrations
 
                     b.Property<bool>("ForEachBuild")
                         .HasColumnType("boolean");
+
+                    b.Property<decimal>("Get")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");

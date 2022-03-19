@@ -1,9 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using discord_clicker.ViewModels;
 
 namespace discord_clicker.Models
 {
-     public class Achievement
+    /// <summary>
+    /// Rich Achievement Model
+    /// </summary>
+    public class Achievement : IItem<AchievementModel>
     {
         [Key]
         public int Id { get; set; }
@@ -16,13 +20,17 @@ namespace discord_clicker.Models
         public string? Description { get; set; }
         public List<User> Users { get; set; } = new ();
         public List<UserAchievement> UserAchievements { get; set; } = new();
-    }
-    public static class AchievementExtension {
-        public static AchievementModel ToAchievementModel(this Achievement achievement) => new AchievementModel {
-            Id=achievement.Id,
-            Name=achievement.Name,
-            AchievementObject=achievement.AchievementObject,
-            AchievementObjectCount=achievement.AchievementObjectCount
-        };
+        public AchievementModel ToViewModel () {
+            return new AchievementModel() {
+                Id=this.Id,
+                Name=this.Name,
+                Description=this.Description,
+                AchievementObject=this.AchievementObject,
+                AchievementObjectCount=this.AchievementObjectCount,
+            };
+        }
+        public (bool, string, User) Get(User user, decimal money) {
+            return (true, "", user);
+        }
     }
 }
