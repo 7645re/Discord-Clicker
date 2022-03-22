@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using discord_clicker.Models;
 
+#nullable disable
+
 namespace discord_clicker.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
@@ -15,22 +17,27 @@ namespace discord_clicker.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityByDefaultColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("discord_clicker.Models.Achievement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("integer");
 
-                    b.Property<string>("AchievementObject")
-                        .HasColumnType("text");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("AchievementObjectCount")
                         .HasColumnType("numeric");
+
+                    b.Property<long>("AchievementObjectId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("AchievementObjectType")
+                        .HasColumnType("text");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -47,8 +54,9 @@ namespace discord_clicker.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Cost")
                         .HasColumnType("numeric");
@@ -71,8 +79,9 @@ namespace discord_clicker.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Action")
                         .HasColumnType("text");
@@ -107,8 +116,9 @@ namespace discord_clicker.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("AllMoney")
                         .HasColumnType("numeric");
@@ -120,7 +130,7 @@ namespace discord_clicker.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<DateTime>("LastRequestDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<decimal>("Money")
                         .HasColumnType("numeric");
@@ -135,7 +145,7 @@ namespace discord_clicker.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("PlayStartDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -154,13 +164,13 @@ namespace discord_clicker.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("DateOfachievement")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("ItemId", "UserId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserAchievements");
+                    b.ToTable("UserAchievements", (string)null);
                 });
 
             modelBuilder.Entity("discord_clicker.Models.UserBuild", b =>
@@ -181,7 +191,7 @@ namespace discord_clicker.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserBuilds");
+                    b.ToTable("UserBuilds", (string)null);
                 });
 
             modelBuilder.Entity("discord_clicker.Models.UserUpgrade", b =>
@@ -199,7 +209,7 @@ namespace discord_clicker.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserUpgrades");
+                    b.ToTable("UserUpgrades", (string)null);
                 });
 
             modelBuilder.Entity("discord_clicker.Models.UserAchievement", b =>

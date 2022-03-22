@@ -5,7 +5,8 @@ namespace discord_clicker.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         /// <summary> Build or upgrade or clicks for which achievement is given </summary>
-        public string AchievementObject { get; set; }
+        public string AchievementObjectType { get; set; }
+        public uint AchievementObjectId { get; set; }
         /// <summary> Number of objects to get achievements </summary>
         public decimal AchievementObjectCount { get; set; }
         #nullable enable

@@ -12,5 +12,6 @@ namespace discord_clicker.ViewModels
         public bool ForEachBuild { get; set; }
         #nullable enable
         public string? Description { get; set; }
+        public decimal GetMoney { get; set;} 
     }
 }

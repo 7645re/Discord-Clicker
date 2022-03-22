@@ -57,7 +57,7 @@ namespace discord_clicker.Controllers
             }
             User User = await _userHandler.GetInfoByName(model.Nickname);
             if (User == null) {
-                User = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.Now );
+                User = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.UtcNow );
                 await Authenticate(User);
                 return RedirectToAction("Index", "Home");
             }

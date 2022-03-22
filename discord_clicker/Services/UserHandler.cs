@@ -89,7 +89,7 @@ namespace discord_clicker.Services {
         public async Task<User> Create(string nickname, string password, decimal money, decimal clickCoefficient, 
             decimal passiveCoefficient, DateTime playStartDate) {
             User user = new User { Nickname = nickname, Password = password, Money = money, ClickCoefficient = clickCoefficient,
-             PassiveCoefficient = passiveCoefficient, LastRequestDate=DateTime.Now, PlayStartDate=playStartDate };
+             PassiveCoefficient = passiveCoefficient, LastRequestDate=DateTime.UtcNow, PlayStartDate=playStartDate };
             _cache.Set(nickname, user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
