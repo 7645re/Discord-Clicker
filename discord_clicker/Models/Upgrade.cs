@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using discord_clicker.ViewModels;
 using System.Linq;
+using System;
 
 namespace discord_clicker.Models
 {
@@ -34,34 +35,50 @@ namespace discord_clicker.Models
                 ConditionGet=this.ConditionGet,
                 ForEachBuild=this.ForEachBuild,
                 Description=this.Description,
+                GetMoney=this.GetMoney
             };
         }
         public (bool, string, User) Get(User user, decimal money) {
             bool enoughMoney = user.Money + money >= this.Cost;
-            bool presenceRowUserItem = user.UserUpgrades.Where(up => up.ItemId == this.Id).FirstOrDefault() != null;
-            bool presenceUserItem = user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).FirstOrDefault() != null;
-            uint upgradeCount = user.UserBuilds.Where(ub => ub.ItemId == this.Id).First().Count;
-            bool conditionDone = upgradeCount >= this.ConditionGet;
-            if (!presenceRowUserItem) {
+            bool presenceUserUpgrade = user.UserUpgrades.Where(up => up.ItemId == this.Id).FirstOrDefault() != null;
+            bool presenceUserBuild = user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).FirstOrDefault() != null;
+            if (!presenceUserBuild) {
                 return (false, "you dont have item for this upgrade", user);
             }
             if (!enoughMoney) {
                 return (false, "not enough money", user);
             }
+            uint buildCount = user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).First().Count;
+            bool conditionDone = buildCount >= this.ConditionGet;
             if (!conditionDone) {
                 return (false, "not condition done", user);
             }
-            if (!presenceRowUserItem) {
+            if (!presenceUserUpgrade) {
                 user.UserUpgrades.Add(new UserUpgrade {UserId = user.Id, ItemId=this.Id, Count=0, Item=this});
             }
             user.Money = user.Money + money - this.Cost;
             user.UserUpgrades.Where(up => up.ItemId == this.Id).First().Count++;
-            // switch (this.Action, this.ForEachBuild) {
-            //     case ("+", true):
-            //         user.UserBuilds.Where(ub =>)
-            //     break;  
-            // }
-
+            uint upgradeCount = user.UserUpgrades.Where(up => up.ItemId == this.Id).First().Count;
+            switch (this.Action, this.ForEachBuild) {
+                case ("+", true):
+                    user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).First().PassiveCoefficient+=buildCount*this.GetMoney;
+                break;
+                case ("+", false):
+                    user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).First().PassiveCoefficient+=this.GetMoney;
+                break;
+                case ("*", true):
+                    user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).First().PassiveCoefficient+=buildCount*this.GetMoney;
+                break;
+                case ("*", false):
+                    user.UserBuilds.Where(ub => ub.ItemId == this.BuildId).First().PassiveCoefficient+=this.GetMoney;
+                break;
+            }
+            user.PassiveCoefficient=0;
+            user.UserBuilds.ForEach(ub => user.PassiveCoefficient+=ub.PassiveCoefficient);
+            Achievement? achievement = user.Achievements.Where(a => a.AchievementObjectType == "Upgrade" && a.AchievementObjectId == this.Id && a.AchievementObjectCount == upgradeCount).FirstOrDefault();
+            if (achievement != null) {
+                user.UserAchievements.Add(new UserAchievement {UserId=user.Id, ItemId=achievement.Id, Count=1, DateOfachievement=DateTime.UtcNow});
+            }
             return (true, "succes", user);   
         }
     }

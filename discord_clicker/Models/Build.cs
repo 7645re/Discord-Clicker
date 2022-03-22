@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using discord_clicker.ViewModels;
 using System.Linq;
+using System;
 
 namespace discord_clicker.Models
 {
@@ -30,18 +31,23 @@ namespace discord_clicker.Models
         }
         public (bool, string, User) Get(User user, decimal money) {
             bool enoughMoney = user.Money + money >= this.Cost;
-            bool presenceRowUserItem = user.UserBuilds.Where(ub => ub.ItemId == this.Id).FirstOrDefault() != null;
-            if (enoughMoney) {
-                if (!presenceRowUserItem) {
-                    user.UserBuilds.Add(new UserBuild {UserId = user.Id, ItemId=this.Id, Count=0, Item=this, PassiveCoefficient=0});
-                }
-                user.PassiveCoefficient+=this.PassiveCoefficient;
-                user.Money = user.Money + money - this.Cost;
-                user.UserBuilds.Where(ub => ub.ItemId == this.Id).First().Count++;
-                user.UserBuilds.Where(ub => ub.ItemId == this.Id).First().PassiveCoefficient+=this.PassiveCoefficient;
-                return (true, "succes", user);   
+            bool presenceUserItem = user.UserBuilds.Where(ub => ub.ItemId == this.Id).FirstOrDefault() != null;
+            if (!enoughMoney) {
+                return (false, "not enough money", user);
             }
-            return (false, "not enough money", user);
+            if (!presenceUserItem) {
+                user.UserBuilds.Add(new UserBuild {UserId = user.Id, ItemId=this.Id, Count=0, Item=this, PassiveCoefficient=0});
+            }
+            user.PassiveCoefficient+=this.PassiveCoefficient;
+            user.Money = user.Money + money - this.Cost;
+            user.UserBuilds.Where(ub => ub.ItemId == this.Id).First().Count++;
+            user.UserBuilds.Where(ub => ub.ItemId == this.Id).First().PassiveCoefficient+=this.PassiveCoefficient;
+            uint buildCount = user.UserBuilds.Where(ub => ub.ItemId == this.Id).First().Count;
+            Achievement? achievement = user.Achievements.Where(a => a.AchievementObjectType == "Build" && a.AchievementObjectId == this.Id && a.AchievementObjectCount == buildCount).FirstOrDefault();
+            if (achievement != null) {
+                user.UserAchievements.Add(new UserAchievement {UserId=user.Id, ItemId=achievement.Id, Count=1, DateOfachievement=DateTime.UtcNow});
+            }
+            return (true, "succes", user);   
         }
     }
 }

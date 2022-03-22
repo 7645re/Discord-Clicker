@@ -32,7 +32,7 @@ namespace discord_clicker.Controllers
                 ModelState.AddModelError("", "Некорректно заполнена форма");
                 return View(model);
             }
-            User user = await _userHandler.GetInfoByPass(model.Nickname, model.Password);
+            User user = await _userHandler.GetUser(name: model.Nickname, password: model.Password);
             if (user != null) {
                 await Authenticate(user);
                 return RedirectToAction("Index", "Home");
@@ -55,10 +55,10 @@ namespace discord_clicker.Controllers
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
                 return View(model);
             }
-            User User = await _userHandler.GetInfoByName(model.Nickname);
-            if (User == null) {
-                User = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.Now );
-                await Authenticate(User);
+            bool userExistCheck = await _userHandler.ExistCheck(model.Nickname);
+            if (!userExistCheck) {
+                User user = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.UtcNow );
+                await Authenticate(user);
                 return RedirectToAction("Index", "Home");
             }
             else {

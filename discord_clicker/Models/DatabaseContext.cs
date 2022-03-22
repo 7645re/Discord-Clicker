@@ -1,4 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using System.Linq;
+using System;
+using System.Threading.Tasks;
 
 namespace discord_clicker.Models
 {
@@ -73,4 +77,14 @@ namespace discord_clicker.Models
                 });
         }
     }
+    public static class DbSetExtension {
+        public static async Task<IQueryable<T>> If<T, P>(this IIncludableQueryable<T, P> source, bool condition, Func<IIncludableQueryable<T, P>, IQueryable<T>> transform) where T : class
+        {
+            return condition ? transform(source) : source;
+        }
+        public static async Task<IQueryable<T>> If<T>(this IQueryable<T> source, bool condition,Func<IQueryable<T>, IQueryable<T>> transform)
+        { 
+            return condition? transform(source) : source;
+        }
+        }
 }

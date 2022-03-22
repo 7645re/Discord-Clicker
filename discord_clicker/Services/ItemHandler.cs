@@ -12,6 +12,12 @@ using System;
 
 
 namespace discord_clicker.Services {
+    /// <summary>
+    /// A class designed to interact with various items, to buy them and display the assortment
+    /// </summary>
+    /// <typeparam name="T"> Type of item </typeparam>
+    /// <typeparam name="VT">  Type of Viewitem for mapping item </typeparam>
+    /// <typeparam name="UT"> Type of UserItem entity from table for many-to-many </typeparam>
     public class ItemHandler<T, VT, UT> where T : class, IItem<VT> where UT : class, IUserItem<T>, new() {
         private DatabaseContext _db;
         private IMemoryCache _cache;

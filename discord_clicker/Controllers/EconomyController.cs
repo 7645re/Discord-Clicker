@@ -40,7 +40,7 @@ namespace discord_clicker.Controllers
         [Authorize]
         public async Task<IActionResult> Stats() {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            return Ok(await _userHandler.GetFullInfoById(userId));
+            return Ok(await _userHandler.GetUser(userId));
         }
 
         [HttpGet]
