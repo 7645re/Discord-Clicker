@@ -7,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using discord_clicker.Services;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
+
 namespace discord_clicker
 {
     public class Startup
@@ -27,10 +30,26 @@ namespace discord_clicker
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
+            services.AddTransient<ItemHandler<Build, BuildModel>, ItemHandler<Build, BuildModel>>();
+            services.AddTransient(
+                serviceProvider =>
+                {
+                    IMemoryCache memoryCache = serviceProvider.GetService<IMemoryCache>();
+                    ILogger<ItemHandlerCachingDecorator<Build, BuildModel>> logger = 
+                        serviceProvider.GetService<ILogger<ItemHandlerCachingDecorator<Build, BuildModel>>>();
+                    DatabaseContext db = serviceProvider.GetService<DatabaseContext>();
+                    IItemHandler<Build, BuildModel> buildHandler =
+                        serviceProvider.GetService<IItemHandler<Build, BuildModel>>();
+
+                    IItemHandler<Build, BuildModel> cachingDecorator =
+                        new ItemHandlerCachingDecorator<Build, BuildModel>(itemHandler: buildHandler, db: db, 
+                            cache: memoryCache, logger: logger);
+                    return cachingDecorator;
+                }
+            );
             services.AddTransient<UserHandler, UserHandler>();
-            services.AddTransient<ItemHandler<Build, BuildModel, UserBuild>, ItemHandler<Build, BuildModel, UserBuild>>();
-            services.AddTransient<ItemHandler<Upgrade, UpgradeModel, UserUpgrade>, ItemHandler<Upgrade, UpgradeModel, UserUpgrade>>();
-            services.AddTransient<ItemHandler<Achievement, AchievementModel, UserAchievement>, ItemHandler<Achievement, AchievementModel, UserAchievement>>();
+            services.AddTransient<ItemHandler<Upgrade, UpgradeModel>, ItemHandler<Upgrade, UpgradeModel>>();
+            services.AddTransient<ItemHandler<Achievement, AchievementModel>, ItemHandler<Achievement, AchievementModel>>();
             services.AddControllersWithViews();
             services.AddSignalR();
             services.AddMemoryCache();

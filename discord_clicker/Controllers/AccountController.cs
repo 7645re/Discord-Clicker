@@ -32,7 +32,7 @@ namespace discord_clicker.Controllers
                 ModelState.AddModelError("", "Некорректно заполнена форма");
                 return View(model);
             }
-            User user = await _userHandler.GetUser(name: model.Nickname, password: model.Password);
+            UserModel user = await _userHandler.GetUser(name: model.Nickname, password: model.Password);
             if (user != null) {
                 await Authenticate(user);
                 return RedirectToAction("Index", "Home");
@@ -58,7 +58,8 @@ namespace discord_clicker.Controllers
             bool userExistCheck = await _userHandler.ExistCheck(model.Nickname);
             if (!userExistCheck) {
                 User user = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.UtcNow );
-                await Authenticate(user);
+                UserModel userModel = user.ToViewModel();
+                await Authenticate(userModel);
                 return RedirectToAction("Index", "Home");
             }
             else {
@@ -67,7 +68,7 @@ namespace discord_clicker.Controllers
             }
         }
 
-        private async Task Authenticate(User user)
+        private async Task Authenticate(UserModel user)
         {
             var claims = new List<Claim>{new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id))};
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);

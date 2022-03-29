@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using discord_clicker.ViewModels;
 using System.Linq;
 using System;
+using System.Threading.Tasks;
 
 namespace discord_clicker.Models
 {
     /// <summary>
     /// Rich Build Model
     /// </summary>
-    public class Build : IItem<BuildModel>
+    public class Build : IItem<Build, BuildModel>
     {
         [Key]
         public int Id { get; set; }
@@ -27,6 +28,15 @@ namespace discord_clicker.Models
                 Cost=this.Cost,
                 Description=this.Description,
                 PassiveCoefficient=this.PassiveCoefficient
+            };
+        }
+        public Build Create(Dictionary<string, object> parameters) {
+            return new Build() {
+                Id=(int)parameters["Id"],
+                Name=(string)parameters["Name"],
+                Cost=(decimal)parameters["Cost"],
+                Description=(string)parameters["Description"],
+                PassiveCoefficient=(decimal)parameters["PassiveCoefficient"]
             };
         }
         public (bool, string, User) Get(User user, decimal money) {

@@ -9,7 +9,7 @@ namespace discord_clicker.Models
     /// <summary>
     /// Rich Upgrade Model
     /// </summary>
-    public class Upgrade : IItem<UpgradeModel>
+    public class Upgrade : IItem<Upgrade, UpgradeModel>
     {
         [Key]
         public int Id { get; set; }
@@ -36,6 +36,19 @@ namespace discord_clicker.Models
                 ForEachBuild=this.ForEachBuild,
                 Description=this.Description,
                 GetMoney=this.GetMoney
+            };
+        }
+        public Upgrade Create(Dictionary<string, object> parameters) {
+            return new Upgrade() {
+                Id=(int)parameters["Id"],
+                Name=(string)parameters["Name"],
+                Cost=(decimal)parameters["Cost"],
+                BuildId=(uint)parameters["BuildId"],
+                Action=(string)parameters["Action"],
+                ConditionGet=(uint)parameters["ConditionGet"],
+                ForEachBuild=(bool)parameters["ForEachBuild"],
+                Description=(string)parameters["Description"],
+                GetMoney=(decimal)parameters["GetMoney"]
             };
         }
         public (bool, string, User) Get(User user, decimal money) {

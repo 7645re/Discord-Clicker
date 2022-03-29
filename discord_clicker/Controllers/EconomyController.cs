@@ -19,14 +19,16 @@ namespace discord_clicker.Controllers
     [Route("api/[action]")]
     public class EconomyController : Controller
     {
-        private UserHandler _userHandler;
-        private ILogger _logger;
-        private ItemHandler<Build, BuildModel, UserBuild> _buildHandler;
-        private ItemHandler<Upgrade, UpgradeModel, UserUpgrade> _upgradeHandler;
-        private ItemHandler<Achievement, AchievementModel, UserAchievement> _achievementHandler;
-        private DatabaseContext _db;
-        public EconomyController(DatabaseContext context, UserHandler userHandler, ItemHandler<Build, BuildModel, UserBuild> buildHandler, 
-        ItemHandler<Upgrade, UpgradeModel, UserUpgrade> upgradeHandler, ItemHandler<Achievement, AchievementModel, UserAchievement> achievementHandler, ILogger<EconomyController> logger)
+        private readonly UserHandler _userHandler;
+        private readonly ILogger _logger;
+        private readonly IItemHandler<Build, BuildModel> _buildHandler;
+        private readonly IItemHandler<Upgrade, UpgradeModel> _upgradeHandler;
+        private readonly IItemHandler<Achievement, AchievementModel> _achievementHandler;
+        private readonly DatabaseContext _db;
+        public EconomyController(DatabaseContext context, UserHandler userHandler, 
+                ItemHandler<Build, BuildModel> buildHandler, 
+                ItemHandler<Upgrade, UpgradeModel> upgradeHandler, 
+                ItemHandler<Achievement, AchievementModel> achievementHandler, ILogger<EconomyController> logger)
         {
             _logger = logger;
             _db = context;
@@ -72,6 +74,20 @@ namespace discord_clicker.Controllers
         public async Task<IActionResult> BuyUpgrade(int upgradeId, decimal money) {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
             return Ok(await _upgradeHandler.BuyItem(userId, upgradeId, money, _db.Upgrades));
+        }
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> CreateBuild(int id, string name, decimal cost, 
+        string description, decimal passiveCoefficient) {
+            Dictionary<string, object> parameters = new Dictionary<string, object>() {
+                {"Id", id},
+                {"Name", name},
+                {"Cost", cost},
+                {"Description", description},
+                {"PassiveCoefficient", passiveCoefficient}
+            };
+            BuildModel item = _buildHandler.CreateItem(parameters, _db.Builds);
+            return Ok(item);
         }
     }
 }

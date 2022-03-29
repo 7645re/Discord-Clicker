@@ -11,86 +11,86 @@ using System.Linq;
 using System;
 
 
-namespace discord_clicker.Services {
+namespace discord_clicker.Services
+{
     /// <summary>
     /// A class designed to interact with various items, to buy them and display the assortment
     /// </summary>
     /// <typeparam name="T"> Type of item </typeparam>
     /// <typeparam name="VT">  Type of Viewitem for mapping item </typeparam>
-    /// <typeparam name="UT"> Type of UserItem entity from table for many-to-many </typeparam>
-    public class ItemHandler<T, VT, UT> where T : class, IItem<VT> where UT : class, IUserItem<T>, new() {
-        private DatabaseContext _db;
-        private IMemoryCache _cache;
+    public class ItemHandler<T, VT> : IItemHandler<T, VT> where T : class, IItem<T, VT>, new()
+    {
+        private readonly DatabaseContext _db;
+        private readonly IMemoryCache _cache;
         private readonly ILogger _logger;
-        private readonly IConfiguration _сonfiguration;
-        public ItemHandler(DatabaseContext context, IMemoryCache memoryCache, IConfiguration configuration, ILogger<ItemHandler<T, VT, UT>> logger)
+        private static readonly T StaticItem = new T();
+
+        public ItemHandler(DatabaseContext context, IMemoryCache memoryCache, ILogger<ItemHandler<T, VT>> logger)
         {
             _db = context;
             _logger = logger;
             _cache = memoryCache;
-            _сonfiguration = configuration;
         }
-        public async Task<List<VT>> GetItemsList(int userId, DbSet<T> items) {
-            List<VT> itemsList;
-            /** Сhecking for data in the cache */
-            bool availabilityСache = _cache.TryGetValue(userId.ToString() + $".{typeof(T).FullName}s", out itemsList);
-            if (!availabilityСache)
+
+        public async Task<List<VT>> GetItemsList(int userId, DbSet<T> items)
+        {
+            _logger.LogInformation("фыв");
+            List<T> itemsListLinks = await items.Where(p => p.Name != null).ToListAsync();
+            List<VT> itemsList = new List<VT>();
+            foreach (T item in itemsListLinks)
             {
-                itemsList = new List<VT>();
-                List<T> itemsListLinks = await items.Where(p => p.Name != null).ToListAsync();
-                VT itemModel;
-                foreach (T item in itemsListLinks)
-                {
-                    itemModel = item.ToViewModel();
-                    itemsList.Add(itemModel);
-                }
-                /** Set option to never remove user from cache */
-                _cache.Set(userId.ToString() + $".{typeof(T).FullName}s", itemsList, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+                itemsList.Add(item.ToViewModel());
             }
             return itemsList;
         }
-        async public Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money, DbSet<T> itemsContext) {
+
+        public VT CreateItem(Dictionary<string, object> parameters, DbSet<T> itemsContext)
+        {
+            T item = StaticItem.Create(parameters);
+            itemsContext.Add(item);
+            return item.ToViewModel();
+        }
+
+        public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
+            DbSet<T> itemsContext)
+        {
             User user;
             T item;
-            bool availabilityСacheUser = _cache.TryGetValue(userId.ToString()+".WithUserItems", out user);
-            bool availabilityСacheItem = _cache.TryGetValue(userId.ToString()+$".{typeof(T).FullName}.{itemId}", out item);
+            _cache.TryGetValue(userId.ToString(), out user);
+            _cache.TryGetValue(userId.ToString() + $".{typeof(T).FullName}s.{itemId}", out item);
 
-            if (!availabilityСacheUser) {
-                _logger.LogInformation("UserModel were not found in the cache and were taken from the database");
-                user = await _db.Users.Where(u => u.Id == userId)
-                    .Include(u => u.UserBuilds).ThenInclude(up => up.Item)
-                    .Include(u => u.UserUpgrades).ThenInclude(uu => uu.Item)
-                    .Include(u => u.UserAchievements).ThenInclude(ua => ua.Item)
-                    .FirstOrDefaultAsync();
-            }
-            if (!availabilityСacheItem) {
-                item = await itemsContext.Where(i => i.Id == itemId).FirstOrDefaultAsync();
-            }
-            if (item == null) {
-                return new Dictionary<bool, string> {
+            if (item == null)
+            {
+                return new Dictionary<bool, string>
+                {
                     {false, "item doesnt exist"}
                 };
             }
+
             decimal userInterval = Convert.ToDecimal((DateTime.Now - user.LastRequestDate).TotalMilliseconds);
-            _logger.LogInformation(userInterval.ToString());
-            bool verifyMoney = userInterval*(user.PassiveCoefficient+20*user.ClickCoefficient)/1000>=money;
-            if (!verifyMoney) {
-                return new Dictionary<bool, string> {
+            bool verifyMoney = userInterval * (user.PassiveCoefficient + 20 * user.ClickCoefficient) / 1000 >= money;
+
+            if (!verifyMoney)
+            {
+                return new Dictionary<bool, string>
+                {
                     {false, "unnormal coint farm"}
                 };
             }
-            (bool transactionFlag, string message, User user) transactionResult;
-            transactionResult = item.Get(user, money);
-            if (!transactionResult.transactionFlag) {
-                return new Dictionary<bool, string> {
+
+            (bool transactionFlag, string message, User user) transactionResult = item.Get(user, money);
+            if (!transactionResult.transactionFlag)
+            {
+                return new Dictionary<bool, string>
+                {
                     {false, transactionResult.message}
                 };
             }
+
             transactionResult.user.LastRequestDate = DateTime.Now;
-            user=transactionResult.user;
-            _cache.Set(userId.ToString()+".WithUserItems", user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
-            _cache.Set(userId.ToString()+$".{typeof(T).FullName}.{itemId}", item, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
-            return new Dictionary<bool, string> {
+            user = transactionResult.user;
+            return new Dictionary<bool, string>
+            {
                 {true, "succes"}
             };
         }
