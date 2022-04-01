@@ -26,9 +26,10 @@ namespace discord_clicker.Controllers
         private readonly IItemHandler<Achievement, AchievementModel> _achievementHandler;
         private readonly DatabaseContext _db;
         public EconomyController(DatabaseContext context, UserHandler userHandler, 
-                ItemHandler<Build, BuildModel> buildHandler, 
-                ItemHandler<Upgrade, UpgradeModel> upgradeHandler, 
-                ItemHandler<Achievement, AchievementModel> achievementHandler, ILogger<EconomyController> logger)
+                IItemHandler<Build, BuildModel> buildHandler, 
+                IItemHandler<Upgrade, UpgradeModel> upgradeHandler, 
+                IItemHandler<Achievement, AchievementModel> achievementHandler, 
+                ILogger<EconomyController> logger)
         {
             _logger = logger;
             _db = context;

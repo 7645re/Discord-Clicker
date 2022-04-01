@@ -66,3 +66,5 @@ C:/Users/pc/Desktop/discord-clicker/discord_clicker/obj/Debug/net6.0/discord_cli
 /Users/alexeev/Desktop/discord-clicker/discord_clicker/obj/Debug/net6.0/ref/discord_clicker.dll
 /Users/alexeev/Desktop/discord-clicker/discord_clicker/obj/Debug/net6.0/discord_clicker.pdb
 /Users/alexeev/Desktop/discord-clicker/discord_clicker/obj/Debug/net6.0/discord_clicker.genruntimeconfig.cache
+/Users/alexeev/Desktop/discord-clicker/discord_clicker/bin/Debug/net6.0/Microsoft.Extensions.DependencyModel.dll
+/Users/alexeev/Desktop/discord-clicker/discord_clicker/bin/Debug/net6.0/Scrutor.dll

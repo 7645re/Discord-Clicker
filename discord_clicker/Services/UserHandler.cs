@@ -38,7 +38,6 @@ namespace discord_clicker.Services
             #nullable enable
             User? user;
             UserModel? userModel = null;
-            _logger.LogInformation("aboba");
             bool availabilityСache = _cache.TryGetValue(userId.ToString(), out user);
             if (!availabilityСache)
             {

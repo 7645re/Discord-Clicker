@@ -34,7 +34,6 @@ namespace discord_clicker.Services
 
         public async Task<List<VT>> GetItemsList(int userId, DbSet<T> items)
         {
-            _logger.LogInformation("фыв");
             List<T> itemsListLinks = await items.Where(p => p.Name != null).ToListAsync();
             List<VT> itemsList = new List<VT>();
             foreach (T item in itemsListLinks)
@@ -46,10 +45,9 @@ namespace discord_clicker.Services
 
         public VT CreateItem(Dictionary<string, object> parameters, DbSet<T> itemsContext)
         {
-            T item = StaticItem.Create(parameters);
-            itemsContext.Add(item);
-            return item.ToViewModel();
+            throw new NotImplementedException();
         }
+
 
         public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
             DbSet<T> itemsContext)
@@ -57,7 +55,7 @@ namespace discord_clicker.Services
             User user;
             T item;
             _cache.TryGetValue(userId.ToString(), out user);
-            _cache.TryGetValue(userId.ToString() + $".{typeof(T).FullName}s.{itemId}", out item);
+            _cache.TryGetValue(userId.ToString() + $".{typeof(T).Name}s.{itemId}", out item);
 
             if (item == null)
             {

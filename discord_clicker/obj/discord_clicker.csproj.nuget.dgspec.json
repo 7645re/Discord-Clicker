@@ -47,6 +47,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             }
           },
           "imports": [
