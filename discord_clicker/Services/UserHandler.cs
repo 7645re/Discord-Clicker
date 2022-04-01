@@ -30,7 +30,7 @@ namespace discord_clicker.Services
         {
             #nullable enable
             User? user = await _db.Users.Where(u => u.Nickname == nickname).FirstOrDefaultAsync();
-            return (user == null ? false : true);
+            return (user != null);
         }
         #nullable enable
         public async Task<UserModel?> GetUser(int? userId = null, string? name = null, string? password = null)

@@ -50,19 +50,19 @@ namespace discord_clicker.Controllers
         [Authorize]
         public async Task<IActionResult> Builds() {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            return Ok(await _buildHandler.GetItemsList(userId, _db.Builds));
+            return Ok(await _buildHandler.GetItemsList(_db.Builds));
         }
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Upgrades() {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            return Ok(await _upgradeHandler.GetItemsList(userId, _db.Upgrades));
+            return Ok(await _upgradeHandler.GetItemsList(_db.Upgrades));
         }
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Achievements() {
             int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-            return Ok(await _achievementHandler.GetItemsList(userId, _db.Achievements));
+            return Ok(await _achievementHandler.GetItemsList(_db.Achievements));
         }
         [HttpGet]
         [Authorize]
@@ -87,7 +87,7 @@ namespace discord_clicker.Controllers
                 {"Description", description},
                 {"PassiveCoefficient", passiveCoefficient}
             };
-            BuildModel item = _buildHandler.CreateItem(parameters, _db.Builds);
+            BuildModel item = await _buildHandler.CreateItem(parameters, _db.Builds);
             return Ok(item);
         }
     }

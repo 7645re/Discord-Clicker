@@ -32,9 +32,9 @@ namespace discord_clicker.Services
             _cache = memoryCache;
         }
 
-        public async Task<List<VT>> GetItemsList(int userId, DbSet<T> items)
+        public async Task<List<VT>> GetItemsList(DbSet<T> itemsContext)
         {
-            List<T> itemsListLinks = await items.Where(p => p.Name != null).ToListAsync();
+            List<T> itemsListLinks = await itemsContext.Where(p => p.Name != null).ToListAsync();
             List<VT> itemsList = new List<VT>();
             foreach (T item in itemsListLinks)
             {
@@ -43,17 +43,32 @@ namespace discord_clicker.Services
             return itemsList;
         }
 
-        public VT CreateItem(Dictionary<string, object> parameters, DbSet<T> itemsContext)
+        public async Task<VT> CreateItem(Dictionary<string, object> parameters, DbSet<T> itemsContext)
         {
-            throw new NotImplementedException();
+            T item = StaticItem.Create(parameters);
+            bool itemExist = itemsContext.Any(i => i.Id == (int)parameters["Id"]);
+            if (!itemExist)
+            {
+                string itemsCharact = "";
+                foreach (KeyValuePair<string, object> charact in parameters)
+                {
+                    itemsCharact += $"{charact.Key}: {charact.Value} ";
+                }
+
+                itemsContext.Add(item);
+                _logger.LogInformation($"An {typeof(T).Name} object with the characteristics " +
+                                       itemsCharact +
+                                       $"was created and recorded in the database");
+                await _db.SaveChangesAsync();
+            }
+            return item.ToViewModel();
         }
 
 
-        public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
-            DbSet<T> itemsContext)
+        public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money, DbSet<T> itemsContext)
         {
             User user;
-            T item;
+            List<T> items;
             _cache.TryGetValue(userId.ToString(), out user);
             _cache.TryGetValue(userId.ToString() + $".{typeof(T).Name}s.{itemId}", out item);
 
@@ -77,6 +92,7 @@ namespace discord_clicker.Services
             }
 
             (bool transactionFlag, string message, User user) transactionResult = item.Get(user, money);
+            
             if (!transactionResult.transactionFlag)
             {
                 return new Dictionary<bool, string>

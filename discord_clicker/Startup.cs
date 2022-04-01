@@ -7,8 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using discord_clicker.Services;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
+
 
 namespace discord_clicker
 {
@@ -53,7 +52,6 @@ namespace discord_clicker
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-            // requires using Microsoft.AspNetCore.HttpOverrides;
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto

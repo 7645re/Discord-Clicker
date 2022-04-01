@@ -41,7 +41,7 @@ namespace discord_clicker.Models
         }
         public (bool, string, User) Get(User user, decimal money) {
             bool enoughMoney = user.Money + money >= this.Cost;
-            bool presenceUserItem = user.UserBuilds.Where(ub => ub.ItemId == this.Id).FirstOrDefault() != null;
+            bool presenceUserItem = user.UserBuilds.FirstOrDefault(ub => ub.ItemId == this.Id) != null;
             if (!enoughMoney) {
                 return (false, "not enough money", user);
             }
