@@ -163,7 +163,7 @@ namespace discord_clicker.Migrations
                     b.Property<long>("Count")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("DateOfachievement")
+                    b.Property<DateTime>("DateOfAchievement")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("ItemId", "UserId");
