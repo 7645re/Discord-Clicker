@@ -12,6 +12,7 @@ public class DatabaseContext : DbContext
     public DbSet<Build> Builds { get; set; }
     public DbSet<Upgrade> Upgrades { get; set; }
     public DbSet<Achievement> Achievements { get; set; }
+    public DbSet<Role> Roles { get; set; }
     public DbSet<UserBuild> UsersBuilds { get; set; }
     public DbSet<UserAchievement> UsersAchievements { get; set; }
     public DbSet<UserUpgrade> UsersUpgrades { get; set; }
@@ -21,6 +22,14 @@ public class DatabaseContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        Role adminRole = new Role() { Name = "admin", Id = 1};
+        Role userRole = new Role() { Name = "user", Id = 2};
+
+        User admin = new User() {Nickname = "admin", Password = "admin",RoleId = adminRole.Id, Id = 1};
+        
+        modelBuilder.Entity<Role>().HasData(new Role[] {adminRole, userRole});
+        modelBuilder.Entity<User>().HasData(new User[] {admin});
+        
         modelBuilder
             .Entity<Build>()
             .HasMany(c => c.Users)

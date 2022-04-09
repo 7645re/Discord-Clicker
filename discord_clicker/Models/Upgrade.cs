@@ -20,7 +20,7 @@ public class Upgrade : IItem<Upgrade, UpgradeModel>
     public uint ConditionGet { get; set; }
     public decimal GetMoney { get; set; }
     public bool ForEachBuild { get; set; }
-#nullable enable
+    #nullable enable
     public string? Description { get; set; }
     public List<User> Users { get; set; } = new();
     public List<UserUpgrade> UserUpgrades { get; set; } = new();

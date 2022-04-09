@@ -17,6 +17,8 @@ public class User
     public string Nickname { get; set; }
     public string Password { get; set; }
     public decimal Click { get; set; }
+    public int RoleId { get; set; }
+    public Role Role { get; set; }
     public DateTime PlayStartDate { get; set; }
     public DateTime LastRequestDate {get; set; }
     public decimal ClickCoefficient { get; set; }
@@ -30,6 +32,7 @@ public class User
     public UserModel ToViewModel() {
         return new UserModel() {
             Id=this.Id,
+            Role = this.Role,
             Money=this.Money,
             Nickname=this.Nickname,
             ClickCoefficient=this.ClickCoefficient,

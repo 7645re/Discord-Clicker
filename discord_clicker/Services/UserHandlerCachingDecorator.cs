@@ -26,7 +26,7 @@ public class UserHandlerCachingDecorator : IUserHandler
         _cache = cache;
     }
 
-        /// <summary> Function to check whether a user with such a nickname exists </summary>
+    /// <summary> Function to check whether a user with such a nickname exists </summary>
     public async Task<bool> ExistCheck(string nickname)
         {
             return await _userHandler.ExistCheck(nickname: nickname);
@@ -34,18 +34,24 @@ public class UserHandlerCachingDecorator : IUserHandler
     #nullable enable
     public async Task<UserModel?> GetUser(int? userId = null, string? name = null, string? password = null)
     {
-        if (!_cache.TryGetValue(userId.ToString(), out _))
+        User? user = null;
+        if (userId != null && !_cache.TryGetValue(userId, out _) || name != null && password != null && !_cache.TryGetValue(name, out _))
         {
-            _logger.LogInformation("UserModel were not found in the cache and were taken from the database");
-            User? user = await _db.Users.Where(u => userId != null && name == null && password == null ? 
+            _logger.LogInformation("User were not found in the cache and were taken from the database");
+            user = await _db.Users.Where(u => userId != null && name == null && password == null ? 
                     u.Id == userId : u.Nickname == name && u.Password == password)
                 .Include(u => u.UserBuilds).ThenInclude(up => up.Item)
                 .Include(u => u.UserUpgrades).ThenInclude(uu => uu.Item)
                 .Include(u => u.UserAchievements).ThenInclude(ua => ua.Item)
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync();
-            _cache.Set(userId, user,
+        }
+        if (user != null)
+        {
+            _cache.Set(userId != null && name == null && password == null ? userId : name, user,
                 new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
         }
+
         if (_cache.TryGetValue(userId+".UserModel", out UserModel? userModel))
         {
             return userModel;

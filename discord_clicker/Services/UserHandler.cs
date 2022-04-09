@@ -38,7 +38,9 @@ public class UserHandler : IUserHandler
         #nullable enable
         User? user;
         UserModel? userModel = null;
-        _cache.TryGetValue(userId.ToString(), out user);
+        _ = userId == null && name != null && password != null
+            ? _ =!_cache.TryGetValue(name, out user)
+            : _ =_cache.TryGetValue(userId, out user);
 
         if (user == null)
         {
@@ -80,11 +82,12 @@ public class UserHandler : IUserHandler
     public async Task<User> Create(string nickname, string password, decimal money, decimal clickCoefficient,
         decimal passiveCoefficient, DateTime playStartDate)
     {
+        Role userRole = await _db.Roles.FirstAsync(r => r.Name == "user");
         User user = new User
         {
             Nickname = nickname, Password = password, Money = money, ClickCoefficient = clickCoefficient,
             PassiveCoefficient = passiveCoefficient, LastRequestDate = DateTime.UtcNow,
-            PlayStartDate = playStartDate
+            PlayStartDate = playStartDate, Role = userRole
         };
         _db.Users.Add(user);
         await _db.SaveChangesAsync();

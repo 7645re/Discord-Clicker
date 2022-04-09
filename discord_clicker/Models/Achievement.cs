@@ -17,7 +17,7 @@ public class Achievement : IItem<Achievement, AchievementModel>
     public uint AchievementObjectId { get; set; } 
     /// <summary> Number of objects to get achievements </summary>
     public decimal AchievementObjectCount { get; set; }
-#nullable enable
+    #nullable enable
     public string? Description { get; set; }
 
     public List<User> Users { get; set; } = new ();

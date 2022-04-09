@@ -14,8 +14,8 @@ namespace discord_clicker.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly UserHandler _userHandler;
-    public AccountController(UserHandler userHandler)
+    private readonly IUserHandler _userHandler;
+    public AccountController(IUserHandler userHandler)
     {
         _userHandler = userHandler;
     }
@@ -37,10 +37,8 @@ public class AccountController : Controller
             await Authenticate(user);
             return RedirectToAction("Index", "Home");
         }
-        else {
-            ModelState.AddModelError("", "Введен неверный логин или пароль");
-            return View(model);
-        }
+        ModelState.AddModelError("", "Введен неверный логин или пароль");
+        return View(model);
     }
     [HttpGet]
     public IActionResult Register()
@@ -71,7 +69,11 @@ public class AccountController : Controller
 
     private async Task Authenticate(UserModel user)
     {
-        var claims = new List<Claim>{new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id))};
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id)),
+            new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name)
+        };
         ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", 
             ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
