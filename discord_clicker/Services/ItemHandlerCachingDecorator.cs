@@ -48,7 +48,19 @@ public class ItemHandlerCachingDecorator<T, VT> : IItemHandler<T, VT> where T : 
     public async Task<VT> CreateItem(Dictionary<string, object> parameters, DbSet<T> itemsContext)
     {
         //when creating an object, it will be sent to the user's client and added to the assortment (SignalR)
-        return await _itemHandler.CreateItem(parameters: parameters, itemsContext: itemsContext);
+        VT item = await _itemHandler.CreateItem(parameters: parameters, itemsContext: itemsContext);
+        if (_cache.TryGetValue(_itemsVtCacheKey, out List<VT> itemsList))
+        {
+            itemsList.Add(item);
+        }
+        else
+        {
+            itemsList = await GetItemsList(itemsContext);
+            itemsList.Add(item);
+        }
+
+        _cache.Set(_itemsVtCacheKey, itemsList, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+        return item;
     }
 
     public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money, DbSet<T> itemsContext)

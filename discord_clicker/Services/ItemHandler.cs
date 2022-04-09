@@ -34,7 +34,7 @@ public class ItemHandler<T, VT> : IItemHandler<T, VT> where T : class, IItem<T, 
 
     public async Task<List<VT>> GetItemsList(DbSet<T> itemsContext)
     {
-        List<T> itemsListLinks = await itemsContext.Where(p => p.Name != null).ToListAsync();
+        List<T> itemsListLinks = await itemsContext.ToListAsync();
         List<VT> itemsList = new List<VT>();
         foreach (T item in itemsListLinks)
         {
