@@ -10,6 +10,7 @@ public class UserModel
     public decimal AllMoney { get; set; }
     public decimal Click { get; set; }
     public DateTime PlayStartDate { get; set; }
+    public DateTime LastRequestDate { get; set; }
     public string Nickname { get; set; }
     public decimal ClickCoefficient { get; set; }
     public decimal PassiveCoefficient { get; set; }

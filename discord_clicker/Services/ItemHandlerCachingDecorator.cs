@@ -65,14 +65,14 @@ public class ItemHandlerCachingDecorator<T, VT> : IItemHandler<T, VT> where T : 
 
     public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money, DbSet<T> itemsContext)
     {
-        if (!_cache.TryGetValue(userId.ToString(), out User user)) {
+        if (!_cache.TryGetValue(userId, out User user)) {
             user = await _db.Users.Where(u => u.Id == userId)
                 .Include(u => u.UserBuilds).ThenInclude(up => up.Item)
                 .Include(u => u.UserUpgrades).ThenInclude(uu => uu.Item)
                 .Include(u => u.UserAchievements).ThenInclude(ua => ua.Item)
                 .FirstOrDefaultAsync();
             _logger.LogInformation($"User with id {userId} was loaded from database");    
-            _cache.Set(userId.ToString(), user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+            _cache.Set(userId, user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
         }
         if (!_cache.TryGetValue(_itemsTCacheKey, out List<T> items)) {
             items = await itemsContext.Where(i => i.Id != null).ToListAsync();

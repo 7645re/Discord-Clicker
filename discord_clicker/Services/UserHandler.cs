@@ -38,10 +38,10 @@ public class UserHandler : IUserHandler
         #nullable enable
         User? user;
         UserModel? userModel = null;
-        _ = userId == null && name != null && password != null
-            ? _ =!_cache.TryGetValue(name, out user)
-            : _ =_cache.TryGetValue(userId, out user);
-
+        // _ = userId == null && name != null && password != null
+        //     ? _ =_cache.TryGetValue(name, out user)
+        //     : _ =_cache.TryGetValue(userId, out user);
+        _ = _cache.TryGetValue(userId, out user);
         if (user == null)
         {
             return userModel;

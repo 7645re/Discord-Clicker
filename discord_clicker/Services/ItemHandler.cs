@@ -69,7 +69,7 @@ public class ItemHandler<T, VT> : IItemHandler<T, VT> where T : class, IItem<T, 
     {
         User user;
         List<T> items;
-        _cache.TryGetValue(userId.ToString(), out user);
+        _cache.TryGetValue(userId, out user);
         _cache.TryGetValue($"{typeof(T).Name}", out items);
         T item = items.FirstOrDefault(i => i.Id == itemId);
 
@@ -81,7 +81,7 @@ public class ItemHandler<T, VT> : IItemHandler<T, VT> where T : class, IItem<T, 
             };
         }
 
-        decimal userInterval = Convert.ToDecimal((DateTime.Now - user.LastRequestDate).TotalMilliseconds);
+        decimal userInterval = Convert.ToDecimal((DateTime.UtcNow - user.LastRequestDate).TotalMilliseconds);
         bool verifyMoney = userInterval * (user.PassiveCoefficient + 20 * user.ClickCoefficient) / 1000 >= money;
 
         if (!verifyMoney)
@@ -101,9 +101,9 @@ public class ItemHandler<T, VT> : IItemHandler<T, VT> where T : class, IItem<T, 
                 {false, transactionResult.message}
             };
         }
-
-        transactionResult.user.LastRequestDate = DateTime.Now;
-        _cache.Set(userId.ToString(), transactionResult.user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+        transactionResult.user.LastRequestDate = DateTime.UtcNow;
+        _cache.Set(userId, transactionResult.user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
+        _cache.Set(userId+".UserModel", transactionResult.user.ToViewModel(), new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
         return new Dictionary<bool, string>
         {
             {true, "ok"}

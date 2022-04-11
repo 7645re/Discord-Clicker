@@ -39,7 +39,8 @@ public class User
             PassiveCoefficient=this.PassiveCoefficient,
             PlayStartDate=this.PlayStartDate,
             Click=this.Click,
-            AllMoney=this.AllMoney
+            AllMoney=this.AllMoney,
+            LastRequestDate = this.LastRequestDate
         };
     }
 }

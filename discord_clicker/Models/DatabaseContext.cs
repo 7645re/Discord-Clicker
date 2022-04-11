@@ -25,10 +25,14 @@ public class DatabaseContext : DbContext
         Role adminRole = new Role() { Name = "admin", Id = 1};
         Role userRole = new Role() { Name = "user", Id = 2};
 
-        User admin = new User() {Nickname = "admin", Password = "admin",RoleId = adminRole.Id, Id = 1};
+        User admin = new User()
+        {
+            Nickname = "admin", Password = "admin", RoleId = adminRole.Id, Id = 1,
+            Money = 0, AllMoney = 0, Click = 0, PlayStartDate = DateTime.UtcNow,
+            LastRequestDate = DateTime.UtcNow, ClickCoefficient = 1, PassiveCoefficient = 0};
         
-        modelBuilder.Entity<Role>().HasData(new Role[] {adminRole, userRole});
-        modelBuilder.Entity<User>().HasData(new User[] {admin});
+        modelBuilder.Entity<Role>().HasData(adminRole, userRole);
+        modelBuilder.Entity<User>().HasData(admin);
         
         modelBuilder
             .Entity<Build>()
