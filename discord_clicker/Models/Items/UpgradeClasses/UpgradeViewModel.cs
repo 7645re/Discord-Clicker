@@ -1,7 +1,6 @@
+namespace discord_clicker.Models.Items.UpgradeClasses;
 
-namespace discord_clicker.ViewModels;
-
-public class UpgradeModel
+public class UpgradeViewModel
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -10,7 +9,6 @@ public class UpgradeModel
     public string Action { get; set; }
     public uint ConditionGet { get; set; }
     public bool ForEachBuild { get; set; }
-#nullable enable
-    public string? Description { get; set; }
+    public string Description { get; set; }
     public decimal GetMoney { get; set;} 
 }

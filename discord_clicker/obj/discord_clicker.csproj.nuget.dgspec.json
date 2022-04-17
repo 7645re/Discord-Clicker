@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj": {}
+    "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj": {
+    "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
+        "projectUniqueName": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
         "projectName": "discord_clicker",
-        "projectPath": "C:\\Users\\pc\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Desktop\\Discord-Clicker\\discord_clicker\\obj\\",
+        "projectPath": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
+        "packagesPath": "C:\\Users\\perso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\perso\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,15 +40,27 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.4, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.3, )"
             },
             "Scrutor": {
               "target": "Package",
@@ -77,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

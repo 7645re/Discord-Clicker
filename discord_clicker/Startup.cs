@@ -7,7 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using discord_clicker.Services;
-
+// using discord_clicker.Services.ItemHandler;
+using discord_clicker.Services.UserHandler;
+using AutoMapper;
+using discord_clicker.Models.Items.AchievementClasses;
+using discord_clicker.Models.Items.BuildClasses;
+using discord_clicker.Models.Items.UpgradeClasses;
+using discord_clicker.Services.ItemHandler;
 
 namespace discord_clicker;
 
@@ -30,19 +36,20 @@ public class Startup
                 options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/");
             });
+        
+        services.AddAutoMapper(typeof(Startup));
         services.AddMemoryCache();
         
         services.AddTransient<IUserHandler, UserHandler>();
-        services.Decorate<IUserHandler, UserHandlerCachingDecorator>();
             
-        services.AddTransient<IItemHandler<Upgrade, UpgradeModel>, ItemHandler<Upgrade, UpgradeModel>>();
-        services.Decorate<IItemHandler<Upgrade, UpgradeModel>, ItemHandlerCachingDecorator<Upgrade, UpgradeModel>>();
-
-        services.AddTransient<IItemHandler<Achievement, AchievementModel>, ItemHandler<Achievement, AchievementModel>>();
-        services.Decorate<IItemHandler<Achievement, AchievementModel>, ItemHandlerCachingDecorator<Achievement, AchievementModel>>();
-
-        services.AddTransient<IItemHandler<Build, BuildModel>, ItemHandler<Build, BuildModel>>();
-        services.Decorate<IItemHandler<Build, BuildModel>, ItemHandlerCachingDecorator<Build, BuildModel>>();
+        services.AddTransient<IItemHandler<Upgrade, UpgradeViewModel>, ItemHandler<Upgrade, UpgradeViewModel>>();
+        // services.Decorate<IItemHandler<Upgrade, UpgradeViewModel>, ItemHandlerCachingDecorator<Upgrade, UpgradeViewModel>>();
+        //
+        services.AddTransient<IItemHandler<Achievement, AchievementViewModel>, ItemHandler<Achievement, AchievementViewModel>>();
+        // services.Decorate<IItemHandler<Achievement, AchievementModel>, ItemHandlerCachingDecorator<Achievement, AchievementModel>>();
+        //
+        services.AddTransient<IItemHandler<Build, BuildViewModel>, ItemHandler<Build, BuildViewModel>>();
+        // services.Decorate<IItemHandler<Build, BuildModel>, ItemHandlerCachingDecorator<Build, BuildModel>>();
             
         services.AddSignalR();
         services.AddSession();

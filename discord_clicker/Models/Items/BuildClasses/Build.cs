@@ -1,44 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.Collections.Generic;
-using discord_clicker.ViewModels;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System;
-using System.Threading.Tasks;
+using discord_clicker.Models.Items.AchievementClasses;
+using discord_clicker.Models.Person;
 
-namespace discord_clicker.Models;
+namespace discord_clicker.Models.Items.BuildClasses;
 
-/// <summary>
-/// Rich Build Model
-/// </summary>
-public class Build : IItem<Build, BuildModel>
+public class Build : IItem
 {
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
     public decimal Cost { get; set; }
-#nullable enable
+    #nullable enable
     public string? Description { get; set; }
     public List<User> Users { get; set; } = new ();
     public decimal PassiveCoefficient { get; set; }
     public List<UserBuild> UserBuilds { get; set; } = new();
-    public BuildModel ToViewModel() {
-        return new BuildModel() {
-            Id=this.Id,
-            Name=this.Name,
-            Cost=this.Cost,
-            Description=this.Description,
-            PassiveCoefficient=this.PassiveCoefficient
-        };
-    }
-    public Build Create(Dictionary<string, object> parameters) {
-        return new Build() {
-            Id=(int)parameters["Id"],
-            Name=(string)parameters["Name"],
-            Cost=(decimal)parameters["Cost"],
-            Description=(string)parameters["Description"],
-            PassiveCoefficient=(decimal)parameters["PassiveCoefficient"]
-        };
-    }
     public (bool, string, User) Get(User user, decimal money) {
         bool enoughMoney = user.Money + money >= this.Cost;
         bool presenceUserItem = user.UserBuilds.FirstOrDefault(ub => ub.ItemId == this.Id) != null;
@@ -53,8 +32,8 @@ public class Build : IItem<Build, BuildModel>
         user.UserBuilds.First(ub => ub.ItemId == this.Id).Count++;
         user.UserBuilds.First(ub => ub.ItemId == this.Id).PassiveCoefficient+=this.PassiveCoefficient;
         uint buildCount = user.UserBuilds.First(ub => ub.ItemId == this.Id).Count;
-        Achievement? achievement = user.Achievements.FirstOrDefault(a => a.AchievementObjectType == "Build" 
-            && a.AchievementObjectId == this.Id && a.AchievementObjectCount == buildCount);
+        AchievementClasses.Achievement? achievement = user.Achievements.FirstOrDefault(a => a.AchievementObjectType == "Build" 
+                                                                         && a.AchievementObjectId == this.Id && a.AchievementObjectCount == buildCount);
         if (achievement != null) {
             user.UserAchievements.Add(new UserAchievement {UserId=user.Id, ItemId=achievement.Id, Count=1, DateOfAchievement=DateTime.UtcNow});
         }

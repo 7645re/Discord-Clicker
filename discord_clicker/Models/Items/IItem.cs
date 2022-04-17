@@ -1,15 +1,12 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using discord_clicker.Models.Person;
 
-namespace discord_clicker.Models;
+namespace discord_clicker.Models.Items;
 
-public interface IItem<T, VT>
+public interface IItem
 {
     public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
-    public VT ToViewModel();
     public (bool, string, User) Get(User user, decimal money);
-    public T Create(Dictionary<string, object> parameters);
-        
 }

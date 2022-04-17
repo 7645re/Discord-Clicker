@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using discord_clicker.ViewModels;
-using discord_clicker.Models;
 using Microsoft.AspNetCore.Authentication;
+using discord_clicker.Models.Person;
+using discord_clicker.Services.UserHandler;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
-using discord_clicker.Services;
-using System;
 
 namespace discord_clicker.Controllers;
 
@@ -32,7 +31,8 @@ public class AccountController : Controller
             ModelState.AddModelError("", "Некорректно заполнена форма");
             return View(model);
         }
-        UserModel user = await _userHandler.GetUser(name: model.Nickname, password: model.Password);
+        #nullable enable
+        User? user = await _userHandler.GetUserAuthAsync(name: model.Nickname, password: model.Password);
         if (user != null) {
             await Authenticate(user);
             return RedirectToAction("Index", "Home");
@@ -53,26 +53,22 @@ public class AccountController : Controller
             ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             return View(model);
         }
-        bool userExistCheck = await _userHandler.ExistCheck(model.Nickname);
+        bool userExistCheck = await _userHandler.ExistByName(model.Nickname);
         if (!userExistCheck) {
-            User user = await _userHandler.Create(nickname: model.Nickname, password: model.Password, money: 0, 
-                clickCoefficient: 1, passiveCoefficient: 0, playStartDate: DateTime.UtcNow );
-            UserModel userModel = user.ToViewModel();
-            await Authenticate(userModel);
+            User user = await _userHandler.CreateUserAsync(model);
+            await Authenticate(user);
             return RedirectToAction("Index", "Home");
         }
-        else {
-            ModelState.AddModelError("", "Аккаунт с таким логином уже существует");
-            return RedirectToAction("Login", "Account");
-        }
+        ModelState.AddModelError("", "Аккаунт с таким логином уже существует");
+        return RedirectToAction("Login", "Account");
     }
 
-    private async Task Authenticate(UserModel user)
+    private async Task Authenticate(User user)
     {
         var claims = new List<Claim>
         {
-            new Claim(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id)),
-            new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name)
+            new(ClaimsIdentity.DefaultNameClaimType, Convert.ToString(user.Id)),
+            new(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name!)
         };
         ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", 
             ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);

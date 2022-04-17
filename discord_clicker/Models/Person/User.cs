@@ -1,13 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.Collections.Generic;
-using discord_clicker.ViewModels;
-using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using discord_clicker.Models.Items.AchievementClasses;
+using discord_clicker.Models.Items.BuildClasses;
+using discord_clicker.Models.Items.UpgradeClasses;
 
-namespace discord_clicker.Models;
+namespace discord_clicker.Models.Person;
 
-/// <summary>
-/// Rich User Model
-/// </summary>
 public class User
 {
     [Key]
@@ -29,18 +29,4 @@ public class User
     public List<UserUpgrade> UserUpgrades { get; set; } = new ();
     public List<Achievement> Achievements { get; set; } = new ();
     public List<UserAchievement> UserAchievements { get; set; } = new ();
-    public UserModel ToViewModel() {
-        return new UserModel() {
-            Id=this.Id,
-            Role = this.Role,
-            Money=this.Money,
-            Nickname=this.Nickname,
-            ClickCoefficient=this.ClickCoefficient,
-            PassiveCoefficient=this.PassiveCoefficient,
-            PlayStartDate=this.PlayStartDate,
-            Click=this.Click,
-            AllMoney=this.AllMoney,
-            LastRequestDate = this.LastRequestDate
-        };
-    }
 }

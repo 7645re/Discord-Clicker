@@ -1,16 +1,15 @@
+﻿using System;
 using System.Collections.Generic;
-using System;
 
-namespace discord_clicker.ViewModels;
 
-public class UserModel
+namespace discord_clicker.Models.Person;
+
+public class UserViewModel
 {
-    public int Id { get; set; }
     public decimal Money { get; set; }
     public decimal AllMoney { get; set; }
     public decimal Click { get; set; }
     public DateTime PlayStartDate { get; set; }
-    public DateTime LastRequestDate { get; set; }
     public string Nickname { get; set; }
     public decimal ClickCoefficient { get; set; }
     public decimal PassiveCoefficient { get; set; }

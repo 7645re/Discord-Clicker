@@ -1,15 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
-using discord_clicker.ViewModels;
-using System.Linq;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using discord_clicker.Models.Items.AchievementClasses;
+using discord_clicker.Models.Person;
 
-namespace discord_clicker.Models;
+namespace discord_clicker.Models.Items.UpgradeClasses;
 
-/// <summary>
-/// Rich Upgrade Model
-/// </summary>
-public class Upgrade : IItem<Upgrade, UpgradeModel>
+public class Upgrade : IItem
 {
     [Key]
     public int Id { get; set; }
@@ -24,33 +22,7 @@ public class Upgrade : IItem<Upgrade, UpgradeModel>
     public string? Description { get; set; }
     public List<User> Users { get; set; } = new();
     public List<UserUpgrade> UserUpgrades { get; set; } = new();
-
-    public UpgradeModel ToViewModel () {
-        return new UpgradeModel() {
-            Id=this.Id,
-            Name=this.Name,
-            Cost=this.Cost,
-            BuildId=this.BuildId,
-            Action=this.Action,
-            ConditionGet=this.ConditionGet,
-            ForEachBuild=this.ForEachBuild,
-            Description=this.Description,
-            GetMoney=this.GetMoney
-        };
-    }
-    public Upgrade Create(Dictionary<string, object> parameters) {
-        return new Upgrade() {
-            Id=(int)parameters["Id"],
-            Name=(string)parameters["Name"],
-            Cost=(decimal)parameters["Cost"],
-            BuildId=(uint)parameters["BuildId"],
-            Action=(string)parameters["Action"],
-            ConditionGet=(uint)parameters["ConditionGet"],
-            ForEachBuild=(bool)parameters["ForEachBuild"],
-            Description=(string)parameters["Description"],
-            GetMoney=(decimal)parameters["GetMoney"]
-        };
-    }
+    
     public (bool, string, User) Get(User user, decimal money) {
         bool enoughMoney = user.Money + money >= this.Cost;
         bool presenceUserUpgrade = user.UserUpgrades.FirstOrDefault(up => up.ItemId == this.Id) != null;
@@ -88,7 +60,7 @@ public class Upgrade : IItem<Upgrade, UpgradeModel>
         }
         user.PassiveCoefficient=0;
         user.UserBuilds.ForEach(ub => user.PassiveCoefficient+=ub.PassiveCoefficient);
-        Achievement? achievement = user.Achievements.FirstOrDefault(a => 
+        AchievementClasses.Achievement? achievement = user.Achievements.FirstOrDefault(a => 
             a.AchievementObjectType == "Upgrade" && a.AchievementObjectId == this.Id && 
             a.AchievementObjectCount == upgradeCount);
         if (achievement != null) {

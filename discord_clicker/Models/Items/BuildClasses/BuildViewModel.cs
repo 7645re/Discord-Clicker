@@ -1,11 +1,10 @@
-namespace discord_clicker.ViewModels;
+namespace discord_clicker.Models.Items.BuildClasses;
 
-public class BuildModel
+public class BuildViewModel
 {
     public int Id { get; set; }
     public string Name { get; set; }
     public decimal Cost { get; set; }
-#nullable enable
-    public string? Description { get; set; }
+    public string Description { get; set; }
     public decimal PassiveCoefficient { get; set; }
 }

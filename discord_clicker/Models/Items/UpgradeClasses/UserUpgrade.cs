@@ -1,4 +1,6 @@
-namespace discord_clicker.Models;
+using discord_clicker.Models.Person;
+
+namespace discord_clicker.Models.Items.UpgradeClasses;
 
 public class UserUpgrade: IUserItem<Upgrade>
 {
