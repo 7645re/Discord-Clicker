@@ -21,14 +21,14 @@ public class EconomyController : Controller
 {
     private readonly IUserHandler _userHandler;
     private readonly ILogger _logger;
-    private readonly IItemHandler<Build, BuildViewModel> _buildHandler;
-    private readonly IItemHandler<Upgrade, UpgradeViewModel> _upgradeHandler;
-    private readonly IItemHandler<Achievement, AchievementViewModel> _achievementHandler;
+    private readonly IItemHandler<Build, BuildViewModel, BuildCreateModel> _buildHandler;
+    private readonly IItemHandler<Upgrade, UpgradeViewModel, UpgradeCreateModel> _upgradeHandler;
+    private readonly IItemHandler<Achievement, AchievementViewModel, AchievementCreateModel> _achievementHandler;
     private readonly DatabaseContext _db;
     public EconomyController(DatabaseContext context, IUserHandler userHandler, 
-        IItemHandler<Build, BuildViewModel> buildHandler, 
-        IItemHandler<Upgrade, UpgradeViewModel> upgradeHandler, 
-        IItemHandler<Achievement, AchievementViewModel> achievementHandler, 
+        IItemHandler<Build, BuildViewModel, BuildCreateModel> buildHandler, 
+        IItemHandler<Upgrade, UpgradeViewModel, UpgradeCreateModel> upgradeHandler, 
+        IItemHandler<Achievement, AchievementViewModel, AchievementCreateModel> achievementHandler, 
         ILogger<EconomyController> logger)
     {
         _logger = logger;
@@ -84,24 +84,25 @@ public class EconomyController : Controller
     //     return Ok(await _upgradeHandler.BuyItem(userId, id, money, _db.Upgrades));
     // }
     //
-    // [HttpGet]
-    // [Authorize(Roles = "admin")]
-    // public async Task<IActionResult> CreateBuild([FromQuery] BuildModel userModel)
-    // {
-    //     return Ok(1);
-    // }
-    //
-    // [HttpGet]
-    // [Authorize(Roles = "admin")]
-    // public async Task<IActionResult> CreateUpgrade([FromQuery] UpgradeModel upgradeModel)
-    // {
-    //     return Ok(1);
-    // }
-    //
-    // [HttpGet]
-    // [Authorize(Roles = "admin")]
-    // public async Task<IActionResult> CreateAchievement([FromQuery] AchievementModel achievementModel)
-    // {
-    //     return Ok(1);
-    // }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task<IActionResult> CreateBuild([FromQuery] BuildCreateModel buildCreateModel)
+    {
+        await _buildHandler.CreateItem(buildCreateModel, _db.Builds);
+        return Ok(1);
+    }
+    
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task<IActionResult> CreateUpgrade([FromQuery] UpgradeCreateModel upgradeCreateModel)
+    {
+        return Ok(1);
+    }
+    
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task<IActionResult> CreateAchievement([FromQuery] AchievementCreateModel achievementCreateModel)
+    {
+        return Ok(1);
+    }
 }

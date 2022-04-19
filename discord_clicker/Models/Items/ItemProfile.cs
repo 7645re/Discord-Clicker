@@ -12,5 +12,8 @@ public class ItemProfile : Profile
         CreateMap<Build, BuildViewModel>();
         CreateMap<Upgrade, UpgradeViewModel>();
         CreateMap<Achievement, AchievementViewModel>();
+        CreateMap<BuildCreateModel, Build>();
+        CreateMap<UpgradeCreateModel, Build>();
+        CreateMap<AchievementCreateModel, Build>();
     }
 }

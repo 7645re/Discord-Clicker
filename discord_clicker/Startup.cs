@@ -42,13 +42,16 @@ public class Startup
         
         services.AddTransient<IUserHandler, UserHandler>();
             
-        services.AddTransient<IItemHandler<Upgrade, UpgradeViewModel>, ItemHandler<Upgrade, UpgradeViewModel>>();
+        services.AddTransient<IItemHandler<Upgrade, UpgradeViewModel, UpgradeCreateModel>, 
+            ItemHandler<Upgrade, UpgradeViewModel, UpgradeCreateModel>>();
         // services.Decorate<IItemHandler<Upgrade, UpgradeViewModel>, ItemHandlerCachingDecorator<Upgrade, UpgradeViewModel>>();
         //
-        services.AddTransient<IItemHandler<Achievement, AchievementViewModel>, ItemHandler<Achievement, AchievementViewModel>>();
+        services.AddTransient<IItemHandler<Achievement, AchievementViewModel, AchievementCreateModel>, 
+            ItemHandler<Achievement, AchievementViewModel, AchievementCreateModel>>();
         // services.Decorate<IItemHandler<Achievement, AchievementModel>, ItemHandlerCachingDecorator<Achievement, AchievementModel>>();
         //
-        services.AddTransient<IItemHandler<Build, BuildViewModel>, ItemHandler<Build, BuildViewModel>>();
+        services.AddTransient<IItemHandler<Build, BuildViewModel, BuildCreateModel>, 
+            ItemHandler<Build, BuildViewModel, BuildCreateModel>>();
         // services.Decorate<IItemHandler<Build, BuildModel>, ItemHandlerCachingDecorator<Build, BuildModel>>();
             
         services.AddSignalR();

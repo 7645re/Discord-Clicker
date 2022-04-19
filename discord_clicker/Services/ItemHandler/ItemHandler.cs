@@ -1,57 +1,49 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using discord_clicker.Models;
 using discord_clicker.Models.Items;
-using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
 
 namespace discord_clicker.Services.ItemHandler;
-//IItemHandler<TItemType, TItemViewModel> 
-//where TItemType : class, IItem, new()
-public class ItemHandler<TItemType, TItemViewModel> : IItemHandler<TItemType, TItemViewModel> where TItemType : class, IItem, new()
+
+public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
+    IItemHandler<TItem, TItemViewModel, TItemCreateModel>
+    where TItem : class, IItem<TItem, TItemCreateModel>, new()
+    where TItemCreateModel : IItemCreateModel
+
 {
-    private readonly ILogger _logger;
     private readonly DatabaseContext _db;
-    private readonly IMemoryCache _cache;
-    private static readonly TItemType StaticItem = new TItemType();
+    private static readonly TItem StaticItem = new ();
     private readonly IMapper _mapper;
 
-    public ItemHandler(DatabaseContext context, IMemoryCache memoryCache, ILogger<ItemHandler<TItemType, 
-        TItemViewModel>> logger, IMapper mapper)
+    public ItemHandler(DatabaseContext context, IMapper mapper)
     {
         _mapper = mapper;
         _db = context;
-        _logger = logger;
-        _cache = memoryCache;
     }
 
-    public async Task<List<TItemViewModel>> GetItemsList(DbSet<TItemType> itemsContext)
+    public async Task<List<TItemViewModel>> GetItemsList(DbSet<TItem> itemsContext)
     {
-        List<TItemType> itemsListLinks = await itemsContext.ToListAsync();  
+        List<TItem> itemsListLinks = await itemsContext.ToListAsync();
         List<TItemViewModel> itemsList = new List<TItemViewModel>();
-        foreach (TItemType item in itemsListLinks)
+        foreach (TItem item in itemsListLinks)
         {
             itemsList.Add(_mapper.Map<TItemViewModel>(item));
         }
+
         return itemsList;
     }
-    
-    // public async Task<T> CreateItem(Dictionary<string, object> parameters, DbSet<T> itemsContext)
-    // {
-    //     T item = StaticItem.Create(parameters);
-    //     bool itemExist = itemsContext.Any(i => i.Id == (int)parameters["Id"]);
-    //     if (!itemExist)
-    //     {
-    //         itemsContext.Add(item);
-    //         await _db.SaveChangesAsync();
-    //     }
-    //     return item;
-    // }
+
+    public async Task<TItemViewModel> CreateItem(TItemCreateModel itemCreateModel,
+        DbSet<TItem> itemContext)
+    {
+        TItem item = _mapper.Map<TItem>(itemCreateModel);
+        await itemContext.AddAsync(item);
+        await _db.SaveChangesAsync();
+        return _mapper.Map<TItemViewModel>(item);
+    }
+
     //
     //
     // public Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money, DbSet<T> itemsContext)
