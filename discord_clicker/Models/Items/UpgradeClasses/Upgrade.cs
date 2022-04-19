@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
@@ -22,57 +23,65 @@ public class Upgrade : IItem<Upgrade, UpgradeCreateModel>
     public List<User> Users { get; set; } = new();
     public List<UserUpgrade> UserUpgrades { get; set; } = new();
 
-    public (bool, string, User) Get(User user, decimal money)
+    public (bool, string, User) Get(User user, decimal money, DbSet<Achievement> achievements)
     {
-        // bool enoughMoney = user.Money + money >= this.Cost;
-        // bool presenceUserUpgrade = user.UserUpgrades.FirstOrDefault(up => up.ItemId == this.Id) != null;
-        // bool presenceUserBuild = user.UserBuilds.FirstOrDefault(ub => ub.ItemId == this.BuildId) != null;
-        // if (!presenceUserBuild) {
-        //     return (false, "you dont have item for this upgrade", user);
-        // }
-        // if (!enoughMoney) {
-        //     return (false, "not enough money", user);
-        // }
-        // uint buildCount = user.UserBuilds.First(ub => ub.ItemId == this.BuildId).Count;
-        // bool conditionDone = buildCount >= this.ConditionGet;
-        // if (!conditionDone) {
-        //     return (false, "not condition done", user);
-        // }
-        // if (!presenceUserUpgrade) {
-        //     user.UserUpgrades.Add(new UserUpgrade {UserId = user.Id, ItemId=this.Id, Count=0, Item=this});
-        // }
-        // user.Money = user.Money + money - this.Cost;
-        // user.UserUpgrades.First(up => up.ItemId == this.Id).Count++;
-        // uint upgradeCount = user.UserUpgrades.First(up => up.ItemId == this.Id).Count;
-        // switch (this.Action, this.ForEachBuild) {
-        //     case ("+", true):
-        //         user.UserBuilds.First(ub => ub.ItemId == this.BuildId).PassiveCoefficient+=buildCount*this.GetMoney;
-        //         break;
-        //     case ("+", false):
-        //         user.UserBuilds.First(ub => ub.ItemId == this.BuildId).PassiveCoefficient+=this.GetMoney;
-        //         break;
-        //     case ("*", true):
-        //         user.UserBuilds.First(ub => ub.ItemId == this.BuildId).PassiveCoefficient+=buildCount*this.GetMoney;
-        //         break;
-        //     case ("*", false):
-        //         user.UserBuilds.First(ub => ub.ItemId == this.BuildId).PassiveCoefficient+=this.GetMoney;
-        //         break;
-        // }
-        // user.PassiveCoefficient=0;
-        // user.UserBuilds.ForEach(ub => user.PassiveCoefficient+=ub.PassiveCoefficient);
-        // AchievementClasses.Achievement? achievement = user.Achievements.FirstOrDefault(a => 
-        //     a.AchievementObjectType == "Upgrade" && a.AchievementObjectId == this.Id && 
-        //     a.AchievementObjectCount == upgradeCount);
-        // if (achievement != null) {
-        //     user.UserAchievements.Add(new UserAchievement {UserId=user.Id, ItemId=achievement.Id, 
-        //         Count=1, DateOfAchievement=DateTime.UtcNow});
-        // }
-        // return (true, "succes", user);   
-        throw new NotImplementedException();
-    }
+        bool enoughMoney = user.Money + money >= Cost;
+        bool presenceUserUpgrade = user.UserUpgrades.FirstOrDefault(up => up.ItemId == Id) != null;
+        bool presenceUserBuild = user.UserBuilds.FirstOrDefault(ub => ub.ItemId == BuildId) != null;
+        if (!presenceUserBuild)
+        {
+            return (false, "you dont have item for this upgrade", user);
+        }
 
-    public Upgrade Create(UpgradeCreateModel itemCreateModel, DbSet<Upgrade> itemContext)
-    {
-        throw new NotImplementedException();
+        if (!enoughMoney)
+        {
+            return (false, "not enough money", user);
+        }
+
+        uint buildCount = user.UserBuilds.First(ub => ub.ItemId == BuildId).Count;
+        bool conditionDone = buildCount >= ConditionGet;
+        if (!conditionDone)
+        {
+            return (false, "not condition done", user);
+        }
+
+        if (!presenceUserUpgrade)
+        {
+            user.UserUpgrades.Add(new UserUpgrade {UserId = user.Id, ItemId = Id, Count = 0, Item = this});
+        }
+
+        user.Money = user.Money + money - Cost;
+        user.UserUpgrades.First(up => up.ItemId == Id).Count++;
+        uint upgradeCount = user.UserUpgrades.First(up => up.ItemId == Id).Count;
+        switch (Action, ForEachBuild)
+        {
+            case ("+", true):
+                user.UserBuilds.First(ub => ub.ItemId == BuildId).PassiveCoefficient += buildCount * GetMoney;
+                break;
+            case ("+", false):
+                user.UserBuilds.First(ub => ub.ItemId == BuildId).PassiveCoefficient += GetMoney;
+                break;
+            case ("*", true):
+                user.UserBuilds.First(ub => ub.ItemId == BuildId).PassiveCoefficient += buildCount * GetMoney;
+                break;
+            case ("*", false):
+                user.UserBuilds.First(ub => ub.ItemId == BuildId).PassiveCoefficient += GetMoney;
+                break;
+        }
+
+        user.PassiveCoefficient = 0;
+        user.UserBuilds.ForEach(ub => user.PassiveCoefficient += ub.PassiveCoefficient);
+        Achievement? achievement = user.Achievements.FirstOrDefault(a =>
+            a.AchievementObjectType == "Upgrade" && a.AchievementObjectId == Id &&
+            a.AchievementObjectCount == upgradeCount);
+        if (achievement != null)
+        {
+            user.UserAchievements.Add(new UserAchievement
+            {
+                UserId = user.Id, ItemId = achievement.Id, Count = 1, DateOfAchievement = DateTime.UtcNow
+            });
+        }
+
+        return (true, "success", user);
     }
 }

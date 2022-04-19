@@ -15,6 +15,6 @@ public class UserViewModel
     public decimal PassiveCoefficient { get; set; }
     public Role Role { get; set; }
     public Dictionary<int, Dictionary<string, object>> Builds { get; set; } = new ();
-    public Dictionary<string, uint> Upgrades { get; set; } = new ();
-    public Dictionary<string, DateTime> Achievements { get; set; } = new ();
+    public Dictionary<int, Dictionary<string, object>> Upgrades { get; set; } = new ();
+    public Dictionary<int, Dictionary<string, object>> Achievements { get; set; } = new ();
 }

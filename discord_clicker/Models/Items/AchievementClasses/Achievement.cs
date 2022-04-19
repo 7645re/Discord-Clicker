@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using discord_clicker.Models.Items.BuildClasses;
 using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,14 +20,8 @@ public class Achievement : IItem<Achievement, AchievementCreateModel>
     public List<User> Users { get; set; } = new();
     public List<UserAchievement> UserAchievements { get; set; } = new();
 
-    public (bool, string, User) Get(User user, decimal money)
+    public (bool, string, User) Get(User user, decimal money, DbSet<Achievement> achievements)
     {
-        throw new System.NotImplementedException();
+        return (true, "", user);
     }
-
-    public Achievement Create(AchievementCreateModel itemCreateModel, DbSet<Achievement> itemContext)
-    {
-        throw new System.NotImplementedException();
-    }
-    
 }

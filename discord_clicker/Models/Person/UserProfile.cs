@@ -10,7 +10,7 @@ namespace discord_clicker.Models.Person;
 
 public class UserProfile : Profile
 {
-    public Dictionary<int, Dictionary<string, object>> MapBuilds(List<UserBuild> userBuilds)
+    private Dictionary<int, Dictionary<string, object>> MapBuilds(List<UserBuild> userBuilds)
     {
         Dictionary<int, Dictionary<string, object>> builds = new Dictionary<int, Dictionary<string, object>>();
         foreach (UserBuild userBuild in userBuilds)
@@ -29,28 +29,34 @@ public class UserProfile : Profile
         return builds;
     }
 
-    public Dictionary<string, uint> MapUpgrades(List<UserUpgrade> userUpgrades)
+    private Dictionary<int, Dictionary<string, object>> MapUpgrades(List<UserUpgrade> userUpgrades)
     {
-        Dictionary<string, uint> upgrades = new Dictionary<string, uint>();
+        Dictionary<int, Dictionary<string, object>> upgrades = new();
         foreach (UserUpgrade userUpgrade in userUpgrades)
         {
             if (userUpgrade.Item != null)
             {
-                upgrades.Add(userUpgrade.Item.Name, userUpgrade.Count);
+                upgrades.Add(userUpgrade.Item.Id, new Dictionary<string, object>
+                {
+                    {"ItemName", userUpgrade.Item.Name}, {"ItemCount", userUpgrade.Count}
+                });
             }
         }
-
         return upgrades;
     }
 
-    public Dictionary<string, DateTime> MapAchievements(List<UserAchievement> userAchievements)
+    private Dictionary<int, Dictionary<string, object>> MapAchievements(List<UserAchievement> userAchievements)
     {
-        Dictionary<string, DateTime> achievements = new Dictionary<string, DateTime>();
+        Dictionary<int, Dictionary<string, object>> achievements = new();
         foreach (UserAchievement userAchievement in userAchievements)
         {
             if (userAchievement.Item != null)
             {
-                achievements.Add(userAchievement.Item.Name, userAchievement.DateOfAchievement);
+                achievements.Add(userAchievement.Item.Id, 
+                    new Dictionary<string, object>
+                    {
+                        {"ItemName", userAchievement.Item.Name}, {"ItemDate", userAchievement.DateOfAchievement}
+                    });
             }
         }
 

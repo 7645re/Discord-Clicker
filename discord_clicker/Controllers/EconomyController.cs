@@ -67,23 +67,23 @@ public class EconomyController : Controller
     {
         return Ok(await _achievementHandler.GetItemsList(_db.Achievements));
     }
-    //
-    // [HttpGet]
-    // [Authorize]
-    // public async Task<IActionResult> BuyBuild(int id, decimal money)
-    // {
-    //     int userId = Convert.ToInt32(HttpContext.User.Identity?.Name);
-    //     return Ok(await _buildHandler.BuyItem(userId, id, money, _db.Builds));
-    // }
-    //
-    // [HttpGet]
-    // [Authorize]
-    // public async Task<IActionResult> BuyUpgrade(int id, decimal money)
-    // {
-    //     int userId = Convert.ToInt32(HttpContext.User.Identity?.Name);
-    //     return Ok(await _upgradeHandler.BuyItem(userId, id, money, _db.Upgrades));
-    // }
-    //
+    
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> BuyBuild(int id, decimal money)
+    {
+        int userId = Convert.ToInt32(HttpContext.User.Identity?.Name);
+        return Ok(await _buildHandler.BuyItem(userId, id, money, _db.Builds));
+    }
+    
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> BuyUpgrade(int id, decimal money)
+    {
+        int userId = Convert.ToInt32(HttpContext.User.Identity?.Name);
+        return Ok(await _upgradeHandler.BuyItem(userId, id, money, _db.Upgrades));
+    }
+    
     [HttpGet]
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> CreateBuild([FromQuery] BuildCreateModel buildCreateModel)
