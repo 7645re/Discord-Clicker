@@ -57,8 +57,6 @@ public class UserProfile : Profile
         return achievements;
     }
 
-
-
     public UserProfile()
     {
         CreateMap<UserCreateModel, User>().ForMember("PlayStartDate",

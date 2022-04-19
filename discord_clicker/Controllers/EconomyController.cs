@@ -88,21 +88,23 @@ public class EconomyController : Controller
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> CreateBuild([FromQuery] BuildCreateModel buildCreateModel)
     {
-        await _buildHandler.CreateItem(buildCreateModel, _db.Builds);
-        return Ok(1);
+        BuildViewModel buildViewModel =  await _buildHandler.CreateItem(buildCreateModel, _db.Builds);
+        return Ok(buildViewModel);
     }
     
     [HttpGet]
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> CreateUpgrade([FromQuery] UpgradeCreateModel upgradeCreateModel)
     {
-        return Ok(1);
+        UpgradeViewModel upgradeViewModel =  await _upgradeHandler.CreateItem(upgradeCreateModel, _db.Upgrades);
+        return Ok(upgradeViewModel);
     }
     
     [HttpGet]
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> CreateAchievement([FromQuery] AchievementCreateModel achievementCreateModel)
     {
-        return Ok(1);
+        AchievementViewModel achievementViewModel =  await _achievementHandler.CreateItem(achievementCreateModel, _db.Achievements);
+        return Ok(achievementViewModel);
     }
 }
