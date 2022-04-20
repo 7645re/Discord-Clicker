@@ -44,4 +44,9 @@ public class ItemHandlerCachingDecorator<TItem, TItemViewModel, TItemCreateModel
     {
         return await _itemHandler.BuyItem(userId, itemId, money, itemsContext);
     }
+
+    public async Task DeleteItems(DbSet<TItem> itemsContext)
+    {
+        await _itemHandler.DeleteItems(itemsContext);
+    }
 }
