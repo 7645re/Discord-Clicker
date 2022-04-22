@@ -40,6 +40,12 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         return itemsList;
     }
 
+    public async Task DeleteItems(DbSet<TItem> itemsContext)
+    {
+        itemsContext.RemoveRange(itemsContext.Where(i => i.Id != null));
+        await _db.SaveChangesAsync();
+    }
+
     public async Task<TItemViewModel> CreateItem(TItemCreateModel itemCreateModel,
         DbSet<TItem> itemContext)
     {
@@ -48,12 +54,7 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         await _db.SaveChangesAsync();
         return _mapper.Map<TItemViewModel>(item);
     }
-
-    public async Task ClearItems(DbSet<TItem> itemContext)
-    {
-        await itemContext.Where(i => i.remove)
-    }
-
+    
     public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
         DbSet<TItem> itemsContext)
     {

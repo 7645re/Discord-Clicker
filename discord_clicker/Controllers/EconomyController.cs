@@ -107,4 +107,22 @@ public class EconomyController : Controller
         AchievementViewModel achievementViewModel =  await _achievementHandler.CreateItem(achievementCreateModel, _db.Achievements);
         return Ok(achievementViewModel);
     }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task ClearBuilds()
+    {
+        await _buildHandler.DeleteItems(_db.Builds);
+    }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task ClearUpgrades()
+    {
+        await _upgradeHandler.DeleteItems(_db.Upgrades);
+    }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task ClearAchievements()
+    {
+        await _achievementHandler.DeleteItems(_db.Achievements);
+    }
 }

@@ -3,52 +3,82 @@
 /* -------------------------------------- */
 
 
-/** Ajax request */
-async function asyncRequest(method, url, bode = null) {
-    return fetch(url).then(response => {
-        return response.json()
-    })
-}
-
-// async function asyncRequest(method, url) {
-//   return fetch(url).then(response => {
-//       if (response.ok) {
-//         return response.json().then(response => ({ response }));
-//       }
-//       return response.json().then(error => ({ error }));
+// /** Ajax request */
+// async function asyncRequestPost(method, url, body = null) {
+//     return fetch(url, {
+//         method: method,
+//         body: body,
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     }).then(response => {
+//         return response.json()
 //     })
-//   ;
 // }
-
-
+// /** Ajax request */
+// async function asyncRequestGet(method, url) {
+//     return fetch(url, {
+//         method: method
+//     }).then(response => {
+//         return response.json()
+//     })
+// }
+async function asyncRequest(method, url, body = null, headers = null) {
+    
+    switch (method) {
+        case "POST":
+            return fetch(url, {
+                method: method,
+                body: JSON.stringify(body),
+                headers: headers == null ? {"Content-Type": "application/json"} : headers
+            }).then(response => {
+                return response.json()
+            })
+        case "GET":
+            return fetch(url, {
+                method: method,
+            }).then(response => {
+                return response.json()
+            })
+    }
+}
 /** Function for getting user information */
-async function getUserInformation() {
+async function getStats() {
     let result;
-    await asyncRequest('GET', "/api/getUserInformation")
-        .then(data => { result = data["response"] })
+    await asyncRequest('GET', "/stats")
+        .then(data => {
+            result = data
+        })
         .catch(err => console.log(err))
     console.log(result)
     return result
-  }
-  
-/** Function for getting a list of buildings */
-async function getBuildsList() {
+}
+async function getItems(itemType) {
+    let itemsType = ["builds", "upgrades", "achievements"]
     let result
-    await asyncRequest('GET', "/api/getBuildsList")
-        .then(data => { result = data })
+    if (itemsType.includes(itemType)) {
+        await asyncRequest('GET', `/${itemType}`)
+            .then(data => {
+                result = data
+            })
+            .catch(err => console.log(err))
+        console.log(result)
+    }
+    return result
+}
+
+/** Function for buying a building by ID */
+async function createBuild(buildCreateModel) {
+    let result
+    await asyncRequest('POST', "/createBuild",buildCreateModel)
+        .then(data => {
+            result = data
+        })
         .catch(err => console.log(err))
     console.log(result)
     return result
 }
-/** Function for buying a building by ID */
-async function buyBuild(buildId) {
-  let result
-  await asyncRequest('GET', `api/buyBuild?buildId=${buildId}&money=${localStorage.getItem("money")}`)
-  .then(data => { result = data })
-  .catch(err => console.log(err))
-  console.log(result)
-  return result
-}
+
 
 // const rainContainer = document.querySelector(".rain-container");
 

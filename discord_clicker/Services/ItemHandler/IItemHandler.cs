@@ -13,4 +13,5 @@ public interface IItemHandler<TItem, TItemViewModel, TItemCreateModel> where TIt
         DbSet<TItem> itemContext);
     public Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
         DbSet<TItem> itemsContext);
+    public Task DeleteItems(DbSet<TItem> itemsContext);
 }
