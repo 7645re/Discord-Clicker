@@ -14,13 +14,11 @@ namespace discord_clicker.Services.UserHandler;
 public class UserHandler : IUserHandler
 {
     private readonly DatabaseContext _db;
-    private readonly IMemoryCache _cache;
     private readonly IMapper _mapper;
     
-    public UserHandler(DatabaseContext context, IMemoryCache memoryCache, IMapper mapper)
+    public UserHandler(DatabaseContext context, IMapper mapper)
     {
         _db = context;
-        _cache = memoryCache;
         _mapper = mapper;
     }
 

@@ -26,20 +26,6 @@ public class HomeController : Controller
     [Authorize]
     public IActionResult Index()
     {
-        // int userId = Convert.ToInt32(HttpContext.User.Identity.Name);
-        // #nullable enable
-        // User? user;
-        // bool availabilityСache = _cache.TryGetValue(userId.ToString(), out user);
-        // if (!availabilityСache) {
-        //     user = await _db.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
-        // }
-        // if (user != null) {
-        //     user.LastRequestDate = DateTime.Now;
-        //     _cache.Set(userId.ToString(), user, new MemoryCacheEntryOptions().SetPriority(CacheItemPriority.NeverRemove));
-        // }
-        // else {
-        //     return RedirectToAction("Register", "Account");
-        // }
         return View();
     }
 }

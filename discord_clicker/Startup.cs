@@ -1,15 +1,11 @@
 using discord_clicker.Models;
-using discord_clicker.ViewModels;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using discord_clicker.Services;
-// using discord_clicker.Services.ItemHandler;
 using discord_clicker.Services.UserHandler;
-using AutoMapper;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Items.BuildClasses;
 using discord_clicker.Models.Items.UpgradeClasses;

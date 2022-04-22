@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-
-namespace discord_clicker.Models.Person;
+﻿namespace discord_clicker.Models.Person;
 
 public class UserCreateModel
 {

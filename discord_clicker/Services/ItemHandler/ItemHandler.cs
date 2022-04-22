@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
 using discord_clicker.Models.Items.AchievementClasses;
+using Microsoft.EntityFrameworkCore;
 
 namespace discord_clicker.Services.ItemHandler;
 
@@ -19,7 +20,6 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
 
 {
     private readonly DatabaseContext _db;
-    private static readonly TItem StaticItem = new();
     private readonly IMapper _mapper;
 
     public ItemHandler(DatabaseContext context, IMapper mapper)
@@ -49,6 +49,10 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         return _mapper.Map<TItemViewModel>(item);
     }
 
+    public async Task ClearItems(DbSet<TItem> itemContext)
+    {
+        await itemContext.Where(i => i.remove)
+    }
 
     public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
         DbSet<TItem> itemsContext)
@@ -95,4 +99,5 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
             {true, "ok"}
         };
     }
+    
 }

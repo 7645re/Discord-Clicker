@@ -1,15 +1,13 @@
-using discord_clicker.Models.Person;
-
-namespace discord_clicker.Models;
+namespace discord_clicker.Models.Person;
 
 public interface IUserItem<T>
 {
     public int UserId { get; set; }
-#nullable enable
+    #nullable enable
     public User? User { get; set; }
 
     public int ItemId { get; set; }
-#nullable enable
+    #nullable enable
     public T? Item { get; set; }
 
     public uint Count { get; set; }

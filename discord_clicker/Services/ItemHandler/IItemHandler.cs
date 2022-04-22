@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using discord_clicker.Models.Items;
-using discord_clicker.Models.Items.BuildClasses;
 using Microsoft.EntityFrameworkCore;
 
 namespace discord_clicker.Services.ItemHandler;

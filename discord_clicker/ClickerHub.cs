@@ -7,6 +7,6 @@ public class ClickerHub : Hub
 {
     public async Task Send(string message)
     {
-        await this.Clients.All.SendAsync("Send", message);
+        await Clients.All.SendAsync("Send", message);
     }
 }

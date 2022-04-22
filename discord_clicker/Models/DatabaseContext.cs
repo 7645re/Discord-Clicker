@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq;
 using System;
-using System.Threading.Tasks;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Items.BuildClasses;
 using discord_clicker.Models.Items.UpgradeClasses;

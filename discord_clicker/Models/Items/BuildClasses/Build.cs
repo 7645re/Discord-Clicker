@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using AutoMapper;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +46,6 @@ public class Build : IItem<Build, BuildCreateModel>
             user.UserAchievements.Add(new UserAchievement 
                 {UserId=user.Id, ItemId=achievement.Id, Count=1, DateOfAchievement=DateTime.UtcNow});
         }
-        return (true, "succes", user);   
+        return (true, "success", user);   
     }
 }

@@ -2,7 +2,7 @@
 
 namespace discord_clicker.Models.Items.BuildClasses;
 
-public class UserBuild: IUserItem<BuildClasses.Build>
+public class UserBuild: IUserItem<Build>
 {
     public int UserId { get; set; }
     #nullable enable

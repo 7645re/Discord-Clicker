@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Items.BuildClasses;
 using discord_clicker.Models.Items.UpgradeClasses;
