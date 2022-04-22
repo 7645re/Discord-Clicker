@@ -84,9 +84,9 @@ public class EconomyController : Controller
         return Ok(await _upgradeHandler.BuyItem(userId, id, money, _db.Upgrades));
     }
     
-    [HttpGet]
+    [HttpPost]
     [Authorize(Roles = "admin")]
-    public async Task<IActionResult> CreateBuild([FromQuery] BuildCreateModel buildCreateModel)
+    public async Task<IActionResult> CreateBuild([FromBody] BuildCreateModel buildCreateModel)
     {
         BuildViewModel buildViewModel =  await _buildHandler.CreateItem(buildCreateModel, _db.Builds);
         return Ok(buildViewModel);
@@ -94,7 +94,7 @@ public class EconomyController : Controller
     
     [HttpGet]
     [Authorize(Roles = "admin")]
-    public async Task<IActionResult> CreateUpgrade([FromQuery] UpgradeCreateModel upgradeCreateModel)
+    public async Task<IActionResult> CreateUpgrade([FromBody] UpgradeCreateModel upgradeCreateModel)
     {
         UpgradeViewModel upgradeViewModel =  await _upgradeHandler.CreateItem(upgradeCreateModel, _db.Upgrades);
         return Ok(upgradeViewModel);
@@ -102,7 +102,7 @@ public class EconomyController : Controller
     
     [HttpGet]
     [Authorize(Roles = "admin")]
-    public async Task<IActionResult> CreateAchievement([FromQuery] AchievementCreateModel achievementCreateModel)
+    public async Task<IActionResult> CreateAchievement([FromBody] AchievementCreateModel achievementCreateModel)
     {
         AchievementViewModel achievementViewModel =  await _achievementHandler.CreateItem(achievementCreateModel, _db.Achievements);
         return Ok(achievementViewModel);

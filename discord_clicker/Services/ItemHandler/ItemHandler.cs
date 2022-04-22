@@ -19,7 +19,6 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
 
 {
     private readonly DatabaseContext _db;
-    private static readonly TItem StaticItem = new();
     private readonly IMapper _mapper;
 
     public ItemHandler(DatabaseContext context, IMapper mapper)

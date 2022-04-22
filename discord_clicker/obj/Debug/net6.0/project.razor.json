@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/discord_clicker.csproj",
+  "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16298,37 +16298,37 @@
   "RootNamespace": "discord_clicker",
   "Documents": [
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/_ViewImports.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/Shared/_Layout.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/Home/Index.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/Account/Register.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/Account/Register.cshtml",
       "TargetPath": "Views\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/_ViewStart.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/Views/Account/Login.cshtml",
+      "FilePath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/Views/Account/Login.cshtml",
       "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"
     }
