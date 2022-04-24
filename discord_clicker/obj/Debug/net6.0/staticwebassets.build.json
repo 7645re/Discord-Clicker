@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RKbhf37QuaKWwXI0Sq3eTAV0iQnuZd22h2Bp5DMB2S4=",
+  "Hash": "dymC+zwgF26lQhF+yLW2YSKyC4S3WGBahB6Yy9sIcaA=",
   "Source": "discord_clicker",
   "BasePath": "_content/discord_clicker",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\blot.css",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "css/blot.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\blot.css"
+    },
     {
       "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\style.css",
       "SourceId": "discord_clicker",
@@ -425,6 +442,23 @@
       "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\Server Owner.svg"
     },
     {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\DiscordButton\\discord-logo-svg-4.svg",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/DiscordButton/discord-logo-svg-4.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DiscordButton\\discord-logo-svg-4.svg"
+    },
+    {
       "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\DiscordButton\\discordButton.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
@@ -576,6 +610,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\apiRequests.js"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\blot.js",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "js/blot.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\blot.js"
     },
     {
       "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\buildCardHandler.js",

@@ -53,9 +53,11 @@ html * {
 }
 .clicker_button {
     z-index: 3;
-    position: absolute;
+    /*position: absolute;*/
     left: 50%;
     top: 50%;
+    height: 1000px;
+    width: 1920px;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);

@@ -8,38 +8,51 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/blot.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewBox="0 0 500 500">
-      <g opacity="0.8">
-        <path fill="#FFC10D">
-          <animate 
-          attributeName="d" 
-          dur="5000ms" 
-          repeatCount="indefinite"
-          values="M0.6,80.3 C0.6,144.8 116.7,215.2 180.7,215.2 C244.7,215.2 313.5,144.8 313.5,80.3 C313.5,15.8 286.6,-27.9 192,21 C135.1,50.4 0.6,15.8 0.6,80.3 Z;"/>
-        </path>
-      </g>
-    </svg>
-
-    @*Load js scripts*@
-    @* <script src="js/signalr/dist/browser/signalr.min.js"></script> *@
-    <script src="js/apiRequests.js"></script>
-    @* <script src="js/alert.js"></script> *@
-    @* <script src="js/autoSave.js"></script> *@
-    @* <script src="js/counterUpdate.js"></script> *@
-    @* <script src="js/buildCardHandler.js"></script> *@
-    @* <script src="js/profileCardHandler.js"></script> *@
-    @* <script src="js/init.js"></script> *@
-    @* <script src="js/clickAnimation.js"></script> *@
+<svg class="bolt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+    <path class="morph__gigant-path" fill="url(#morph__largeGradient)" d="M 1009.949 60.111 C 925.983 45.485 827.392 101.823 749.927 123.491 C 696.884 138.328 637.295 147.537 571.161 151.119 C 514.796 154.172 469.834 188.3 436.275 253.502 C 417.549 289.886 422.424 330.514 450.901 375.388 C 473.234 410.58 465.65 452.833 428.149 502.149 C 403.909 534.026 365.447 564.362 312.764 593.157 C 274.343 614.157 265.134 657.494 285.136 723.168 C 299.09 768.985 332.135 803.655 384.27 827.177 C 446.583 855.291 514.838 859.083 589.038 838.553 C 649.94 821.702 712.236 841.204 775.929 897.058 C 935.922 1037.36 1144.482 995.106 1401.608 770.297 C 1493.353 690.083 1518.813 570.906 1477.989 412.766 C 1426.418 212.996 1308.324 112.238 1009.949 60.111 Z"></path>
+            <defs>
+                <radialGradient id="morph__gigantGradient">
+                    <stop offset="5%" stop-color="#272c30"/>
+                    <stop offset="95%" stop-color="#50585d"/>
+                </radialGradient>
+            </defs>
+    <path class="morph__large-path" fill="url(#morph__largeGradient)" d="M 533.924 259.076 C 538.195 233.046 549.989 197.662 642.518 179.359 C 735.047 161.057 908.309 159.837 1021.377 162.481 C 1134.445 165.125 1187.318 171.632 1234.701 205.39 C 1282.083 239.148 1323.976 300.155 1351.226 352.215 C 1378.476 404.275 1391.085 447.388 1395.355 498.838 C 1399.626 550.288 1395.558 610.075 1383.967 657.051 C 1372.375 704.027 1353.26 738.192 1326.213 770.933 C 1299.166 803.673 1264.188 834.991 1227.177 858.174 C 1190.165 881.357 1151.12 896.405 1102.721 903.93 C 1054.321 911.454 996.567 911.454 943.897 903.726 C 891.227 895.999 843.64 880.543 804.188 862.648 C 764.737 844.752 733.419 824.416 703.729 807.741 C 674.038 791.065 645.975 778.05 611.81 766.255 C 577.646 754.46 537.381 743.886 510.131 736.565 C 482.881 729.244 468.645 725.177 456.647 719.483 C 444.649 713.789 434.888 706.468 430.618 693.25 C 426.347 680.031 427.567 660.915 438.548 637.935 C 449.53 614.956 470.272 588.112 488.981 564.116 C 507.691 540.12 524.366 518.97 532.907 489.076 C 541.449 459.183 541.855 420.544 541.042 390.65 C 540.228 360.756 538.195 339.607 535.551 320.694 C 532.907 301.782 529.654 285.106 533.924 259.076"></path>
+    <defs>
+        <radialGradient id="morph__largeGradient">
+            <stop offset="5%" stop-color="#adbfee"/>
+            <stop offset="95%" stop-color="#5b688c"/>
+        </radialGradient>
+    </defs>
+    <path class="morph__medium-path" fill="url(#morph__mediumGradient)" d="M 981.8181666666666 262.546 C 1057.096 247.072 1129.028 196.04999999999998 1200.1235 249.4415 C 1271.219 302.833 1341.478 460.638 1320.0098333333333 585.8221666666667 C 1298.5416666666667 711.0063333333334 1185.3463333333334 803.5696666666666 1082.188 826.8498333333333 C 979.0296666666667 850.1300000000001 885.9083333333334 804.1270000000001 791.8111666666667 761.4696666666667 C 697.7139999999999 718.8123333333333 602.641 679.5006666666667 575.4573333333334 633.7765 C 548.2736666666666 588.0523333333333 588.9793333333333 535.9156666666667 614.2113333333333 480.43316666666664 C 639.4433333333333 424.9506666666666 649.2016666666667 366.1223333333333 661.748 329.738 C 674.2943333333334 293.35366666666664 689.6286666666666 279.41333333333336 704.6841666666666 267.843 C 719.7396666666667 256.2726666666667 734.5163333333334 247.07233333333338 781.2165 252.5091666666667 C 827.9166666666666 257.94599999999997 906.5403333333334 278.02 981.8181666666666 262.546"></path>
+    <defs>
+        <radialGradient id="morph__mediumGradient">
+            <stop offset="5%" stop-color="#9aafef"/>
+            <stop offset="95%" stop-color="#52618e"/>
+        </radialGradient>
+    </defs>
+    <path class="morph__small-path" fill="url(#morph__smallGradient)" d="M 748.611 346.07 C 792.678 301.422 897.051 334.594 958.663 322.794 C 1054.287 304.48 1139.152 278.223 1182.392 319.594 C 1283.346 416.183 1278.322 649.67 1169.647 737.628 C 1067.172 820.568 866.864 808.581 753.064 699.426 C 639.264 590.271 660.204 435.642 748.611 346.07 Z"></path>
+    <defs>
+        
+        <radialGradient id="morph__smallGradient">
+            <stop offset="5%" stop-color="#476499"/>
+            <stop offset="95%" stop-color="#374a6f"/>
+        </radialGradient>
+    </defs>
+</svg>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="js/apiRequests.js"></script>
+    <script src="js/blot.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"></svg>
 </body>
 </html>
     
