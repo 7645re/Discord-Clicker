@@ -8,6 +8,7 @@ using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
+using System.Xml.XPath;
 using discord_clicker.Models.Items.AchievementClasses;
 using Microsoft.EntityFrameworkCore;
 
@@ -58,6 +59,7 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
     public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
         DbSet<TItem> itemsContext)
     {
+        Dictionary<bool, string> result = new Dictionary<bool, string>();
         #nullable enable
         User? user = await _db.Users.Where(u => u.Id == userId)
             .Include(u => u.UserBuilds)
@@ -67,10 +69,8 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         TItem? item = await itemsContext.FirstOrDefaultAsync(i => i.Id == itemId);
         if (item == null)
         {
-            return new Dictionary<bool, string>
-            {
-                {false, "item doesnt exist"}
-            };
+            result.Add(false, "item doesnt exist");
+            return result;
         }
 
         decimal userInterval = Convert.ToDecimal((DateTime.UtcNow - user.LastRequestDate).TotalMilliseconds);
@@ -78,27 +78,21 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
 
         if (!verifyMoney)
         {
-            return new Dictionary<bool, string>
-            {
-                {false, "Cheat"}
-            };
+            result.Add(false, "chear");
+            return result;
         }
 
         (bool transactionFlag, string message, User user) transactionResult = item.Get(user, money, _db.Achievements);
 
         if (!transactionResult.transactionFlag)
         {
-            return new Dictionary<bool, string>
-            {
-                {false, transactionResult.message}
-            };
+            result.Add(false, transactionResult.message);
+            return result;
         }
         transactionResult.user.LastRequestDate = DateTime.UtcNow;
         await _db.SaveChangesAsync();
-        return new Dictionary<bool, string>
-        {
-            {true, "ok"}
-        };
+        result.Add(true, "ok");
+        return result;
     }
     
 }

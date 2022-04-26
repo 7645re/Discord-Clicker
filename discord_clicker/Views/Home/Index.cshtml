@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +7,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/blot.css"/>
+    <link rel="stylesheet" href="css/gameButton.css"/>
+    <link rel="stylesheet" href="css/items.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
@@ -46,61 +46,57 @@
         </div>
     </div>
     </div>
-    @*Block with counter and main button*@
     <div class="parent">
         <div id="content">
-
             <h1 class="clicker_counter">0</h1>
             <h1 class="cps_counter">0</h1>
             <img ondragstart="return false;" class="clicker_button" src="images/DiscordButton/discordButton.png"/>
-        </div>
-            <button class="btn btn-primary game-button btn-shop" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
-                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
-                </svg>
-            </button>
-            <button class="btn btn-primary game-button btn-profile" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                </svg>
-            </button>
-            <button class="btn btn-primary game-button btn-leaderboard" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
-                <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
-                </svg>
-            </button>
-    </div>
-    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-            <div class="offcanvas-body small">
-                <div class="item_list row"></div>
+            <div class="main-buttons">
+                <button class="btn btn-primary game-button btn-builds" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomBuilds" aria-controls="offcanvasBottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 203.672 203.672" style="enable-background:new 0 0 203.672 203.672;" xml:space="preserve">
+                    <path fill="#fff" d="M199.343,113.653l-47.168-22.004c-2.322-1.084-5.039-0.907-7.2,0.471c-2.162,1.377-3.471,3.763-3.471,6.326v10.229  l-36.497-17.026c-2.322-1.084-5.038-0.907-7.2,0.471c-2.162,1.377-3.471,3.763-3.471,6.326v10.229l-7.695-3.59V69.082  c0-4.142-3.357-7.5-7.5-7.5h-8.345c-4.143,0-7.5,3.358-7.5,7.5v25.112l-5.457-2.546c-2.321-1.084-5.038-0.907-7.2,0.471  c-0.964,0.614-1.746,1.436-2.331,2.377l-3.408-79.726c-0.172-4.014-3.476-7.18-7.493-7.18H23.129c-4.002,0-7.299,3.142-7.491,7.139  l-3.731,77.494l-1.236-0.577c-2.321-1.084-5.038-0.907-7.2,0.471C1.309,93.497,0,95.883,0,98.446v90.134c0,4.142,3.357,7.5,7.5,7.5  h188.672c4.143,0,7.5-3.358,7.5-7.5v-68.13C203.672,117.536,201.983,114.885,199.343,113.653z M43.026,159.677  c0,4.142-3.357,7.5-7.5,7.5h-12.65c-4.143,0-7.5-3.358-7.5-7.5v-17.879c0-4.142,3.357-7.5,7.5-7.5h12.65c4.143,0,7.5,3.358,7.5,7.5  V159.677z M145.131,159.677c0,4.142-3.357,7.5-7.5,7.5h-12.649c-4.143,0-7.5-3.358-7.5-7.5v-17.879c0-4.142,3.357-7.5,7.5-7.5  h12.649c4.143,0,7.5,3.358,7.5,7.5V159.677z M187.6,159.677c0,4.142-3.357,7.5-7.5,7.5h-12.65c-4.143,0-7.5-3.358-7.5-7.5v-17.879  c0-4.142,3.357-7.5,7.5-7.5h12.65c4.143,0,7.5,3.358,7.5,7.5V159.677z"/>
+                    </svg>
+                </button>
+                <button class="btn btn-primary game-button btn-upgrades" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomUpgrades" aria-controls="offcanvasBottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 512 512">
+                        <path fill="#ffff" d="M256 29.816l-231 154v106.368l231-154 231 154V183.816zm0 128.043L105 259.783v90.283l151-101.925 151 101.925v-90.283zm0 112l-87 58.725v67.6l87-58 87 58v-67.6zm0 89.957l-87 58v64.368l87-58 87 58v-64.368z"/>
+                    </svg>
+                </button>
+                <button class="btn btn-primary game-button btn-achievements" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAchievements" aria-controls="offcanvasBottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 512 512"><path fill="#fff" d="M305.975 298.814l22.704 2.383V486l-62.712-66.965V312.499l18.214 8.895zm-99.95 0l-22.716 2.383V486l62.711-66.965V312.499l-18.213 8.895zm171.98-115.78l7.347 25.574-22.055 14.87-1.847 26.571-25.81 6.425-10.803 24.314-26.46-2.795-18.475 19.087L256 285.403l-23.902 11.677-18.475-19.15-26.46 2.795-10.803-24.313-25.81-6.363-1.847-26.534-22.118-14.92 7.348-25.573-15.594-21.544 15.644-21.52-7.398-25.523 22.068-14.87L150.5 73.03l25.86-6.362 10.803-24.313 26.46 2.794L232.098 26 256 37.677 279.902 26l18.475 19.149 26.46-2.794 10.803 24.313 25.81 6.425 1.847 26.534 22.055 14.87-7.347 25.574 15.656 21.407zm-49.214-21.556a72.242 72.242 0 1 0-72.242 72.242 72.355 72.355 0 0 0 72.242-72.242zm-72.242-52.283a52.282 52.282 0 1 0 52.282 52.283 52.395 52.395 0 0 0-52.282-52.245z"/></svg>
+                </button>
+                <button class="btn btn-primary game-button btn-profile" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                </button>
+                <button class="btn btn-primary game-button btn-leaderboard" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
+                    <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
+                    </svg>
+                </button>
             </div>
+        </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewBox="0 0 500 500">
-      <g opacity="0.8">
-        <path fill="#FFC10D">
-          <animate 
-          attributeName="d" 
-          dur="5000ms" 
-          repeatCount="indefinite"
-          values="M0.6,80.3 C0.6,144.8 116.7,215.2 180.7,215.2 C244.7,215.2 313.5,144.8 313.5,80.3 C313.5,15.8 286.6,-27.9 192,21 C135.1,50.4 0.6,15.8 0.6,80.3 Z;"/>
-        </path>
-      </g>
-    </svg>
-
-    @*Load js scripts*@
+    <div class="offcanvas offcanvas-bottom builds" tabindex="-1" id="offcanvasBottomBuilds" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-body small">
+            <div class="builds_list row"></div>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-bottom upgrades" tabindex="-1" id="offcanvasBottomUpgrades" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-body small">
+            <div class="upgrades_list row"></div>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-bottom achivements" tabindex="-1" id="offcanvasBottomAchievements" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-body small">
+            <div class="achivements_list row"></div>
+        </div>
+    </div>
     <script src="js/signalr/dist/browser/signalr.min.js"></script>
     <script src="js/apiRequests.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/counterUpdate.js"></script>
-    <script src="js/buildCardHandler.js"></script>
-    <script src="js/profileCardHandler.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/clickAnimation.js"></script>
-    <script src="js/counterUpdate.js"></script>
     <script src="js/buildCardHandler.js"></script>
-    <script src="js/profileCardHandler.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/clickAnimation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

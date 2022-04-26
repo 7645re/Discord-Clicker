@@ -78,6 +78,7 @@ public class UserProfile : Profile
             .ForMember("Upgrades",
                 opt => opt.MapFrom(c => MapUpgrades(c.UserUpgrades)))
             .ForMember("Achievements",
-                opt => opt.MapFrom(c => MapAchievements(c.UserAchievements)));
+                opt => opt.MapFrom(c => MapAchievements(c.UserAchievements)))
+            .ForMember("Role", opt => opt.MapFrom(c => c.Role.Name));
     }
 }

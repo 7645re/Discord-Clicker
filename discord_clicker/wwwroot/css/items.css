@@ -1,0 +1,94 @@
+﻿.builds-list.row {
+    list-style: none;
+    padding: 0px;
+    left: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    height: 100%;
+    width: 100%;
+}
+.builds-list div {
+    padding: 5px;
+
+}
+.build {
+    border-radius: 7px;
+    background-color: #23272A;
+    width: 100% !important;
+    display: grid;
+    padding: 7px;
+    grid-template-columns: repeat(3, 1fr) repeat(2, 0fr);
+    grid-template-rows: repeat(2, 1fr) repeat(3, 0fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-bottom: 10px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+@media (max-width: 768px) {
+    .build-img img {
+        width: 50% !important;
+    }
+    .build-name {
+        font-size: 3.5vw !important;
+    }
+    .build-cost {
+        font-size: 4vw !important;
+    }
+    .build-purchased {
+        font-size: 4vw !important;
+    }
+    .build-passive {
+        font-size: 4vw !important;
+    }
+}
+#build:active {
+    box-shadow: 0 0 40px rgba(58, 58, 58, 0.452) !important;
+    transform: scale(1.1) !important;
+}
+.build-img {
+    grid-area: 1 / 1 / 6 / 2;
+    margin: 4px;
+    position: relative;
+}
+.build-name {
+    grid-area: 1 / 2 / 2 / 3;
+    font-size: 1.2vw;
+}
+.build-cost {
+    grid-area: 2 / 2 / 3 / 3;
+    font-size: 1.2vw;
+}
+.build-purchased {
+    grid-area: 2 / 3 / 3 / 4;
+    font-size: 1.2vw;
+}
+.build-passive {
+    grid-area: 1 / 3 / 2 / 4;
+    font-size: 1.2vw;
+}
+.builds {
+    display: flex;
+    flex-wrap:wrap !important;
+    width: 100% !important;
+    margin: 0 !important;
+    justify-content: start !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+}
+.builds img {
+    width: 100%;
+    margin: 5px !important;
+}
+.modal-header-builds {
+    padding-top: 0px !important;
+    margin-left: 10px !important;
+    margin-top: 0px !important;
+    border: 0px !important;
+}

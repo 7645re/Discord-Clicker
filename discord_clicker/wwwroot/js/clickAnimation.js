@@ -1,5 +1,5 @@
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-button.addEventListener("click", ActionClick, false)
+// button.addEventListener("click", ActionClick, false)
 let animationOpen = true
 async function imgBounce() {
     let end = false
