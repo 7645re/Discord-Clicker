@@ -31,7 +31,7 @@ public class ItemHandlerCachingDecorator<TItem, TItemViewModel, TItemCreateModel
             return cachingItems;
         }
         cachingItems = await _itemHandler.GetItemsList(itemsContext);
-        _cache.Set(typeof(TItem).Name, cachingItems, TimeSpan.FromMinutes(2));
+        _cache.Set(typeof(TItem).Name, cachingItems, TimeSpan.FromSeconds(1));
         return cachingItems;
     }
 
