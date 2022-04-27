@@ -55,6 +55,7 @@
 .build-img {
     grid-area: 1 / 1 / 6 / 2;
     margin: 4px;
+    height: 100% !important;
     position: relative;
 }
 .build-name {
@@ -83,7 +84,6 @@
     justify-content: space-around !important;
 }
 .builds img {
-    width: 100%;
     margin: 5px !important;
 }
 .modal-header-builds {
@@ -91,4 +91,7 @@
     margin-left: 10px !important;
     margin-top: 0px !important;
     border: 0px !important;
+}
+.item-card {
+    width: 33%;
 }

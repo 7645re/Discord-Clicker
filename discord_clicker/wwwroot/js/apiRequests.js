@@ -1,5 +1,5 @@
 ﻿/* -------------------------------------- */
-/*    The file containing api requests    */
+/*    The file containing requests to api */
 /* -------------------------------------- */
 async function asyncRequest(method, url, body = null, headers = null) {
     switch (method) {
@@ -56,7 +56,7 @@ async function getAchievementsList() {
         .catch(err => console.log(err))
     return result
 }
-/** Function for buying a building by ID */
+/** Function for buying a build by ID */
 async function createBuild(itemType, itemCreateModel) {
     let result
     await asyncRequest('POST', "/create"+itemType+'s', itemCreateModel)

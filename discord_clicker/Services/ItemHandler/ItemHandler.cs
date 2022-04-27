@@ -28,7 +28,6 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         _mapper = mapper;
         _db = context;
     }
-
     public async Task<List<TItemViewModel>> GetItemsList(DbSet<TItem> itemsContext)
     {
         List<TItem> itemsListLinks = await itemsContext.ToListAsync();

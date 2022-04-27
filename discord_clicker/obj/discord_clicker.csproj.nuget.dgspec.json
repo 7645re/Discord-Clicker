@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj": {}
+    "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj": {
+    "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
+        "projectUniqueName": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj",
         "projectName": "discord_clicker",
-        "projectPath": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
-        "packagesPath": "C:\\Users\\perso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\obj\\",
+        "projectPath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj",
+        "packagesPath": "/Users/alexeev/.nuget/packages/",
+        "outputPath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\perso\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/alexeev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -85,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -59,23 +59,56 @@
 async function genCards() {
     let builds = JSON.parse(lBuilds)
     for await (let build of builds) {
-        //     strbuildCost = String(build.cost)
-        //     strbuildPassiveCoefficient = String(build.passiveCoefficient)
-        //     // build.passiveCoefficient = minimazeNum(strbuildPassiveCoefficient)
-        //
-        //     // newbuildCost = minimazeNum(buildsCount[build.id] > 0 ? build.cost * (buildsCount[build.id]+1) : build.cost)
-        //
             builds_list.innerHTML += `
                         <div class="item-card col-sm-12 col-md-4">
                             <div class="build" id="build" buildid="${build.id}">
-                                <div class="build-img" id="${build.id}-img"><img src="images/buildsImg/png/Balance Badge.png"  style="position: relative; left: 25%"/></div>
-                                <div class="build-name" id="${build.id}-name"></div>
+                                <div class="build-img" id="${build.id}-img"><img src="images/buildsImg/svg/Balance Badge.svg"  style="position: relative; left: 25%"/></div>
+                                <div class="build-name" id="${build.id}-name">${build.name}</div>
                                 <div class="build-cost" id="${build.id}-cost">
                                     <img width="20" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
-                                    <span></span>
+                                    <span>${build.cost}</span>
                                 </div>
-                                <div class="build-purchased" id="${build.id}-lvl"><span>Lvl </span></div>
-                                <div class="build-passive" id="${build.id}-increase">Cps </div>
+                                <div class="build-purchased" id="${build.id}-lvl"><span>Lvl 100</span></div>
+                                <div class="build-passive" id="${build.id}-increase">Cps +${build.passiveCoefficient}</div>
+                            </div>
+                        </div>`
+        builds_list.innerHTML += `
+                        <div class="item-card col-sm-12 col-md-4">
+                            <div class="build" id="build" buildid="${build.id}">
+                                <div class="build-img" id="${build.id}-img"><img src="images/buildsImg/svg/Balance Badge.svg"  style="position: relative; left: 25%"/></div>
+                                <div class="build-name" id="${build.id}-name">${build.name}</div>
+                                <div class="build-cost" id="${build.id}-cost">
+                                    <img width="20" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
+                                    <span>${build.cost}</span>
+                                </div>
+                                <div class="build-purchased" id="${build.id}-lvl"><span>Lvl 100</span></div>
+                                <div class="build-passive" id="${build.id}-increase">Cps +${build.passiveCoefficient}</div>
+                            </div>
+                        </div>`
+        builds_list.innerHTML += `
+                        <div class="item-card col-sm-12 col-md-4">
+                            <div class="build" id="build" buildid="${build.id}">
+                                <div class="build-img" id="${build.id}-img"><img src="images/buildsImg/svg/Balance Badge.svg"  style="position: relative; left: 25%"/></div>
+                                <div class="build-name" id="${build.id}-name">${build.name}</div>
+                                <div class="build-cost" id="${build.id}-cost">
+                                    <img width="20" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
+                                    <span>${build.cost}</span>
+                                </div>
+                                <div class="build-purchased" id="${build.id}-lvl"><span>Lvl 100</span></div>
+                                <div class="build-passive" id="${build.id}-increase">Cps +${build.passiveCoefficient}</div>
+                            </div>
+                        </div>`
+        builds_list.innerHTML += `
+                        <div class="item-card col-sm-12 col-md-4">
+                            <div class="build" id="build" buildid="${build.id}">
+                                <div class="build-img" id="${build.id}-img"><img src="images/buildsImg/svg/Balance Badge.svg"  style="position: relative; left: 25%"/></div>
+                                <div class="build-name" id="${build.id}-name">${build.name}</div>
+                                <div class="build-cost" id="${build.id}-cost">
+                                    <img width="20" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
+                                    <span>${build.cost}</span>
+                                </div>
+                                <div class="build-purchased" id="${build.id}-lvl"><span>Lvl 100</span></div>
+                                <div class="build-passive" id="${build.id}-increase">Cps +${build.passiveCoefficient}</div>
                             </div>
                         </div>`
         // }
