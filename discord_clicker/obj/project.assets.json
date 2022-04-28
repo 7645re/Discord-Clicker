@@ -1136,24 +1136,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/alexeev/.nuget/packages/": {}
+    "C:\\Users\\perso\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj",
+      "projectUniqueName": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
       "projectName": "discord_clicker",
-      "projectPath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/discord_clicker.csproj",
-      "packagesPath": "/Users/alexeev/.nuget/packages/",
-      "outputPath": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/obj/",
+      "projectPath": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\discord_clicker.csproj",
+      "packagesPath": "C:\\Users\\perso\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/alexeev/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\perso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1217,7 +1219,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

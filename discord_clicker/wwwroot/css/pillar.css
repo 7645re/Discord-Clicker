@@ -1,0 +1,6 @@
+﻿.pillar {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

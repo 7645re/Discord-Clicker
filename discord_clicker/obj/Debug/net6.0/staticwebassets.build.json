@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a74Z1G/Gc/uxFhmk/Uy688fWG6pXvOrIPlDB7SWmXmw=",
+  "Hash": "vIDDpJTUg/W/lYQHrAFHssSV/+c35JOiVt82M58RRsw=",
   "Source": "discord_clicker",
   "BasePath": "_content/discord_clicker",
   "Mode": "Default",
@@ -8,53 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "discord_clicker/wwwroot",
+      "Name": "discord_clicker\\wwwroot",
       "Source": "discord_clicker",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/.DS_Store",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\gameButton.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
-      "BasePath": "_content/discord_clicker",
-      "RelativePath": ".DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/.DS_Store"
-    },
-    {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/css/.DS_Store",
-      "SourceId": "discord_clicker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
-      "BasePath": "_content/discord_clicker",
-      "RelativePath": "css/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/.DS_Store"
-    },
-    {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/css/gameButton.css",
-      "SourceId": "discord_clicker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "css/gameButton.css",
       "AssetKind": "All",
@@ -65,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/gameButton.css"
+      "OriginalItemSpec": "wwwroot\\css\\gameButton.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/css/items/builds.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\items\\builds.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "css/items/builds.css",
       "AssetKind": "All",
@@ -82,13 +48,47 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/items/builds.css"
+      "OriginalItemSpec": "wwwroot\\css\\items\\builds.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/css/style.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\main.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "css/main.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\pillar.css",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "css/pillar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\pillar.css"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\style.css",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/style.css"
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/favicon.ico",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\favicon.ico",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -116,47 +116,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.ico"
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/.DS_Store",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Balance Badge.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
-      "BasePath": "_content/discord_clicker",
-      "RelativePath": "images/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/.DS_Store"
-    },
-    {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/.DS_Store",
-      "SourceId": "discord_clicker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
-      "BasePath": "_content/discord_clicker",
-      "RelativePath": "images/BuildsImg/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/.DS_Store"
-    },
-    {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Balance Badge.png",
-      "SourceId": "discord_clicker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Balance Badge.png",
       "AssetKind": "All",
@@ -167,13 +133,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Balance Badge.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Balance Badge.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Bot Developer.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Bot Developer.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Bot Developer.png",
       "AssetKind": "All",
@@ -184,13 +150,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Bot Developer.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Bot Developer.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Bravery Badge.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Bravery Badge.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Bravery Badge.png",
       "AssetKind": "All",
@@ -201,13 +167,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Bravery Badge.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Bravery Badge.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Brilliance Badge.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Brilliance Badge.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Brilliance Badge.png",
       "AssetKind": "All",
@@ -218,13 +184,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Brilliance Badge.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Brilliance Badge.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Bug Hunter 2.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Bug Hunter 2.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Bug Hunter 2.png",
       "AssetKind": "All",
@@ -235,13 +201,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Bug Hunter 2.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Bug Hunter 2.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Bug Hunter.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Bug Hunter.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Bug Hunter.png",
       "AssetKind": "All",
@@ -252,13 +218,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Bug Hunter.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Bug Hunter.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Discord Partner.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Discord Partner.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Discord Partner.png",
       "AssetKind": "All",
@@ -269,13 +235,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Discord Partner.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Discord Partner.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Discord Staff.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Discord Staff.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Discord Staff.png",
       "AssetKind": "All",
@@ -286,13 +252,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Discord Staff.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Discord Staff.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Early Supporter.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Early Supporter.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Early Supporter.png",
       "AssetKind": "All",
@@ -303,13 +269,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Early Supporter.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Early Supporter.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Event Badge.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Event Badge.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Event Badge.png",
       "AssetKind": "All",
@@ -320,13 +286,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Event Badge.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Event Badge.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Moderator.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Moderator.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Moderator.png",
       "AssetKind": "All",
@@ -337,13 +303,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Moderator.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Moderator.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Nitro Boost.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Nitro Boost.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Nitro Boost.png",
       "AssetKind": "All",
@@ -354,13 +320,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Nitro Boost.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Nitro Boost.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 1.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 1.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 1.png",
       "AssetKind": "All",
@@ -371,13 +337,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 1.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 1.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 2.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 2.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 2.png",
       "AssetKind": "All",
@@ -388,13 +354,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 2.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 2.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 3.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 3.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 3.png",
       "AssetKind": "All",
@@ -405,13 +371,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 3.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 3.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 4.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 4.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 4.png",
       "AssetKind": "All",
@@ -422,13 +388,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 4.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 4.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 5.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 5.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 5.png",
       "AssetKind": "All",
@@ -439,13 +405,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 5.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 5.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 6.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 6.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 6.png",
       "AssetKind": "All",
@@ -456,13 +422,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 6.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 6.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 7.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 7.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 7.png",
       "AssetKind": "All",
@@ -473,13 +439,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 7.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 7.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 8.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 8.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 8.png",
       "AssetKind": "All",
@@ -490,13 +456,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 8.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 8.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/png/Server Boost 9.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\png\\Server Boost 9.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/png/Server Boost 9.png",
       "AssetKind": "All",
@@ -507,13 +473,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/png/Server Boost 9.png"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\png\\Server Boost 9.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Balance Badge.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Balance Badge.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Balance Badge.svg",
       "AssetKind": "All",
@@ -524,13 +490,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Balance Badge.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Balance Badge.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Bot Developer.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Bot Developer.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Bot Developer.svg",
       "AssetKind": "All",
@@ -541,13 +507,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Bot Developer.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Bot Developer.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Bravery Badge.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Bravery Badge.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Bravery Badge.svg",
       "AssetKind": "All",
@@ -558,13 +524,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Bravery Badge.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Bravery Badge.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Brilliance Badge.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Brilliance Badge.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Brilliance Badge.svg",
       "AssetKind": "All",
@@ -575,13 +541,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Brilliance Badge.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Brilliance Badge.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Bug Hunter 2.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Bug Hunter 2.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Bug Hunter 2.svg",
       "AssetKind": "All",
@@ -592,13 +558,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Bug Hunter 2.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Bug Hunter 2.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Bug Hunter.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Bug Hunter.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Bug Hunter.svg",
       "AssetKind": "All",
@@ -609,13 +575,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Bug Hunter.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Bug Hunter.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Discord Partner.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Discord Partner.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Discord Partner.svg",
       "AssetKind": "All",
@@ -626,13 +592,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Discord Partner.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Discord Partner.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Discord Staff.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Discord Staff.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Discord Staff.svg",
       "AssetKind": "All",
@@ -643,13 +609,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Discord Staff.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Discord Staff.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Early Supporter.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Early Supporter.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Early Supporter.svg",
       "AssetKind": "All",
@@ -660,13 +626,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Early Supporter.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Early Supporter.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Event Badge.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Event Badge.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Event Badge.svg",
       "AssetKind": "All",
@@ -677,13 +643,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Event Badge.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Event Badge.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Moderator.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Moderator.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Moderator.svg",
       "AssetKind": "All",
@@ -694,13 +660,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Moderator.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Moderator.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Nitro Boost.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Nitro Boost.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Nitro Boost.svg",
       "AssetKind": "All",
@@ -711,13 +677,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Nitro Boost.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Nitro Boost.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 1.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 1.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 1.svg",
       "AssetKind": "All",
@@ -728,13 +694,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 1.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 1.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 2.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 2.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 2.svg",
       "AssetKind": "All",
@@ -745,13 +711,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 2.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 2.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 3.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 3.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 3.svg",
       "AssetKind": "All",
@@ -762,13 +728,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 3.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 3.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 4.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 4.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 4.svg",
       "AssetKind": "All",
@@ -779,13 +745,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 4.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 4.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 5.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 5.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 5.svg",
       "AssetKind": "All",
@@ -796,13 +762,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 5.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 5.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 6.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 6.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 6.svg",
       "AssetKind": "All",
@@ -813,13 +779,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 6.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 6.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 7.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 7.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 7.svg",
       "AssetKind": "All",
@@ -830,13 +796,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 7.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 7.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 8.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 8.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 8.svg",
       "AssetKind": "All",
@@ -847,13 +813,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 8.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 8.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Boost 9.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Boost 9.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Boost 9.svg",
       "AssetKind": "All",
@@ -864,13 +830,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Boost 9.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Boost 9.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/BuildsImg/svg/Server Owner.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\BuildsImg\\svg\\Server Owner.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/BuildsImg/svg/Server Owner.svg",
       "AssetKind": "All",
@@ -881,30 +847,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/BuildsImg/svg/Server Owner.svg"
+      "OriginalItemSpec": "wwwroot\\images\\BuildsImg\\svg\\Server Owner.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/DiscordButton/.DS_Store",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\DiscordButton\\3401964.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
-      "BasePath": "_content/discord_clicker",
-      "RelativePath": "images/DiscordButton/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/DiscordButton/.DS_Store"
-    },
-    {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/DiscordButton/3401964.png",
-      "SourceId": "discord_clicker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/DiscordButton/3401964.png",
       "AssetKind": "All",
@@ -915,13 +864,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/DiscordButton/3401964.png"
+      "OriginalItemSpec": "wwwroot\\images\\DiscordButton\\3401964.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/DiscordButton/discord-logo-svg-4.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\DiscordButton\\discord-logo-svg-4.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/DiscordButton/discord-logo-svg-4.svg",
       "AssetKind": "All",
@@ -932,13 +881,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/DiscordButton/discord-logo-svg-4.svg"
+      "OriginalItemSpec": "wwwroot\\images\\DiscordButton\\discord-logo-svg-4.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/DiscordButton/discordButton.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\DiscordButton\\discordButton.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/DiscordButton/discordButton.png",
       "AssetKind": "All",
@@ -949,13 +898,166 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/DiscordButton/discordButton.png"
+      "OriginalItemSpec": "wwwroot\\images\\DiscordButton\\discordButton.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/SocialImg/github.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\Без имени-1.psd",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/Без имени-1.psd",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\Без имени-1.psd"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\Без имени-2.psd",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/Без имени-2.psd",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\Без имени-2.psd"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\столб.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/столб.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\столб.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\achiev-arrow.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/achiev-arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\achiev-arrow.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\build-arrow.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/build-arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\build-arrow.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\leader-arrow.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/leader-arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\leader-arrow.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\profile-arrow.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/profile-arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\profile-arrow.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\upgrade-arrow.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/upgrade-arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\upgrade-arrow.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\env\\wampus.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "images/env/wampus.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\env\\wampus.png"
+    },
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\SocialImg\\github.png",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/SocialImg/github.png",
       "AssetKind": "All",
@@ -966,13 +1068,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/SocialImg/github.png"
+      "OriginalItemSpec": "wwwroot\\images\\SocialImg\\github.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/SocialImg/github.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\SocialImg\\github.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/SocialImg/github.svg",
       "AssetKind": "All",
@@ -983,13 +1085,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/SocialImg/github.svg"
+      "OriginalItemSpec": "wwwroot\\images\\SocialImg\\github.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/SocialImg/rweer.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\SocialImg\\rweer.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/SocialImg/rweer.png",
       "AssetKind": "All",
@@ -1000,13 +1102,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/SocialImg/rweer.png"
+      "OriginalItemSpec": "wwwroot\\images\\SocialImg\\rweer.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/SocialImg/test.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\SocialImg\\test.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/SocialImg/test.png",
       "AssetKind": "All",
@@ -1017,13 +1119,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/SocialImg/test.png"
+      "OriginalItemSpec": "wwwroot\\images\\SocialImg\\test.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/SocialImg/vk.png",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\SocialImg\\vk.png",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/SocialImg/vk.png",
       "AssetKind": "All",
@@ -1034,13 +1136,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/SocialImg/vk.png"
+      "OriginalItemSpec": "wwwroot\\images\\SocialImg\\vk.png"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/images/SocialImg/vk.svg",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\images\\SocialImg\\vk.svg",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "images/SocialImg/vk.svg",
       "AssetKind": "All",
@@ -1051,13 +1153,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/SocialImg/vk.svg"
+      "OriginalItemSpec": "wwwroot\\images\\SocialImg\\vk.svg"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/Alert.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\Alert.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/Alert.js",
       "AssetKind": "All",
@@ -1068,13 +1170,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/Alert.js"
+      "OriginalItemSpec": "wwwroot\\js\\Alert.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/apiRequests.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\apiRequests.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/apiRequests.js",
       "AssetKind": "All",
@@ -1085,13 +1187,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/apiRequests.js"
+      "OriginalItemSpec": "wwwroot\\js\\apiRequests.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/buildCardHandler.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\buildCardHandler.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/buildCardHandler.js",
       "AssetKind": "All",
@@ -1102,13 +1204,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/buildCardHandler.js"
+      "OriginalItemSpec": "wwwroot\\js\\buildCardHandler.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/clickAnimation.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\clickAnimation.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/clickAnimation.js",
       "AssetKind": "All",
@@ -1119,13 +1221,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/clickAnimation.js"
+      "OriginalItemSpec": "wwwroot\\js\\clickAnimation.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/counterUpdate.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\counterUpdate.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/counterUpdate.js",
       "AssetKind": "All",
@@ -1136,13 +1238,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/counterUpdate.js"
+      "OriginalItemSpec": "wwwroot\\js\\counterUpdate.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/init.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\init.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/init.js",
       "AssetKind": "All",
@@ -1153,13 +1255,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/init.js"
+      "OriginalItemSpec": "wwwroot\\js\\init.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/profileCardHandler.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\profileCardHandler.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/profileCardHandler.js",
       "AssetKind": "All",
@@ -1170,13 +1272,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/profileCardHandler.js"
+      "OriginalItemSpec": "wwwroot\\js\\profileCardHandler.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/js/signalr/dist/browser/signalr.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "js/signalr/dist/browser/signalr.min.js",
       "AssetKind": "All",
@@ -1187,13 +1289,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/js/signalr/dist/browser/signalr.min.js"
+      "OriginalItemSpec": "wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -1204,13 +1306,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -1221,13 +1323,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -1238,13 +1340,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -1255,13 +1357,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1272,13 +1374,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1289,13 +1391,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1306,13 +1408,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1323,13 +1425,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -1340,13 +1442,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -1357,13 +1459,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.css.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -1374,13 +1476,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1391,13 +1493,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1408,13 +1510,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1425,13 +1527,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1442,13 +1544,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1459,13 +1561,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1476,13 +1578,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.js"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1493,13 +1595,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.js.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1510,13 +1612,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1527,13 +1629,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/bootstrap/LICENSE",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1544,13 +1646,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/bootstrap/LICENSE"
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1561,13 +1663,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1578,13 +1680,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1595,13 +1697,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1612,13 +1714,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/additional-methods.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1629,13 +1731,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/additional-methods.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1646,13 +1748,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/jquery.validate.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1663,13 +1765,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/jquery.validate.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery-validation/LICENSE.md",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1680,13 +1782,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery-validation/LICENSE.md"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery/dist/jquery.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1697,13 +1799,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery/dist/jquery.min.js",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1714,13 +1816,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery/dist/jquery.min.map",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1731,13 +1833,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.min.map"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "/Users/alexeev/Desktop/Discord-Clicker/discord_clicker/wwwroot/lib/jquery/LICENSE.txt",
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "discord_clicker",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/alexeev/Desktop/discord-clicker/discord_clicker/wwwroot/",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
       "BasePath": "_content/discord_clicker",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1748,7 +1850,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     }
   ]
 }

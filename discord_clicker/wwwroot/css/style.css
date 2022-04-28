@@ -11,12 +11,12 @@ html * {
     color: #ffffff !important;
 }
 #content {
-    background-image: url('https://img.wallpapersafari.com/desktop/1366/768/5/59/yXdlDk.png') !important;
+    /*background-image: url('https://img.wallpapersafari.com/desktop/1366/768/5/59/yXdlDk.png') !important;*/
+    background-color: #35383d;
     position: absolute;
     width: 100%;
     min-height: 100vh;
     transition: all 0.3s;
-    background-color: #2c2f33;
 }
 @media (max-width: 768px) {
     .clicker_counter {
