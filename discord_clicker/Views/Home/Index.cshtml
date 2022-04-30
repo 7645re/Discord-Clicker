@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/buttons.css"/>
+    
     <title>Title</title>
 </head>
 <body>
@@ -14,14 +16,43 @@
         </main>
         <aside>
             <div class="arrows">
-                <img ondragstart="return false;" class="arrow build-arrow" src="images/env/build-arrow.png">
-                <img ondragstart="return false;" class="arrow upgrade-arrow" src="images/env/upgrade-arrow.png">
-                <img ondragstart="return false;" class="arrow achiev-arrow" src="images/env/achiev-arrow.png">
-                <img ondragstart="return false;" class="arrow profile-arrow" src="images/env/profile-arrow.png">
-                <img ondragstart="return false;" class="arrow leader-arrow" src="images/env/leader-arrow.png">
+                <button class="btn btn-primary game-button btn-builds shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomBuilds" aria-controls="offcanvasBottom">
+                    <img ondragstart="return false;" class="arrow build-arrow" src="images/env/build-arrow.png">    
+                </button>
+                <button class="btn btn-primary game-button btn-upgrades shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomUpgrades" aria-controls="offcanvasBottom">
+                    <img ondragstart="return false;" class="arrow upgrade-arrow" src="images/env/upgrade-arrow.png">
+                </button>
+                <button class="btn btn-primary game-button btn-achievements shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAchievements" aria-controls="offcanvasBottom">
+                    <img ondragstart="return false;" class="arrow achiev-arrow" src="images/env/achiev-arrow.png">
+                </button>
+                <button class="btn btn-primary game-button btn-profile shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+                    <img ondragstart="return false;" class="arrow profile-arrow" src="images/env/profile-arrow.png">
+                </button>
+                <button class="btn btn-primary game-button btn-leaderboard shadow-none" type="button">
+                    <img ondragstart="return false;" class="arrow leader-arrow" src="images/env/leader-arrow.png">
+                </button>
             </div>
-                <img ondragstart="return false;" class="pillar" src="images/env/столб.png">
+            <img ondragstart="return false;" class="pillar" src="images/env/столб.png">
         </aside>
     </div>
+    <div class="offcanvas offcanvas-bottom builds" tabindex="-1" id="offcanvasBottomBuilds" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-body small">
+            <div class="builds_list row"></div>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-bottom upgrades" tabindex="-1" id="offcanvasBottomUpgrades" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-body small">
+            <div class="upgrades_list row"></div>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-bottom achivements" tabindex="-1" id="offcanvasBottomAchievements" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-body small">
+            <div class="achivements_list row"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </body>
 </html>

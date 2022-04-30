@@ -5,6 +5,7 @@
     font-family: 'Poppins', sans-serif !important;
     color: #ffffff !important;
     margin: 0px !important;
+    overflow: hidden !important;
 }
 .wrapper {
     height: 100%;

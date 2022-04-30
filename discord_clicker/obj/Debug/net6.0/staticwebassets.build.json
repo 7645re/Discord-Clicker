@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vIDDpJTUg/W/lYQHrAFHssSV/+c35JOiVt82M58RRsw=",
+  "Hash": "0UJCmf95PfOAEmwC17FtnISiP2u6CIZBZO/RE+tX3LA=",
   "Source": "discord_clicker",
   "BasePath": "_content/discord_clicker",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\buttons.css",
+      "SourceId": "discord_clicker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\",
+      "BasePath": "_content/discord_clicker",
+      "RelativePath": "css/buttons.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\buttons.css"
+    },
     {
       "Identity": "C:\\Users\\perso\\Desktop\\Discord-Clicker\\discord_clicker\\wwwroot\\css\\gameButton.css",
       "SourceId": "discord_clicker",
