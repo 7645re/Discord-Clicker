@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st2{mask:url(#b_00000132065945494156957580000015318105629716056213_);}
+	.st3{filter:url(#Adobe_OpacityMaskFilter_00000049941108986539379760000013994257425153019811_);}
+	.st4{mask:url(#d_00000114759099563982828350000001456198063285590947_);fill-rule:evenodd;clip-rule:evenodd;fill:#4F5D7F;}
+	.st5{filter:url(#Adobe_OpacityMaskFilter_00000089542596976789302920000011490798722959865276_);}
+	.st6{mask:url(#f_00000152231620968552028900000005744688653400221061_);fill-rule:evenodd;clip-rule:evenodd;fill:#4F5D7F;}
+	.st7{fill-rule:evenodd;clip-rule:evenodd;fill:#ECEFF8;}
+	.st8{fill-rule:evenodd;clip-rule:evenodd;fill:#B7C2CE;}
+</style>
+<g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="7.71" width="50" height="34.98">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	
+		<mask maskUnits="userSpaceOnUse" x="0" y="7.71" width="50" height="34.98" id="b_00000132065945494156957580000015318105629716056213_">
+		<g class="st0">
+			<rect id="a_00000021823351247715080170000015930138561909571755_" x="0" y="6.14" class="st1" width="50.02" height="38.11"/>
+		</g>
+	</mask>
+	<g transform="translate(0 1)" class="st2">
+		<g transform="translate(0 7.671)">
+			<defs>
+				
+					<filter id="Adobe_OpacityMaskFilter_00000178206387395526911960000017948250680956159679_" filterUnits="userSpaceOnUse" x="0" y="7.91" width="4.52" height="3.48">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			
+				<mask maskUnits="userSpaceOnUse" x="0" y="7.91" width="4.52" height="3.48" id="d_00000114759099563982828350000001456198063285590947_">
+				<g style="filter:url(#Adobe_OpacityMaskFilter_00000178206387395526911960000017948250680956159679_);">
+					<polygon id="c_00000142164131616853135270000015323268106738731911_" class="st1" points="0,7.91 0,11.39 4.52,11.39 
+						4.52,7.91 					"/>
+				</g>
+			</mask>
+			<path class="st4" d="M4.52,9.65c0-0.95-0.81-1.74-1.78-1.74H1.78C0.81,7.91,0,8.7,0,9.65c0,0.95,0.81,1.74,1.78,1.74h0.97
+				C3.72,11.39,4.52,10.6,4.52,9.65"/>
+		</g>
+		<g transform="translate(4.884 .012)">
+			<defs>
+				
+					<filter id="Adobe_OpacityMaskFilter_00000032627143853369833890000004397110555412079543_" filterUnits="userSpaceOnUse" x="1.09" y="6.7" width="44.02" height="34.98">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			
+				<mask maskUnits="userSpaceOnUse" x="1.09" y="6.7" width="44.02" height="34.98" id="f_00000152231620968552028900000005744688653400221061_">
+				<g style="filter:url(#Adobe_OpacityMaskFilter_00000032627143853369833890000004397110555412079543_);">
+					<polygon id="e_00000016070672659839426890000005257493933637405344_" class="st1" points="1.09,41.68 45.12,41.68 45.12,6.7 
+						1.09,6.7 					"/>
+				</g>
+			</mask>
+			<path class="st6" d="M43.43,16.83c-2.91-6.18-9.05-9.82-15.51-10.14H9.66c-1.62,0-2.75,1.27-2.75,2.69
+				c0,1.58,1.29,2.69,2.75,2.69h4.69c0.97,0,1.78,0.79,1.78,1.74c0,0.95-0.81,1.74-1.78,1.74H2.87c-0.97,0-1.78,0.79-1.78,1.74
+				c0,0.95,0.81,1.74,1.78,1.74h8.24c0.97,0,1.78,0.79,1.78,1.74c0,0.95-0.81,1.74-1.78,1.74H5.94c-0.97,0-1.78,0.79-1.78,1.74
+				s0.81,1.74,1.78,1.74H9.5c0.16,1.9,0.65,3.8,1.45,5.54c4.04,8.71,14.7,12.51,23.59,8.55C43.75,36,47.63,25.55,43.43,16.83"/>
+		</g>
+		<path class="st7" d="M27.89,15.1C33,12.8,39.04,15,41.39,20s0.11,10.93-5,13.23c-5.11,2.3-11.15,0.1-13.5-4.9
+			S22.78,17.4,27.89,15.1"/>
+		<path class="st8" d="M36.03,18.43l3.23,5.38c0.16,0.32,0.16,0.48,0,0.79l-3.23,5.38c-0.16,0.32-0.48,0.32-0.65,0.32h-6.3
+			c-0.32,0-0.48-0.16-0.65-0.32l-3.23-5.38c-0.16-0.32-0.16-0.48,0-0.79l3.23-5.38c0.16-0.32,0.48-0.32,0.65-0.32h6.3
+			C35.71,17.96,35.87,18.11,36.03,18.43"/>
+	</g>
+</g>
+</svg>

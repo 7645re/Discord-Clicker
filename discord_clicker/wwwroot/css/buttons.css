@@ -1,5 +1,31 @@
-.btn {
+.game-button {
     background-color: transparent !important;
     border: none !important;
     outline: none !important;
+    padding: 0 !important;
+}
+@media (max-width: 800px) {
+    .game-button {
+        width: 49% !important;
+        height: 49% !important;
+    }
+    .arrow {
+        width: 90% !important;
+    }
+    .arrows {
+        height: 100%;
+    }
+}
+@media (min-width: 800px) {
+    .arrows {
+        z-index: 2;
+        position: absolute;
+        margin-right: -50%;
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+    }
+    .arrow {
+        height: 5vw !important;
+    }
 }

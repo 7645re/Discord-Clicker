@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Numerics;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
@@ -12,17 +13,17 @@ public class Upgrade : IItem<Upgrade, UpgradeCreateModel>
 {
     [Key] public int Id { get; set; }
     public string Name { get; set; }
-    public decimal Cost { get; set; }
+    public long Cost { get; set; }
     public uint BuildId { get; set; }
     public string Action { get; set; }
     public uint ConditionGet { get; set; }
-    public decimal GetMoney { get; set; }
+    public long GetMoney { get; set; }
     public bool ForEachBuild { get; set; }
     public string Description { get; set; }
     public List<User> Users { get; set; } = new();
     public List<UserUpgrade> UserUpgrades { get; set; } = new();
 
-    public (bool, string, User) Get(User user, decimal money, DbSet<Achievement> achievements)
+    public (bool, string, User) Get(User user, long money, DbSet<Achievement> achievements)
     {
         bool enoughMoney = user.Money + money >= Cost;
         bool presenceUserUpgrade = user.UserUpgrades.FirstOrDefault(up => up.ItemId == Id) != null;

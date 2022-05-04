@@ -1,4 +1,5 @@
-﻿using discord_clicker.Models.Person;
+﻿using System.Numerics;
+using discord_clicker.Models.Person;
 
 namespace discord_clicker.Models.Items.BuildClasses;
 
@@ -10,8 +11,8 @@ public class UserBuild: IUserItem<Build>
 
     public int ItemId { get; set; }
     #nullable enable
-    public BuildClasses.Build? Item { get; set; }
+    public Build? Item { get; set; }
 
     public uint Count { get; set; }
-    public decimal PassiveCoefficient { get; set; }
+    public long PassiveCoefficient { get; set; }
 }

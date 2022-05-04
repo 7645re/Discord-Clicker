@@ -3,6 +3,7 @@ using discord_clicker.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Numerics;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Items.BuildClasses;
 using discord_clicker.Models.Items.UpgradeClasses;
@@ -70,7 +71,7 @@ public class EconomyController : Controller
     
     [HttpGet]
     [Authorize]
-    public async Task<IActionResult> BuyBuild(int id, decimal money)
+    public async Task<IActionResult> BuyBuild(int id, long money)
     {
         int userId = Convert.ToInt32(HttpContext.User.Identity?.Name);
         return Ok(await _buildHandler.BuyItem(userId, id, money, _db.Builds));
@@ -78,7 +79,7 @@ public class EconomyController : Controller
     
     [HttpGet]
     [Authorize]
-    public async Task<IActionResult> BuyUpgrade(int id, decimal money)
+    public async Task<IActionResult> BuyUpgrade(int id, long money)
     {
         int userId = Convert.ToInt32(HttpContext.User.Identity?.Name);
         return Ok(await _upgradeHandler.BuyItem(userId, id, money, _db.Upgrades));
@@ -124,5 +125,23 @@ public class EconomyController : Controller
     public async Task ClearAchievements()
     {
         await _achievementHandler.DeleteItems(_db.Achievements);
+    }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task DeleteBuild(int id)
+    {
+        await _buildHandler.DeleteItem(_db.Builds, id);
+    }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task DeleteUpgrade(int id)
+    {
+        await _upgradeHandler.DeleteItem(_db.Upgrades, id);
+    }
+    [HttpGet]
+    [Authorize(Roles = "admin")]
+    public async Task DeleteAchievement(int id)
+    {
+        await _achievementHandler.DeleteItem(_db.Achievements, id);
     }
 }

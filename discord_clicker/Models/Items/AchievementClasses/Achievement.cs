@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,7 @@ public class Achievement : IItem<Achievement, AchievementCreateModel>
     public List<User> Users { get; set; } = new();
     public List<UserAchievement> UserAchievements { get; set; } = new();
 
-    public (bool, string, User) Get(User user, decimal money, DbSet<Achievement> achievements)
+    public (bool, string, User) Get(User user, long money, DbSet<Achievement> achievements)
     {
         return (true, "", user);
     }

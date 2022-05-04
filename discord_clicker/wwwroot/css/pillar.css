@@ -1,6 +1,16 @@
-﻿.pillar {
-    z-index: 3;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+﻿@media (min-width: 800px) {
+    .pillar {
+        display: block;
+        height: 10vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+}
+@media (max-width: 800px) {
+    .pillar {
+        display: none;
+    }
 }

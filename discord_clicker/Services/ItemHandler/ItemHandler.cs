@@ -8,6 +8,7 @@ using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
+using System.Numerics;
 using System.Xml.XPath;
 using discord_clicker.Models.Items.AchievementClasses;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,7 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
     }
     public async Task<List<TItemViewModel>> GetItemsList(DbSet<TItem> itemsContext)
     {
-        List<TItem> itemsListLinks = await itemsContext.ToListAsync();
+        List<TItem> itemsListLinks = await itemsContext.OrderBy(i => i.Id).ToListAsync();
         List<TItemViewModel> itemsList = new List<TItemViewModel>();
         foreach (TItem item in itemsListLinks)
         {
@@ -54,11 +55,18 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         await _db.SaveChangesAsync();
         return _mapper.Map<TItemViewModel>(item);
     }
-    
-    public async Task<Dictionary<bool, string>> BuyItem(int userId, int itemId, decimal money,
+
+    public async Task DeleteItem(DbSet<TItem> itemsContext, int id)
+    {
+        TItem item = await itemsContext.Where(i => i.Id == id).FirstAsync();
+        itemsContext.Remove(item);
+        await _db.SaveChangesAsync();
+    }
+
+    public async Task<Dictionary<string, object>> BuyItem(int userId, int itemId, long money,
         DbSet<TItem> itemsContext)
     {
-        Dictionary<bool, string> result = new Dictionary<bool, string>();
+        Dictionary<string, object> result = new Dictionary<string, object>();
         #nullable enable
         User? user = await _db.Users.Where(u => u.Id == userId)
             .Include(u => u.UserBuilds)
@@ -68,16 +76,26 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         TItem? item = await itemsContext.FirstOrDefaultAsync(i => i.Id == itemId);
         if (item == null)
         {
-            result.Add(false, "item doesnt exist");
+            result.Add("status", "error");
+            result.Add("reason", "item doesnt exist");
+            return result;
+        }
+
+        long diffMoney = money - user.Money;
+        if (diffMoney < 0)
+        {
+            result.Add("status", "error");
+            result.Add("reason", "non-fixed debiting of funds");
             return result;
         }
 
         decimal userInterval = Convert.ToDecimal((DateTime.UtcNow - user.LastRequestDate).TotalMilliseconds);
-        bool verifyMoney = userInterval * (user.PassiveCoefficient + 20 * user.ClickCoefficient) / 1000 >= money;
+        bool verifyMoney = userInterval * (user.PassiveCoefficient + 20 * user.ClickCoefficient) / 1000 >= diffMoney;
 
         if (!verifyMoney)
         {
-            result.Add(false, "chear");
+            result.Add("status", "error");
+            result.Add("reason", "cheat");
             return result;
         }
 
@@ -85,12 +103,14 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
 
         if (!transactionResult.transactionFlag)
         {
-            result.Add(false, transactionResult.message);
+            result.Add("status", "error");
+            result.Add("reason", transactionResult.message);
             return result;
         }
         transactionResult.user.LastRequestDate = DateTime.UtcNow;
         await _db.SaveChangesAsync();
-        result.Add(true, "ok");
+        result.Add("status", "ok");
+        result.Add("user", _mapper.Map<UserViewModel>(user));
         return result;
     }
     

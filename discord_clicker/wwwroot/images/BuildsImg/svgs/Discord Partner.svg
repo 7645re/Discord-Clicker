@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	
+		.st2{mask:url(#ic_profile_badge_partner_color_32px-b_00000173156946195857890300000017305129807156152973_);fill-rule:evenodd;clip-rule:evenodd;fill:#4087ED;}
+</style>
+<g transform="translate(0 6)">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0.47" y="6" width="49.09" height="24.31">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	
+		<mask maskUnits="userSpaceOnUse" x="0.47" y="6" width="49.09" height="24.31" id="ic_profile_badge_partner_color_32px-b_00000173156946195857890300000017305129807156152973_">
+		<g class="st0">
+			<polygon id="ic_profile_badge_partner_color_32px-a_00000077298162042449293820000010476853570582583680_" class="st1" points="
+				0.47,18.15 0.47,6 49.56,6 49.56,18.15 49.56,30.31 0.47,30.31 			"/>
+		</g>
+	</mask>
+	<path class="st2" d="M37.92,6c-6.02,0-9.58,3.27-10.76,4.53c-0.22,0.23-0.2,0.6,0.03,0.81l5.38,4.93c0.21,0.19,0.53,0.2,0.74,0
+		c0.64-0.61,2.16-1.75,4.6-1.75c3.36,0,3.33,3.86,3.33,3.86c0,0.03-0.04,3.4-3.33,3.4c-1.55,0-3.36-0.51-6.02-2.83
+		c-1.55-1.35-1.84-1.67-3.72-3.48S19.34,6,12.12,6C4.83,6,0.47,12.06,0.47,17.92c0,1.65,0.3,4.85,2.31,7.73
+		c2.09,3,5.4,4.65,9.34,4.65c6.02,0,9.57-3.04,10.75-4.24c0.22-0.23,0.21-0.59-0.02-0.81l-5.16-4.95c-0.2-0.19-0.49-0.2-0.71-0.04
+		c-0.69,0.51-2.36,1.52-4.82,1.53c-0.03,0-0.06,0-0.08-0.01c-0.38-0.05-3.27-0.55-3.28-3.84c0-0.02,0-0.03,0-0.05
+		c0.01-0.31,0.22-3.38,3.32-3.38c3.65,0,7.23,3.97,9.9,6.69c3.87,3.94,8.48,9.33,15.9,9.09c7.29-0.24,11.64-6.06,11.64-11.92
+		c0-1.65-0.3-4.85-2.31-7.73C45.17,7.65,41.86,6,37.92,6"/>
+</g>
+</svg>

@@ -1,7 +1,9 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Numerics;
 using discord_clicker.Models.Items.AchievementClasses;
 using discord_clicker.Models.Person;
 using Microsoft.EntityFrameworkCore;
@@ -12,16 +14,23 @@ public class Build : IItem<Build, BuildCreateModel>
 {
     [Key] public int Id { get; set; }
     public string Name { get; set; }
-    public decimal Cost { get; set; }
+    public long Cost { get; set; }
     public string Description { get; set; }
 
-    public decimal PassiveCoefficient { get; set; }
+    public long PassiveCoefficient { get; set; }
     public List<User> Users { get; set; } = new();
     public List<UserBuild> UserBuilds { get; set; } = new();
 
-    public (bool, string, User) Get(User user, decimal money, DbSet<Achievement> achievements)
+    public (bool, string, User) Get(User user, long money, DbSet<Achievement> achievements)
     {
-        bool enoughMoney = user.Money + money >= Cost;
+        UserBuild? userBuild = user.UserBuilds.FirstOrDefault(ub => ub.ItemId == Id);
+        uint buildCount = 1;
+        if (userBuild != null)
+        {
+            buildCount = userBuild.Count;
+        }
+
+        bool enoughMoney = money >= (long) (Cost * Math.Pow(1.15, buildCount));
         bool presenceUserItem = user.UserBuilds.FirstOrDefault(ub => ub.ItemId == Id) != null;
         if (!enoughMoney) {
             return (false, "not enough money", user);
@@ -33,10 +42,10 @@ public class Build : IItem<Build, BuildCreateModel>
             });
         }
         user.PassiveCoefficient+=PassiveCoefficient;
-        user.Money += money - Cost;
+        user.Money = money - (long) (Cost * Math.Pow(1.15, buildCount));
         user.UserBuilds.First(ub => ub.ItemId == Id).Count++;
         user.UserBuilds.First(ub => ub.ItemId == Id).PassiveCoefficient+=PassiveCoefficient;
-        uint buildCount = user.UserBuilds.First(ub => ub.ItemId == Id).Count;
+        buildCount = user.UserBuilds.First(ub => ub.ItemId == Id).Count;
         #nullable enable
         Achievement? achievement = achievements.
             FirstOrDefault(a => a.AchievementObjectType == "Build" 

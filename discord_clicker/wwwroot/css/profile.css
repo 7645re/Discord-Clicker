@@ -1,0 +1,22 @@
+.modal-content {
+    background-color: #2c2f33 !important;
+    height: 100% !important;
+}
+.modal-dialog div {
+    border-color: black !important;
+}
+.modal-header {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/1280px-Red_flag.svg.png") !important;
+    box-shadow: 0 -150px 0 -50px #2c2f33 inset;
+    flex-direction: column  !important;
+    border: 0px !important;
+    padding-bottom: 0px !important;
+}
+.modal-title img {
+    border-radius: 50%;
+    border: 5px solid #23272A !important;
+    top: 10% !important;
+}
+.modal-body img {
+    flex-shrink: 1 !important;
+}

@@ -1,5 +1,4 @@
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-// button.addEventListener("click", ActionClick, false)
 let animationOpen = true
 async function imgBounce() {
     let end = false
@@ -54,10 +53,11 @@ async function clickIncrease() {
 async function ActionClick() {
     let lUserMoney = localStorage.getItem('money');
     counterFloat+=Number(localStorage.getItem("clickCoefficient"))
+    lUserUnSaveMoney+=Number(localStorage.getItem("clickCoefficient"))
     localStorage.setItem('money', Number(lUserMoney === null ? 0 : lUserMoney) + Number(localStorage.getItem("clickCoefficient")));
-    clickIncrease()
+    await clickIncrease()
     if (animationOpen) {
-        imgBounce()
+        await imgBounce()
         animationOpen = false
     }
 }

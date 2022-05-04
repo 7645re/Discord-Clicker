@@ -3,79 +3,50 @@
 /*    the store with build, the user profile and the list of leaders.                        */
 /* ----------------------------------------------------------------------------------------- */
 
-/* ------------------------------ HTML ELEMENTS ----------------------------- */
-let content = document.getElementById("content") /** HTML Content Block */
+let content = document.getElementsByClassName("main")[0] /** HTML Content Block */
 let builds_list = document.getElementsByClassName("builds_list")[0] /** element which contain builds cards */
 let button = document.getElementsByClassName("clicker_button")[0] /** main button for click */
 let cpsCounter = document.getElementsByClassName("cps_counter")[0] /** How much money does a user get per second */
 let counter = document.getElementsByClassName("clicker_counter")[0] /** users clicks counter to send them to the server for saving */
-/* ------------------------------------ / ----------------------------------- */
+let builds_button = document.getElementsByClassName("btn-builds")[0]
+let upgrades_button = document.getElementsByClassName("btn-upgrades")[0]
+let profile_button = document.getElementsByClassName("btn-profile")[0]
+let leaderboard_button = document.getElementsByClassName("btn-leaderboard")[0]
 
-/* ----------------------------- USER INFORMATION ---------------------------- */
-let counterFloat
-let userClickCoefficient
-let userPassiveCoefficient
-let lUserId = localStorage.getItem("id")
-let lUserRole = localStorage.getItem("role")
-let lUserMoney = localStorage.getItem("money")
-let lUserBuilds = localStorage.getItem("builds")
-let lUserNickname = localStorage.getItem("nickname")
-let lUserUpgrades = localStorage.getItem("upgrades")
-let lUserAchievements = localStorage.getItem("achievements")
-let lUserClickCoefficient = localStorage.getItem("clickCoefficient")
-let lUserPassiveCoefficient = localStorage.getItem("passiveCoefficient")
-/* ------------------------------------ / ----------------------------------- */
-
-/* ----------------------------- ITEMS INFORMATION ---------------------------- */
-let lBuilds = localStorage.getItem("buildsList")
-let lUpgrades = localStorage.getItem("upgradesList")
-let lAchievements = localStorage.getItem("achievementsList")
-/* ------------------------------------ / ----------------------------------- */
-
+let lUser
+let lBuilds 
+let lUpgrades 
+let lAchievements 
 
 init()
 
-
 async function init() {
-    /* ------------------------ Initialize main elements ------------------------ */
-    await loadUser() /** Call function to load users values into local storage from api */
-    await loadItems() /** Call function to load items to local storage from api */
-    await genCards() /** Generate perks cards in store with data from api */
-    // await setDataToProfileCard() /** Uploading data to the user profile */
-    /* ------------------------------------ / ----------------------------------- */
+    await loadUserAsync() /** Call function to load users values into local storage from api */
+    await loadItemsAsync() /** Call function to load items to local storage from api */
+    
+    await genBuildsCardsAsync() /** Generate perks cards in store */
+    // await updater() /** Animation of increasing the amount of money */ 
+    
+    button.addEventListener("click", ActionClick)
+    profile_button.addEventListener("click", setDataToProfileCard)
 }
 
 /** Function load user info to site */
-async function loadUser() {
-    let lDataAvailability = lUserId && lUserRole && lUserMoney && lUserBuilds 
-        && lUserNickname && lUserUpgrades && lUserAchievements && lUserClickCoefficient && lUserPassiveCoefficient
-    if (!lDataAvailability) {
-        let user = await getStats()
-        for (key in user) {
-            await localStorage.setItem(key, JSON.stringify(user[key]))
-        }
-        counter.innerText = user["money"]
-        counterFloat = Number(user["money"]) /** counterFloat contain money with decimal places */
-        userClickCoefficient = user["clickCoefficient"]
-        userPassiveCoefficient = user["passiveCoefficient"]
-        cpsCounter.innerHTML = user["passiveCoefficient"] + " cps"
-    }
-    else {
-        counter.innerText = lUserMoney
-        counterFloat = Number(lUserMoney) /** counterFloat contain money with decimal places */
-        userClickCoefficient = lUserClickCoefficient
-        userPassiveCoefficient = lUserPassiveCoefficient
-        cpsCounter.innerHTML = userPassiveCoefficient + " cps"
+async function loadUserAsync() {
+    lUser = JSON.parse(localStorage.getItem("user"))
+    if (!lUser) {
+        lUser = await getUserAsyncRequest()
+        localStorage.setItem("user", JSON.stringify(lUser))
     }
 }
-async function loadItems() {
-    let lDataAvailability = lBuilds && lUpgrades && lAchievements
-    if (!lDataAvailability) {
-        let builds = await getBuildsList()
-        let upgrades = await getUpgradesList()
-        let achievements = await getAchievementsList()
-        localStorage.setItem("buildsList", JSON.stringify(builds));
-        localStorage.setItem("upgradesList", JSON.stringify(upgrades));
-        localStorage.setItem("achievementList", JSON.stringify(achievements));
+async function loadItemsAsync() {
+    if (!(lBuilds && lUpgrades && lAchievements)) {
+        lBuilds = await getBuildsListAsyncRequest()
+        lUpgrades = await getUpgradesListAsyncRequest()
+        lAchievements = await getAchievementsListAsyncRequest()
+        
+        localStorage.setItem("buildsList", JSON.stringify(lBuilds));
+        localStorage.setItem("upgradesList", JSON.stringify(lUpgrades));
+        localStorage.setItem("achievementList", JSON.stringify(lAchievements));
     }
 }

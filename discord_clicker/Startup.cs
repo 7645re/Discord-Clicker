@@ -75,7 +75,7 @@ public class Startup
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
-            endpoints.MapHub<ClickerHub>("/clicker");
+            // endpoints.MapHub<ClickerHub>("/clicker");
         });
     }
 }

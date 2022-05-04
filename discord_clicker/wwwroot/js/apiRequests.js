@@ -19,8 +19,7 @@ async function asyncRequest(method, url, body = null, headers = null) {
             })
     }
 }
-/** Function for getting user information */
-async function getStats() {
+async function getUserAsyncRequest() {
     let result;
     await asyncRequest('GET', "/stats")
         .then(data => {
@@ -29,7 +28,7 @@ async function getStats() {
         .catch(err => console.log(err))
     return result
 }
-async function getBuildsList() {
+async function getBuildsListAsyncRequest() {
     let result
     await asyncRequest('GET', "builds")
         .then(data => {
@@ -38,7 +37,7 @@ async function getBuildsList() {
         .catch(err => console.log(err))
     return result
 }
-async function getUpgradesList() {
+async function getUpgradesListAsyncRequest() {
     let result
     await asyncRequest('GET', "upgrades")
         .then(data => {
@@ -47,7 +46,7 @@ async function getUpgradesList() {
         .catch(err => console.log(err))
     return result
 }
-async function getAchievementsList() {
+async function getAchievementsListAsyncRequest() {
     let result
     await asyncRequest('GET', "achievements")
         .then(data => {
@@ -56,10 +55,36 @@ async function getAchievementsList() {
         .catch(err => console.log(err))
     return result
 }
-/** Function for buying a build by ID */
-async function createBuild(itemType, itemCreateModel) {
+async function createBuildAsyncRequest(itemCreateModel) {
     let result
-    await asyncRequest('POST', "/create"+itemType+'s', itemCreateModel)
+    await asyncRequest('POST', "/createBuild", itemCreateModel)
+        .then(data => {
+            result = data
+        })
+        .catch(err => console.log(err))
+    return result
+}
+async function createUpgradeAsyncRequest(itemCreateModel) {
+    let result
+    await asyncRequest('POST', "/createUpgrade", itemCreateModel)
+        .then(data => {
+            result = data
+        })
+        .catch(err => console.log(err))
+    return result
+}
+async function createAchievementAsyncRequest(itemCreateModel) {
+    let result
+    await asyncRequest('POST', "/createAchievement", itemCreateModel)
+        .then(data => {
+            result = data
+        })
+        .catch(err => console.log(err))
+    return result
+}
+async function buyBuildAsyncRequest(id, money) {
+    let result
+    await asyncRequest('GET', "/buyBuild?id=" + id + "&money=" + money)
         .then(data => {
             result = data
         })

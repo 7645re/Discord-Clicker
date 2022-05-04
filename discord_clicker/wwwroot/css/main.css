@@ -45,17 +45,7 @@ main {
         z-index: 1;
         height: 50vw !important;
     }
-    .arrows {
-        z-index: 2;
-        position: absolute;
-        top: 50%;
-        left: 70%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-    }
-    .arrow {
-        height: 5vw !important;
-    }
+
 }
 .clicker_button {
     width: 70vw;
@@ -87,11 +77,4 @@ main {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.pillar {
-    height: 10vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-}
+

@@ -1,0 +1,19 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.offcanvas-body::-webkit-scrollbar {
+    display: none !important;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.offcanvas-body {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+}
+.offcanvas-body::-webkit-scrollbar {
+    display: none !important;
+}
+.offcanvas {
+    background-color: #2c2f33 !important;
+}
+.row {
+    flex-direction: row !important;
+    flex-shrink: 1 !important;
+}

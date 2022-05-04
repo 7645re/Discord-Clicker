@@ -52,22 +52,13 @@ html * {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.offcanvas-body::-webkit-scrollbar {
-    display: none !important;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
-.offcanvas-body {
-    -ms-overflow-style: none !important; /* IE and Edge */
-    scrollbar-width: none !important; /* Firefox */
-}
+
+
 #content {
     z-index: 1;
     position: absolute;
 }
-.offcanvas-body::-webkit-scrollbar {
-    display: none !important;
-}
+
 
 
 a:active {
@@ -116,9 +107,7 @@ input {
     appearance: none;
 
 }
-.offcanvas {
-    background-color: #2c2f33 !important;
-}
+
 .modal-content {
     background-color: #2c2f33 !important;
     height: 100% !important;
