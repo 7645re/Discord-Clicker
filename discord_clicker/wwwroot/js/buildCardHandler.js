@@ -14,25 +14,18 @@
 async function buyBuildAsync(id) {
     let result = await buyBuildAsyncRequest(id, lUser.money)
     let buildElement = document.querySelector('[buildId=' + '"' + id + '"' + ']')
-    console.log(result)
     if (result.status === "ok") {
         lUser = result["user"]
         localStorage.setItem("user", JSON.stringify(result["user"]))
-        // let user = JSON.parse(localStorage.getItem("user"))
-        // // user.money = result["money"]
-        // // if 
-        // user.builds[id].ItemCount+=1
-        // localStorage.setItem("user", JSON.stringify(user))
-        //
-        //
-        //
-        //
-        // // lUser.builds[id].itemCount++
-        // buyBuildLS(result["money"], id)
-        // let cost = buildElement.getElementsByClassName("build-cost")[0]
-        // cost.innerHTML = Math.floor(10 * (1.15**lUser.builds[id].ItemCount))
+        let cost = buildElement.getElementsByClassName("build-cost")[0]
+        cost.innerHTML = '<img width="25" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>' + minNum(Math.floor(lBuilds[id-1].cost * (1.15**lUser.builds[id].ItemCount)))
+        cpsCounter.innerHTML = lUser.passiveCoefficient + " cps"
+        counter.innerText = lUser.money
     }
-    console.log(result, lUser)
+    if (result.status === "error" && result.result === "cheat") {
+        lUser = result["user"]
+        localStorage.setItem("user", JSON.stringify(result["user"]))
+    }
 }   
 
 
@@ -46,7 +39,7 @@ async function genBuildsCardsAsync() {
                                 <div class="build-name" id="${build.id}">${build.name}</div>
                                     <div class="build-cost" id="${build.id}">
                                         <img width="25" src="https://pnggrid.com/wp-content/uploads/2021/05/Black-and-white-Discord-Logo-1024x784.png"/>
-                                        ${minNum(build.cost)}
+                                        ${minNum(Math.floor(build.cost * (1.15**lvl)))}
                                     </div>
                                 <div class="build-purchased" id="${build.id}"><span>Lvl ${lvl}</span></div>
                             <div class="build-passive" id="${build.id}">Cps +${minNum(build.passiveCoefficient)}</div>

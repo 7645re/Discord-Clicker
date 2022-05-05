@@ -12,6 +12,7 @@ using System.Numerics;
 using System.Xml.XPath;
 using discord_clicker.Models.Items.AchievementClasses;
 using Microsoft.EntityFrameworkCore;
+using discord_clicker.Services.UserHandler;
 
 namespace discord_clicker.Services.ItemHandler;
 
@@ -69,10 +70,11 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         Dictionary<string, object> result = new Dictionary<string, object>();
         #nullable enable
         User? user = await _db.Users.Where(u => u.Id == userId)
-            .Include(u => u.UserBuilds)
-            .Include(u => u.UserUpgrades)
-            .Include(u => u.UserAchievements)
+            .Include(u => u.UserBuilds).ThenInclude(up => up.Item)
+            .Include(u => u.UserUpgrades).ThenInclude(uu => uu.Item)
+            .Include(u => u.UserAchievements).ThenInclude(ua => ua.Item).Include(u => u.Role)
             .FirstOrDefaultAsync();
+        
         TItem? item = await itemsContext.FirstOrDefaultAsync(i => i.Id == itemId);
         if (item == null)
         {
@@ -84,9 +86,10 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         long diffMoney = money - user.Money;
         if (diffMoney < 0)
         {
-            result.Add("status", "error");
-            result.Add("reason", "non-fixed debiting of funds");
-            return result;
+            // result.Add("status", "error");
+            // result.Add("reason", "non-fixed debiting of funds");
+            // return result;
+            diffMoney = 0;
         }
 
         decimal userInterval = Convert.ToDecimal((DateTime.UtcNow - user.LastRequestDate).TotalMilliseconds);
@@ -96,6 +99,7 @@ public class ItemHandler<TItem, TItemViewModel, TItemCreateModel> :
         {
             result.Add("status", "error");
             result.Add("reason", "cheat");
+            result.Add("user", _mapper.Map<UserViewModel>(user));
             return result;
         }
 

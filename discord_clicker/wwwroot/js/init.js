@@ -14,9 +14,9 @@ let profile_button = document.getElementsByClassName("btn-profile")[0]
 let leaderboard_button = document.getElementsByClassName("btn-leaderboard")[0]
 
 let lUser
-let lBuilds 
-let lUpgrades 
-let lAchievements 
+let lBuilds = JSON.parse(localStorage.getItem("buildsList"))
+let lUpgrades = JSON.parse(localStorage.getItem("upgradesList"))
+let lAchievements = JSON.parse(localStorage.getItem("achievementsList"))
 
 init()
 
@@ -38,6 +38,8 @@ async function loadUserAsync() {
         lUser = await getUserAsyncRequest()
         localStorage.setItem("user", JSON.stringify(lUser))
     }
+    cpsCounter.innerHTML = lUser.passiveCoefficient + " cps"
+    counter.innerText = lUser.money
 }
 async function loadItemsAsync() {
     if (!(lBuilds && lUpgrades && lAchievements)) {

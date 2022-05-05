@@ -6,68 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d36f200-36c5-4100-85ff-26e5fe9a5cd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.discord_clicker/.idea/efCoreCommonOptions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/itemsList.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/profile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Balance Badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Bot Developer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Bravery Badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Brilliance Badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Bug Hunter 2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Bug Hunter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Discord Partner.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Discord Staff.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Early Supporter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Event Badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Moderator.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Nitro Boost.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 5.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 6.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 7.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 8.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Boost 9.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/images/BuildsImg/svgs/Server Owner.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/lstor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.discord_clicker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.discord_clicker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/ClickerHub.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Controllers/EconomyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Controllers/EconomyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Models/Items/AchievementClasses/Achievement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Models/Items/AchievementClasses/Achievement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Models/Items/BuildClasses/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Models/Items/BuildClasses/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Models/Items/BuildClasses/UserBuild.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Models/Items/BuildClasses/UserBuild.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Models/Items/IItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Models/Items/IItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Models/Items/UpgradeClasses/Upgrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Models/Items/UpgradeClasses/Upgrade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Models/Person/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Models/Person/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Services/ItemHandler/IItemHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Services/ItemHandler/IItemHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/Services/ItemHandler/ItemHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Services/ItemHandler/ItemHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Services/ItemHandler/ItemHandlerCachingDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Services/ItemHandler/ItemHandlerCachingDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/bin/Debug/net6.0/discord_clicker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/bin/Debug/net6.0/discord_clicker.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/bin/Debug/net6.0/discord_clicker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/bin/Debug/net6.0/discord_clicker.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/bin/Debug/net6.0/discord_clicker.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/bin/Debug/net6.0/discord_clicker.staticwebassets.runtime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/discord_clicker.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/discord_clicker.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/discord_clicker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/discord_clicker.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/discord_clicker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/discord_clicker.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/ref/discord_clicker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/ref/discord_clicker.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/refint/discord_clicker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/refint/discord_clicker.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/Debug/net6.0/staticwebassets.development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/obj/staticwebassets.pack.sentinel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/css/items/builds.css" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/items/builds.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/css/pillar.css" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/pillar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/js/apiRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/apiRequests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/js/buildCardHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/buildCardHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/js/clickAnimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/clickAnimation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/js/counterUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/counterUpdate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discord_clicker/wwwroot/js/profileCardHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/discord_clicker/wwwroot/js/profileCardHandler.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +130,8 @@
       <workItem from="1651355326302" duration="8187000" />
       <workItem from="1651412121576" duration="24286000" />
       <workItem from="1651654097546" duration="1632000" />
-      <workItem from="1651660085080" duration="20153000" />
+      <workItem from="1651660085080" duration="20420000" />
+      <workItem from="1651750047037" duration="12223000" />
     </task>
     <servers />
   </component>
