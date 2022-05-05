@@ -8,3 +8,6 @@
  - /builds - returns a list of builds
  - /upgrades - returns a list of upgrades
  - /achievements - returns a list of achievements
+ - /buybuild?id=&money= - buying an build by id and saving the money earned
+ - /buyupgrade?id=&money= - buying an upgrade by id and saving the money earned
+ - 
