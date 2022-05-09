@@ -6,10 +6,21 @@
 # API
  # User
  - /stats - returns information about the user and his inventory
+ - /account/login - log in to your account
+ - /account/register - register account
+ - /account/logout - log out of your account
  # Items
  - /builds - returns a list of builds
  - /upgrades - returns a list of upgrades
  - /achievements - returns a list of achievements
- - /buybuild?id=&money= - buying an build by id and saving the money earned
- - /buyupgrade?id=&money= - buying an upgrade by id and saving the money earned
- - 
+ - /buyBuild?id=&money= - buying an build by id and saving the money earned
+ - /buyUpgrade?id=&money= - buying an upgrade by id and saving the money earned
+ - /createBuild - create build (body needed)
+ - /createUgrade- create upgrade (body needed)
+ - /createAchievement - create achievement (body needed)
+ - /clearBuilds - clear the range of builds
+ - /clearUpgrades - clear the range of upgrades
+ - /clearAchievements - clear the range of achievements
+ - /deleteBuild - delete build with the specified id
+ - /deleteUpgrade - delete upgrade with the specified id
+ - /deleteAchievement - delete achievement with the specified id
