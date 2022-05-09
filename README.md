@@ -21,6 +21,6 @@
  - /clearBuilds - clear the range of builds
  - /clearUpgrades - clear the range of upgrades
  - /clearAchievements - clear the range of achievements
- - /deleteBuild - delete build with the specified id
- - /deleteUpgrade - delete upgrade with the specified id
- - /deleteAchievement - delete achievement with the specified id
+ - /deleteBuild?id= - delete build with the specified id
+ - /deleteUpgrade?id= - delete upgrade with the specified id
+ - /deleteAchievement?id= - delete achievement with the specified id
