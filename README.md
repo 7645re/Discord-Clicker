@@ -15,6 +15,7 @@
  - LINQ
  - ASP.NET CORE MVC
  - JS, CSS, HTML
+ - Automapper
 # API
  # User
  - /stats - returns information about the user and his inventory.
